@@ -571,7 +571,7 @@ const EXTRA = {
   "Stanford University":{tuitionUSD:56169,living:21000,scholarships:["Stanford Need-Based Grant","Knight-Hennessy Scholars"],boardReq:{cbse:"95%+",ib:"42+",ap:"5 in relevant subjects"},minGPA:3.9,extraReqs:["Startups/entrepreneurship","Research experience","Leadership roles"],profiles:[{name:"Aditya K.",board:"CBSE",score:"98.2%",sat:1550,ec:"Founded NGO, Research at IISc"},{name:"Sneha R.",board:"IB",score:"43/45",sat:1530,ec:"Model UN, Coding competitions"}],avgSalary:115000,topRecruiters:["Google","Meta","Apple","LinkedIn","Stripe"],placementRate:97},
   "Harvard University":{tuitionUSD:54768,living:21000,scholarships:["Harvard Financial Aid Initiative","Harvard Prize Book"],boardReq:{cbse:"95%+",ib:"42+",ap:"5 in 4+ subjects"},minGPA:3.9,extraReqs:["Community leadership","Published work","Extraordinary talent"],profiles:[{name:"Ishaan P.",board:"CBSE",score:"99.2%",sat:1570,ec:"National debate champion, Social enterprise"},{name:"Meera V.",board:"IB",score:"44/45",sat:1560,ec:"Published author, State-level tennis"}],avgSalary:110000,topRecruiters:["McKinsey","Goldman Sachs","Google","Harvard Medical","BCG"],placementRate:98},
   "University of Oxford":{tuitionUSD:35000,living:16000,scholarships:["Rhodes Scholarship","Clarendon Fund","Oxford-India Centre"],boardReq:{cbse:"95%+",ib:"38+",alevels:"A*AA"},minGPA:3.8,extraReqs:["Personal statement","Interview","Aptitude test (LNAT/MAT/etc.)"],profiles:[{name:"Kabir M.",board:"CBSE",score:"96.4%",sat:1510,ec:"Rhodes Scholar, National Math Olympiad"},{name:"Anjali S.",board:"IB",score:"41/45",sat:1480,ec:"Published research, District tennis champion"}],avgSalary:75000,topRecruiters:["Goldman Sachs","McKinsey","BBC","Civil Service","Deloitte"],placementRate:95},
-  "University of Cambridge":{tuitionUSD:35000,living:16000,scholarships:["Gates Cambridge Scholarship","Cambridge Trust","Nehru Trust"],boardReq:{cbse:"95%+",ib:"40+",alevels:"A*A*A"},minGPA:3.85,extraReqs:["Interview","Aptitude test","Exceptional academics"],profiles:[{name:"Rohan T.",board:"CBSE",score:"97.1%",sat:1520,ec:"International Physics Olympiad","State-level cricket"},{name:"Nisha K.",board:"IB",score:"42/45",sat:1490,ec:"Cambridge Pre-Interview Workshop, Research intern"}],avgSalary:78000,topRecruiters:["BP","Goldman Sachs","HSBC","Rolls-Royce","ARM"],placementRate:96},
+  "University of Cambridge":{tuitionUSD:35000,living:16000,scholarships:["Gates Cambridge Scholarship","Cambridge Trust","Nehru Trust"],boardReq:{cbse:"95%+",ib:"40+",alevels:"A*A*A"},minGPA:3.85,extraReqs:["Interview","Aptitude test","Exceptional academics"],profiles:[{name:"Rohan T.",board:"CBSE",score:"97.1%",sat:1520,ec:"International Physics Olympiad, State-level cricket"},{name:"Nisha K.",board:"IB",score:"42/45",sat:1490,ec:"Cambridge Pre-Interview Workshop, Research intern"}],avgSalary:78000,topRecruiters:["BP","Goldman Sachs","HSBC","Rolls-Royce","ARM"],placementRate:96},
   "University of Toronto":{tuitionUSD:45000,living:14000,scholarships:["Lester B. Pearson Scholarship (full ride)","University of Toronto Scholar","President's Scholars of Excellence"],boardReq:{cbse:"90%+",ib:"36+",ap:"4+ in relevant"},minGPA:3.7,extraReqs:["Community involvement","Leadership","Strong academics"],profiles:[{name:"Divya N.",board:"CBSE",score:"94.8%",sat:1420,ec:"Pearson Scholar, MUN president, Coding club"},{name:"Aryan S.",board:"IB",score:"38/45",sat:1400,ec:"Volunteer work, Science fair winner"}],avgSalary:65000,topRecruiters:["RBC","TD Bank","Deloitte","Google Canada","Amazon"],placementRate:91},
   "University of Melbourne":{tuitionUSD:38000,living:15000,scholarships:["Melbourne International Undergraduate Scholarship","Graduate Research Scholarship","Equity Scholarship"],boardReq:{cbse:"88%+",ib:"34+",ap:"3+ in relevant"},minGPA:3.6,extraReqs:["Personal statement","References","Co-curricular activities"],profiles:[{name:"Pooja L.",board:"CBSE",score:"91.6%",sat:1360,ec:"Melbourne Scholar, Sports captain, Community service"},{name:"Vikram M.",board:"IB",score:"36/45",sat:1340,ec:"Entrepreneurship club, Debate team"}],avgSalary:55000,topRecruiters:["Deloitte","PwC","ANZ","BHP","Commonwealth Bank"],placementRate:89},
   "National University of Singapore":{tuitionUSD:28000,living:10000,scholarships:["ASEAN Undergraduate Scholarship (full ride)","Science & Technology Scholarship","NUS Merit Scholarship"],boardReq:{cbse:"92%+",ib:"38+",ap:"4+ in relevant"},minGPA:3.75,extraReqs:["Aptitude test","Interview","Leadership track record"],profiles:[{name:"Deepak R.",board:"CBSE",score:"95.2%",sat:1430,ec:"ASEAN Scholar, Robotics olympiad, Sports"},{name:"Preethi K.",board:"IB",score:"39/45",sat:1410,ec:"Student council president, Published research"}],avgSalary:60000,topRecruiters:["DBS","Google","Grab","Goldman Sachs","Shopee"],placementRate:95},
@@ -739,7 +739,7 @@ function showBand(i) {
   html += '<div class="bd-unis-list">';
   unis.slice(0,20).forEach(function(u) {
     var esc = u.university.replace(/'/g, "\'");
-    html += '<span class="bd-chip" style="background:'+b.bg+';color:'+b.color+';border-color:'+b.color+'40" onclick="openDP(''+esc+'')">';
+    html += '<span class="bd-chip" style="background:'+b.bg+';color:'+b.color+';border-color:'+b.color+'40" onclick="openDP(&apos;'+esc+'&apos;)">';
     html += (FLAGS[u.country]||"")+" "+u.university+"</span>";
   });
   if(unis.length>20) html += '<span class="bd-chip" style="background:#f3f4f6;color:#6b7280;border-color:#e5e7eb">+' + (unis.length-20) + ' more</span>';
@@ -791,7 +791,7 @@ function renderCard(u) {
   satBar += '<div class="sat-line" style="left:'+reqPct+'%"></div>';
   satBar += '</div>';
   var esc = u.university.replace(/'/g, "\'");
-  var html = '<div class="uc '+cc+'" onclick="openDP(''+esc+'')">';
+  var html = '<div class="uc '+cc+'" onclick="openDP(&apos;'+esc+'&apos;)">';
   html += '<div class="uc-top"><div class="uc-name">'+u.university+' '+topTag+'</div><div class="uc-flag">'+(FLAGS[u.country]||"")+'</div></div>';
   html += '<div class="uc-meta"><span class="tb '+TIER_CLS[u.tier]+'"><span class="td"></span>'+TIER_SHORT[u.tier]+'</span><span style="font-size:11px;color:var(--mu)">'+u.state+'</span></div>';
   html += '<div class="sat-viz">'+satBar+'<span class="sat-range-lbl">'+u.satMin+'-'+u.satMax+'</span></div>';
@@ -833,7 +833,7 @@ function render() {
   data.forEach(function(u) {
     var ex = getExtra(u.university);
     var esc = u.university.replace(/'/g,"\'");
-    rows += '<tr onclick="openDP(''+esc+'')">';
+    rows += '<tr onclick="openDP(&apos;'+esc+'&apos;)">';
     rows += '<td><div style="font-weight:600">'+u.university+'</div><div style="font-size:11px;color:var(--su)">'+u.state+'</div></td>';
     rows += '<td>'+(FLAGS[u.country]||"")+" "+u.country+'</td>';
     rows += '<td><span class="tb '+TIER_CLS[u.tier]+'"><span class="td"></span>'+TIER_SHORT[u.tier]+'</span></td>';
@@ -858,7 +858,7 @@ function render() {
     var tgapStyle = (!isNaN(tgtScore)&&tgtScore>=u.satMin) ? "color:#166534;font-weight:700" : "color:#4c1d95;font-weight:700";
     var esc = u.university.replace(/'/g,"\'");
     var top_sch = (ex.scholarships&&ex.scholarships.length) ? ex.scholarships[0] : "--";
-    crows += '<tr onclick="openDP(''+esc+'')">';
+    crows += '<tr onclick="openDP(&apos;'+esc+'&apos;)">';
     crows += '<td><div style="font-weight:600">'+(FLAGS[u.country]||"")+" "+u.university+'</div><div style="font-size:11px;color:var(--su)">'+TIER_SHORT[u.tier]+'</div></td>';
     crows += '<td style="font-weight:700">'+u.satMin+'</td>';
     crows += '<td style="font-weight:700;color:#ef4444">'+(isNaN(curScore)?"--":curScore)+'</td>';
@@ -888,13 +888,13 @@ function openDP(name) {
   html += '<div class="dp-hdr">';
   html += '<div><div class="dp-title">'+(FLAGS[u.country]||"")+" "+u.university+'</div>';
   html += '<div class="dp-sub"><span class="tb '+TIER_CLS[u.tier]+'" style="display:inline-flex"><span class="td"></span>'+TIER_SHORT[u.tier]+'</span><span>'+u.state+'</span><span>&middot;</span><span>Rank #'+u.rank+'</span>'+statusTag+'</div></div>';
-  html += '<button class="dp-close" onclick="document.getElementById('dpanel-wrap').remove()">&#10005; Close</button>';
+  html += '<button class="dp-close" onclick="document.getElementById(&apos;dpanel-wrap&apos;).remove()">&#10005; Close</button>';
   html += '</div>';
   html += '<div class="dp-tabs">';
-  html += '<button class="dp-tab active" onclick="swTab(this,'t-ov')">Overview</button>';
-  html += '<button class="dp-tab" onclick="swTab(this,'t-sat')">SAT Analysis</button>';
-  html += '<button class="dp-tab" onclick="swTab(this,'t-fees')">Fees &amp; Scholarships</button>';
-  html += '<button class="dp-tab" onclick="swTab(this,'t-roi')">ROI &amp; Placements</button>';
+  html += '<button class="dp-tab active" onclick="swTab(this,&apos;t-ov&apos;)">Overview</button>';
+  html += '<button class="dp-tab" onclick="swTab(this,&apos;t-sat&apos;)">SAT Analysis</button>';
+  html += '<button class="dp-tab" onclick="swTab(this,&apos;t-fees&apos;)">Fees &amp; Scholarships</button>';
+  html += '<button class="dp-tab" onclick="swTab(this,&apos;t-roi&apos;)">ROI &amp; Placements</button>';
   html += '</div>';
   // Overview tab
   html += '<div class="tc active" id="t-ov">';
@@ -925,7 +925,7 @@ function openDP(name) {
   html += '<div class="ib" style="background:#eff6ff"><div class="ib-l">Score gap to close</div><div class="ib-v" style="color:#1e40af">'+gapPts+' pts</div><div class="ib-s">'+(curQ?"Already qualify!":"With Leap Scholar training")+'</div></div>';
   html += '</div>';
   html += '<div style="background:#f0f9ff;border:1px solid #bfdbfe;border-radius:12px;padding:1rem;font-size:13px;color:#1e3a8a;line-height:1.7;margin-bottom:1rem">';
-  html += 'A higher SAT score at <strong>'+u.university+'</strong> doesn't just get you in - it determines scholarship eligibility. Students scoring '+(u.satMin+100)+'+ have significantly better chances of merit aid. Leap Scholar training can help you reach the '+u.satMin+'+ threshold.';
+  html += 'A higher SAT score at <strong>'+u.university+'</strong> does not just get you in - it determines scholarship eligibility. Students scoring '+(u.satMin+100)+'+ have significantly better chances of merit aid. Leap Scholar training can help you reach the '+u.satMin+'+ threshold.';
   html += '</div></div>';
   // Fees tab
   html += '<div class="tc" id="t-fees">';
