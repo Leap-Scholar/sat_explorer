@@ -3,22 +3,20 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Leap Scholar - SAT University Explorer</title>
+<title>Leap Scholar – SAT University Explorer</title>
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
 <style>
 :root{--ls:#4747F6;--bg:#f0f2f5;--card:#fff;--bdr:#e5e7eb;--tx:#111827;--mu:#6b7280;--su:#9ca3af;--gr:#166534;--gl:#dcfce7;--am:#92400e;--al:#fef3c7;--rd:#991b1b;--rl:#fee2e2;}
 *{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;}
 .hdr{background:#0f172a;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px;position:sticky;top:0;z-index:300;}
-.hdr svg{height:24px;width:auto;display:block;}
 .hdr-right{font-size:11px;color:#475569;text-transform:uppercase;letter-spacing:0.07em;}
 .hero{background:linear-gradient(150deg,#0f172a 0%,#1a2f55 50%,#1a3f80 100%);padding:3rem 2rem 2rem;text-align:center;}
 .hero-tag{display:inline-block;background:rgba(71,71,246,0.2);border:1px solid rgba(71,71,246,0.4);color:#a5b4fc;font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:1rem;}
 .hero h1{font-family:'DM Serif Display',serif;font-size:clamp(22px,4vw,44px);color:#fff;line-height:1.15;margin-bottom:0.75rem;}
 .hero h1 em{color:#60a5fa;font-style:normal;}
-.hero h1 .or{color:#fb923c;font-style:normal;}
-.hero-sub{font-size:14px;color:#94a3b8;max-width:500px;margin:0 auto 2rem;line-height:1.7;}
-.sat-box{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:16px;padding:1.5rem 2rem;max-width:680px;margin:0 auto 1.5rem;backdrop-filter:blur(8px);}
+.hero-sub{font-size:14px;color:#94a3b8;max-width:520px;margin:0 auto 2rem;line-height:1.7;}
+.sat-box{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:16px;padding:1.5rem 2rem;max-width:680px;margin:0 auto 1.5rem;}
 .sat-box-title{font-size:10px;font-weight:600;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1.25rem;text-align:left;}
 .sat-inputs{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
 .sai{display:flex;flex-direction:column;gap:8px;}
@@ -32,15 +30,13 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 .sai-hint{font-size:11px;text-align:center;font-weight:500;min-height:16px;}
 .hint-c{color:#fca5a5;}
 .hint-t{color:#a5b4fc;}
-.unlock-btn{width:100%;margin-top:1.25rem;padding:14px;background:linear-gradient(135deg,#4747F6,#6366f1);border:none;border-radius:12px;font-size:15px;font-weight:700;font-family:'DM Sans',sans-serif;color:#fff;cursor:pointer;transition:all 0.2s;letter-spacing:0.02em;}
+.unlock-btn{width:100%;margin-top:1.25rem;padding:14px;background:linear-gradient(135deg,#4747F6,#6366f1);border:none;border-radius:12px;font-size:15px;font-weight:700;font-family:'DM Sans',sans-serif;color:#fff;cursor:pointer;transition:all 0.2s;}
 .unlock-btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(71,71,246,0.4);}
 .hero-counts{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;padding-top:0.5rem;}
 .hc .num{font-size:22px;font-weight:700;color:#fff;}
 .hc .lbl{font-size:10px;color:#64748b;text-transform:uppercase;letter-spacing:0.06em;}
-.wrap{max-width:1100px;margin:0 auto;padding:1.5rem;}
+.wrap{max-width:1140px;margin:0 auto;padding:1.5rem;}
 .section-gap{margin-bottom:1.25rem;}
-
-/* JOURNEY */
 .journey-hdr{background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:1.5rem;margin-bottom:1rem;color:#fff;}
 .journey-scores{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:1rem;}
 .score-pill{display:flex;flex-direction:column;align-items:center;background:rgba(255,255,255,0.1);border-radius:12px;padding:0.875rem 1.5rem;}
@@ -54,19 +50,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 .ji-desc{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.6;}
 .journey-prog{background:rgba(255,255,255,0.1);border-radius:8px;height:8px;overflow:hidden;}
 .journey-bar{height:100%;background:linear-gradient(90deg,#f87171,#818cf8);border-radius:8px;transition:width 0.5s;}
-
-/* UPGRADE */
-.upgrade-box{background:linear-gradient(135deg,#1e1b4b,#312e81);border-radius:16px;padding:1.5rem;margin-bottom:1rem;color:#fff;}
-.ub-title{font-size:16px;font-weight:700;margin-bottom:0.5rem;}
-.ub-sub{font-size:13px;color:rgba(255,255,255,0.6);margin-bottom:1.25rem;line-height:1.6;}
-.ub-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:0.875rem;}
-.ub-card{background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);border-radius:12px;padding:1rem;}
-.ub-score{font-size:22px;font-weight:700;color:#818cf8;}
-.ub-lbl{font-size:11px;color:rgba(255,255,255,0.5);margin-top:2px;}
-.ub-gain{font-size:13px;font-weight:600;color:#86efac;margin-top:8px;}
-.ub-detail{font-size:11px;color:rgba(255,255,255,0.55);margin-top:3px;}
-
-/* BANDS */
+.score-range-section{background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:1.5rem;margin-bottom:1.25rem;color:#fff;}
+.srs-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:0.25rem;}
+.srs-sub{font-size:12px;color:rgba(255,255,255,0.55);margin-bottom:1.25rem;}
+.srt{width:100%;border-collapse:collapse;min-width:700px;}
 .bands-card{background:var(--card);border:1px solid var(--bdr);border-radius:16px;padding:1.5rem;}
 .bands-title{font-size:12px;font-weight:700;color:var(--tx);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:1rem;}
 .band-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:0.5rem;}
@@ -78,13 +65,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 .sb-tier{font-size:9px;font-weight:600;opacity:0.7;text-transform:uppercase;}
 .sb-you{font-size:9px;font-weight:700;margin-top:3px;}
 .sb-dot{position:absolute;top:4px;right:4px;width:8px;height:8px;border-radius:50%;}
-
-/* BAND DETAIL */
 .band-detail{background:var(--card);border:1px solid var(--bdr);border-radius:16px;padding:1.5rem;}
 .bd-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:1rem;}
 .bd-score{font-size:26px;font-weight:700;}
 .bd-tier{font-size:13px;font-weight:500;margin-top:4px;opacity:0.7;}
-.bd-status-badges{display:flex;gap:0.5rem;flex-wrap:wrap;align-items:center;}
 .bd-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0.75rem;margin-bottom:1.25rem;}
 .bd-info-card{border-radius:10px;padding:0.875rem;}
 .bd-ic-l{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:5px;opacity:0.6;}
@@ -92,8 +76,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 .bd-unis-title{font-size:12px;font-weight:600;color:var(--mu);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.625rem;}
 .bd-unis-list{display:flex;flex-wrap:wrap;gap:0.5rem;}
 .bd-chip{font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;border:1px solid;cursor:pointer;transition:all 0.15s;}
-
-/* FILTERS */
 .filters-bar{background:var(--card);border:1px solid var(--bdr);border-radius:14px;padding:1rem 1.25rem;}
 .filters-inner{display:flex;align-items:flex-end;gap:0.75rem;flex-wrap:wrap;}
 .fi{display:flex;flex-direction:column;gap:5px;flex:1;min-width:110px;}
@@ -102,15 +84,11 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 .fi select:focus{outline:none;border-color:var(--ls);}
 .fbtn{padding:9px 16px;border:1.5px solid var(--bdr);border-radius:9px;background:var(--bg);font-size:12px;font-family:'DM Sans',sans-serif;color:var(--mu);cursor:pointer;white-space:nowrap;transition:all 0.15s;align-self:flex-end;}
 .fbtn:hover{border-color:#374151;color:var(--tx);}
-
-/* RESULTS */
 .results-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.875rem;flex-wrap:wrap;gap:0.5rem;}
 .results-title{font-size:15px;font-weight:600;color:var(--tx);}
 .vt{display:flex;border:1px solid var(--bdr);border-radius:9px;overflow:hidden;}
 .vbtn{padding:6px 14px;font-size:12px;font-family:'DM Sans',sans-serif;border:none;cursor:pointer;background:var(--card);color:var(--mu);transition:all 0.15s;}
 .vbtn.active{background:#0f172a;color:#fff;font-weight:500;}
-
-/* CARDS */
 .cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1rem;}
 .uc{background:var(--card);border:1.5px solid var(--bdr);border-radius:13px;padding:1.2rem;cursor:pointer;transition:all 0.18s;}
 .uc:hover{box-shadow:0 4px 16px rgba(0,0,0,0.08);transform:translateY(-1px);}
@@ -120,7 +98,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 .uc.fc{border-color:#a5b4fc;background:#f5f3ff;}
 .uc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:0.5rem;margin-bottom:0.625rem;}
 .uc-name{font-size:13px;font-weight:600;color:var(--tx);line-height:1.35;flex:1;}
-.uc-flag{font-size:16px;flex-shrink:0;}
 .uc-meta{display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem;}
 .tb{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:20px;font-size:10px;font-weight:600;}
 .td{width:5px;height:5px;border-radius:50%;}
@@ -148,8 +125,6 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 .uc-sch{font-size:11px;color:var(--gr);font-weight:500;}
 .uc-btn{width:100%;margin-top:0.625rem;padding:7px;border:1px solid var(--bdr);border-radius:8px;background:transparent;font-size:11px;font-family:'DM Sans',sans-serif;color:var(--mu);cursor:pointer;transition:all 0.15s;}
 .uc-btn:hover{background:#eff6ff;color:var(--ls);border-color:#93c5fd;}
-
-/* TABLE */
 .tbl-wrap{background:var(--card);border:1px solid var(--bdr);border-radius:14px;overflow:hidden;}
 .tbl-bar{padding:0.875rem 1.25rem;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;}
 .tbl-l{font-size:13px;color:var(--mu);}
@@ -163,16 +138,8 @@ thead th:hover{color:var(--tx);}
 tbody tr{border-bottom:1px solid #f3f4f6;cursor:pointer;}
 tbody tr:hover{background:#f8f9ff;}
 tbody td{padding:10px 12px;vertical-align:middle;}
-.ac{display:inline-block;padding:2px 7px;border-radius:20px;font-size:11px;font-weight:500;}
-.a1{background:var(--rl);color:var(--rd);}
-.a2{background:#ffedd5;color:#9a3412;}
-.a3{background:var(--al);color:var(--am);}
-.a4{background:var(--gl);color:var(--gr);}
-
-/* COMPARE TABLE */
-.ctbl-wrap{background:var(--card);border:1px solid var(--bdr);border-radius:14px;overflow:hidden;}
-
-/* DETAIL PANEL */
+.gap-ok{color:#166534;font-weight:700;font-size:12px;}
+.gap-bad{color:#991b1b;font-weight:600;font-size:12px;}
 .modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:500;display:flex;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto;}
 .dpanel{background:var(--card);border:2px solid var(--ls);border-radius:16px;padding:1.5rem;width:100%;max-width:860px;position:relative;margin:auto;}
 .dp-hdr{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.25rem;}
@@ -190,9 +157,6 @@ tbody td{padding:10px 12px;vertical-align:middle;}
 .ib-s{font-size:11px;color:var(--mu);margin-top:3px;}
 .st{font-size:11px;font-weight:700;color:var(--tx);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.75rem;padding-bottom:0.5rem;border-bottom:1px solid var(--bdr);}
 .sch-list{display:flex;flex-direction:column;gap:0.625rem;margin-bottom:1.25rem;}
-.sch-item{background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:0.875rem;display:flex;gap:0.75rem;}
-.sch-name{font-size:13px;font-weight:600;color:var(--gr);}
-.sch-amt{font-size:12px;color:var(--gr);margin-top:2px;}
 .roi-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:0.875rem;margin-bottom:1.25rem;}
 .roi-c{background:var(--bg);border-radius:11px;padding:1rem;text-align:center;}
 .roi-v{font-size:20px;font-weight:700;color:var(--tx);}
@@ -201,19 +165,12 @@ tbody td{padding:10px 12px;vertical-align:middle;}
 .chip{background:#f1f5f9;border-radius:8px;padding:5px 11px;font-size:12px;font-weight:500;color:#334155;}
 .nores{text-align:center;padding:2.5rem;color:var(--mu);}
 .footer{text-align:center;padding:1.5rem;font-size:11px;color:var(--su);margin-top:0.5rem;}
-@media(max-width:768px){
-  .hero{padding:2rem 1rem 1.5rem;}
-  .sat-inputs{grid-template-columns:1fr;}
-  .wrap{padding:1rem;}
-  .band-grid{grid-template-columns:repeat(3,1fr);}
-  .cgrid{grid-template-columns:1fr;}
-}
+@media(max-width:768px){.hero{padding:2rem 1rem 1.5rem;}.sat-inputs{grid-template-columns:1fr;}.wrap{padding:1rem;}.band-grid{grid-template-columns:repeat(3,1fr);}.cgrid{grid-template-columns:1fr;}}
 </style>
 </head>
 <body>
-
 <header class="hdr">
-  <div style="display:flex;align-items:center;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 481 96" height="32" style="display:block;flex-shrink:0">
+<div style="display:flex;align-items:center;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 481 96" height="32" style="display:block;flex-shrink:0">
 <g>
   <g>
     <path fill="#4747F6" d="M99,72.22V23.25h8.37v41.29h13.49v7.68H99z"/>
@@ -233,40 +190,34 @@ tbody td{padding:10px 12px;vertical-align:middle;}
 </svg></div>
   <div class="hdr-right">SAT University Explorer</div>
 </header>
-
 <section class="hero">
-  <div class="hero-tag">&#127891; Powered by Leap Scholar SAT Training</div>
-  <h1>Your SAT score decides<br>your <em>university</em> &amp; <span class="or">scholarship</span></h1>
-  <p class="hero-sub">Enter your current and target scores to see exactly which universities and scholarships you unlock with Leap Scholar training.</p>
-
+  <div class="hero-tag">&#127891; Leap Scholar SAT Explorer</div>
+  <h1>See where your <em>SAT score</em> can take you</h1>
+  <p class="hero-sub">Get a clear view of the universities and scholarships aligned with your current and target scores.</p>
   <div class="sat-box">
     <div class="sat-box-title">&#x25A0; Enter your SAT scores to unlock your personalised university map</div>
     <div class="sat-inputs">
       <div class="sai">
-        <div class="sai-label">Current SAT score (or practice score)</div>
+        <div class="sai-label">Current score (or mock taken)</div>
         <input type="number" id="current-score" class="sai-input" min="400" max="1600" placeholder="e.g. 1100">
         <div class="sai-hint hint-c" id="hint-c">Enter your current score</div>
       </div>
       <div class="sai">
-        <div class="sai-label">Target SAT score (after Leap Scholar training)</div>
+        <div class="sai-label">Target SAT score</div>
         <input type="number" id="target-score" class="sai-input" min="400" max="1600" placeholder="e.g. 1450">
         <div class="sai-hint hint-t" id="hint-t">Enter your target score</div>
       </div>
     </div>
-    <button class="unlock-btn" id="unlock-btn">&#128275; Unlock My University Map</button>
+    <button class="unlock-btn" id="unlock-btn">&#128275; Show My University Map</button>
   </div>
-
   <div class="hero-counts">
     <div class="hc"><div class="num" id="total-count">192</div><div class="lbl">Universities</div></div>
     <div class="hc"><div class="num">8</div><div class="lbl">Countries</div></div>
     <div class="hc"><div class="num">5</div><div class="lbl">Tiers</div></div>
-    <div class="hc"><div class="num">$500M+</div><div class="lbl">Scholarships tracked</div></div>
+    <div class="hc"><div class="num">$500M+</div><div class="lbl">In scholarships</div></div>
   </div>
 </section>
-
 <div class="wrap">
-
-  <!-- JOURNEY (hidden until scores entered) -->
   <div id="journey-section" style="display:none" class="section-gap">
     <div class="journey-hdr">
       <div class="journey-scores">
@@ -275,82 +226,50 @@ tbody td{padding:10px 12px;vertical-align:middle;}
         <div class="score-pill tgt"><div class="sp-n" id="sp-tgt">--</div><div class="sp-l">Target score</div></div>
         <div class="journey-insight">
           <div class="ji-title" id="ji-title">Your SAT journey</div>
-          <div class="ji-desc" id="ji-desc">Improving your SAT opens new universities and scholarships.</div>
+          <div class="ji-desc" id="ji-desc">Enter your scores above to see your university map.</div>
         </div>
       </div>
       <div class="journey-prog"><div class="journey-bar" id="journey-bar" style="width:0%"></div></div>
     </div>
-    <div class="upgrade-box" id="upgrade-box" style="display:none">
-      <div class="ub-title">&#128202; Your SAT score — what changes with training</div>
-      <div class="ub-sub" id="ub-sub">Side-by-side comparison of what you get now vs after Leap Scholar training</div>
-      <div id="compare-table-wrap"></div>
+    <div class="score-range-section">
+      <div class="srs-title">&#128202; Your SAT Score vs Target Score</div>
+      <div class="srs-sub">See what each score range unlocks — your scores are highlighted</div>
+      <div style="overflow-x:auto"><table class="srt" id="srt-table"></table></div>
     </div>
   </div>
-
-  <!-- BANDS -->
   <div class="bands-card section-gap">
-    <div class="bands-title">&#127919; Universities by SAT score band - click to explore</div>
+    <div class="bands-title">&#127919; Universities by SAT score band — click to explore</div>
     <div class="band-grid" id="band-grid"></div>
   </div>
-
-  <!-- BAND DETAIL -->
   <div id="band-detail" class="band-detail section-gap" style="display:none"></div>
-
-  <!-- FILTERS -->
   <div class="filters-bar section-gap">
     <div class="filters-inner">
       <div class="fi"><label>Country</label><select id="f-country"><option value="">All countries</option></select></div>
       <div class="fi"><label>Tier</label><select id="f-tier"><option value="">All tiers</option></select></div>
       <div class="fi"><label>Field</label><select id="f-major"><option value="">All fields</option></select></div>
-      <div class="fi"><label>Acceptance</label>
-        <select id="f-acc">
-          <option value="">Any</option>
-          <option value="very-low">Very selective (&lt;5%)</option>
-          <option value="low">Selective (5-20%)</option>
-          <option value="mid">Moderate (20-50%)</option>
-          <option value="high">Accessible (&gt;50%)</option>
-        </select>
-      </div>
       <div class="fi"><label>SAT score range</label>
         <select id="f-satrange">
-          <option value="">Any score range</option>
-          <option value="900-1099">900-1099 (Tier 4-5)</option>
-          <option value="1100-1199">1100-1199 (Tier 3-4)</option>
-          <option value="1200-1299">1200-1299 (Tier 2-3)</option>
-          <option value="1300-1399">1300-1399 (Tier 1-2)</option>
-          <option value="1400-1499">1400-1499 (Tier 1)</option>
-          <option value="1500-1600">1500-1600 (Tier 1 Elite)</option>
-        </select>
-      </div>
-      <div class="fi"><label>Show</label>
-        <select id="f-show">
-          <option value="all">All universities</option>
-          <option value="current">My score qualifies</option>
-          <option value="target">Target score qualifies</option>
-          <option value="gain">Newly unlocked</option>
+          <option value="">Any range</option>
+          <option value="0">900-1099 (Tier 4-5)</option>
+          <option value="1">1100-1199 (Tier 3-4)</option>
+          <option value="2">1200-1299 (Tier 2-3)</option>
+          <option value="3">1300-1399 (Tier 1-2)</option>
+          <option value="4">1400-1499 (Tier 1)</option>
+          <option value="5">1500-1600 (Tier 1 Elite)</option>
         </select>
       </div>
       <button class="fbtn" id="reset-btn">&#x21BA; Reset</button>
     </div>
   </div>
-
-  <!-- RESULTS SECTION -->
   <div id="results-section">
     <div class="results-header">
       <div class="results-title" id="results-title">All 192 universities</div>
-      <div style="display:flex;gap:0.5rem;align-items:center;">
-        <div class="vt">
-          <button class="vbtn active" id="btn-cards" onclick="setView('cards')">Cards</button>
-          <button class="vbtn" id="btn-table" onclick="setView('table')">Table</button>
-          <button class="vbtn" id="btn-compare" onclick="setView('compare')">Compare</button>
-        </div>
+      <div class="vt">
+        <button class="vbtn active" id="btn-cards" onclick="setView('cards')">Cards</button>
+        <button class="vbtn" id="btn-table" onclick="setView('table')">Table</button>
       </div>
     </div>
-
-    <!-- CARDS -->
     <div id="view-cards"><div class="cgrid" id="cgrid"></div></div>
-
-    <!-- TABLE -->
     <div id="view-table" style="display:none">
       <div class="tbl-wrap">
         <div class="tbl-bar"><div class="tbl-l">Showing <strong id="tbl-count">0</strong> universities</div></div>
@@ -358,14 +277,14 @@ tbody td{padding:10px 12px;vertical-align:middle;}
           <table>
             <thead><tr>
               <th onclick="sortBy('university')">University <span class="si" id="arr-university">&#x2195;</span></th>
-              <th onclick="sortBy('country')">Country <span class="si" id="arr-country">&#x2195;</span></th>
               <th onclick="sortBy('tier')">Tier <span class="si" id="arr-tier">&#x2195;</span></th>
               <th onclick="sortBy('satMin')">SAT Min <span class="si" id="arr-satMin">&#x2195;</span></th>
-              <th>Current</th>
-              <th>Target</th>
               <th onclick="sortBy('tuitionUSD')">Tuition/yr <span class="si" id="arr-tuitionUSD">&#x2195;</span></th>
-              <th onclick="sortBy('acceptance')">Accept% <span class="si" id="arr-acceptance">&#x2195;</span></th>
               <th onclick="sortBy('rank')">Rank <span class="si" id="arr-rank">&#x2195;</span></th>
+              <th>Gap to qualify</th>
+              <th>Scholarship range</th>
+              <th onclick="sortBy('avgSalary')">Avg salary <span class="si" id="arr-avgSalary">&#x2195;</span></th>
+              <th>Top recruiters</th>
             </tr></thead>
             <tbody id="tbody"></tbody>
           </table>
@@ -373,36 +292,10 @@ tbody td{padding:10px 12px;vertical-align:middle;}
         </div>
       </div>
     </div>
-
-    <!-- COMPARE -->
-    <div id="view-compare" style="display:none">
-      <div class="ctbl-wrap">
-        <div class="twrap">
-          <table>
-            <thead><tr>
-              <th onclick="sortBy('university')">University <span class="si" id="arr2-university">&#x2195;</span></th>
-              <th onclick="sortBy('satMin')">SAT Required <span class="si" id="arr2-satMin">&#x2195;</span></th>
-              <th>Your Score</th>
-              <th>Score with Training</th>
-              <th>Gap to qualify (now)</th>
-              <th>Gap to qualify (trained)</th>
-              <th onclick="sortBy('tuitionUSD')">Tuition/yr <span class="si" id="arr2-tuitionUSD">&#x2195;</span></th>
-              <th>Scholarship range</th>
-              <th onclick="sortBy('avgSalary')">Avg Salary <span class="si" id="arr2-avgSalary">&#x2195;</span></th>
-              <th>Top recruiters</th>
-            </tr></thead>
-            <tbody id="ctbody"></tbody>
-          </table>
-        </div>
-      </div>
-    </div>
   </div>
-
 </div>
 <div class="footer">Leap Scholar SAT Explorer &middot; 192+ universities across 8 countries &middot; For counsellor use only</div>
-
-<script>
-const UNIS=[
+<script>const UNIS=[
   {university:"Massachusetts Institute of Technology",country:"USA",state:"Massachusetts",tier:1,satMin:1510,satMax:1580,acceptance:4,rank:1,fields:["Engineering","CS","Physics"]},
   {university:"Stanford University",country:"USA",state:"California",tier:1,satMin:1500,satMax:1570,acceptance:4,rank:2,fields:["CS","Business","Medicine"]},
   {university:"Harvard University",country:"USA",state:"Massachusetts",tier:1,satMin:1490,satMax:1580,acceptance:4,rank:3,fields:["Law","Medicine","Economics"]},
@@ -612,6 +505,7 @@ const EXTRA = {
 
 const CM={"USA": {"emoji": "🇺🇸", "desc": "Largest pool of SAT-accepting universities across all tiers", "color": "#1e40af", "bg": "#dbeafe"}, "UK": {"emoji": "🇬🇧", "desc": "World-class education, 3-year degrees, strong for law & medicine", "color": "#166534", "bg": "#dcfce7"}, "Canada": {"emoji": "🇨🇦", "desc": "Post-study work permit, affordable tuition, welcoming to Indians", "color": "#92400e", "bg": "#fef3c7"}, "Australia": {"emoji": "🇦🇺", "desc": "4-year work rights post-graduation, high quality of life", "color": "#4c1d95", "bg": "#ede9fe"}, "India": {"emoji": "🇮🇳", "desc": "IITs, IISc & top private universities — best value for money", "color": "#991b1b", "bg": "#fee2e2"}, "Europe": {"emoji": "🇪🇺", "desc": "Low/no tuition in Germany & Netherlands, globally ranked", "color": "#065f46", "bg": "#d1fae5"}, "Asia": {"emoji": "🌏", "desc": "Singapore & Hong Kong — elite unis with generous scholarships", "color": "#1e3a8a", "bg": "#e0e7ff"}, "Middle East": {"emoji": "🌍", "desc": "Tax-free scholarships, NYU Abu Dhabi full ride, Qatar Education City", "color": "#7c2d12", "bg": "#ffedd5"}};
 const TM={"1": {"label": "Tier 1 – Elite", "range": "SAT 1400–1600", "color": "#1e40af", "bg": "#dbeafe", "desc": "Top 50 globally. Ivy League, Oxbridge, IITs. Under 15% acceptance."}, "2": {"label": "Tier 2 – Strong", "range": "SAT 1200–1450", "color": "#166534", "bg": "#dcfce7", "desc": "Top 50–150. Strong research, excellent careers. Competitive but achievable."}, "3": {"label": "Tier 3 – Good", "range": "SAT 1050–1300", "color": "#92400e", "bg": "#fef3c7", "desc": "Ranked 150–500. Solid degrees, good industry connections."}, "4": {"label": "Tier 4 – Accessible", "range": "SAT 950–1200", "color": "#4c1d95", "bg": "#ede9fe", "desc": "Ranked 500–900. High acceptance, good ROI for many students."}, "5": {"label": "Tier 5 – Open", "range": "SAT 900–1050", "color": "#374151", "bg": "#f3f4f6", "desc": "Open-access & community colleges. Widest acceptance."}};
+
 const SAT_BANDS = [
   {min:900,  max:1099, label:"900-1099", color:"#dc2626", bg:"#fef2f2", tier:"Tier 4-5",
    desc:"Open-access & accessible universities. Good starting point.",
@@ -662,7 +556,6 @@ const SAT_BANDS = [
    avgSalary:"$110K-150K+",
    unis_example:["MIT","Harvard","Stanford","Oxford","Cambridge"]}
 ];
-
 function getExtra(n) {
   if (EXTRA[n]) return EXTRA[n];
   var u = UNIS.find(function(x){ return x.university===n; }) || {};
@@ -670,464 +563,388 @@ function getExtra(n) {
   var ct = {USA:45000,UK:28000,Canada:35000,Australia:32000,Europe:12000,Asia:20000,"Middle East":18000,India:5000}[u.country] || 25000;
   var cl = {USA:18000,UK:14000,Canada:13000,Australia:14000,Europe:10000,Asia:9000,"Middle East":12000,India:4000}[u.country] || 12000;
   return {
-    tuitionUSD: Math.round(ct*tm),
-    living: Math.round(cl),
+    tuitionUSD: Math.round(ct*tm), living: Math.round(cl),
     scholarships: ["Merit Scholarship (varies)","Need-Based Aid","International Student Award"],
-    avgSalary: Math.round(({USA:80000,UK:45000,Canada:55000,Australia:50000,Europe:45000,Asia:40000,"Middle East":45000,India:20000}[u.country] || 45000) * tm),
+    avgSalary: Math.round(({USA:80000,UK:45000,Canada:55000,Australia:50000,Europe:45000,Asia:40000,"Middle East":45000,India:20000}[u.country]||45000)*tm),
     topRecruiters: ["Top MNCs","Consulting","Tech","Finance"],
-    placementRate: {1:95,2:88,3:80,4:72,5:65}[u.tier] || 80
+    placementRate: {1:95,2:88,3:80,4:72,5:65}[u.tier]||80
   };
 }
 
-var FLAGS = {USA:"🇺🇸",UK:"🇬🇧",Canada:"🇨🇦",Australia:"🇦🇺",Europe:"🇪🇺",Asia:"🌏","Middle East":"🌍",India:"🇮🇳"};
-var TIER_LABELS = {1:"Tier 1 - Elite",2:"Tier 2 - Strong",3:"Tier 3 - Good",4:"Tier 4 - Accessible",5:"Tier 5 - Open"};
-var TIER_SHORT = {1:"Tier 1",2:"Tier 2",3:"Tier 3",4:"Tier 4",5:"Tier 5"};
-var TIER_CLS = {1:"t1",2:"t2",3:"t3",4:"t4",5:"t5"};
+var FLAGS={USA:"🇺🇸",UK:"🇬🇧",Canada:"🇨🇦",Australia:"🇦🇺",Europe:"🇪🇺",Asia:"🌏","Middle East":"🌍",India:"🇮🇳"};
+var TIER_LABELS={1:"Tier 1 – Elite",2:"Tier 2 – Strong",3:"Tier 3 – Good",4:"Tier 4 – Accessible",5:"Tier 5 – Open"};
+var TIER_SHORT={1:"Tier 1",2:"Tier 2",3:"Tier 3",4:"Tier 4",5:"Tier 5"};
+var TIER_CLS={1:"t1",2:"t2",3:"t3",4:"t4",5:"t5"};
+var curScore=NaN, tgtScore=NaN, scoresUnlocked=false;
+var sortCol="tier", sortDir=1, curView="cards";
 
-var curScore = NaN, tgtScore = NaN, scoresUnlocked = false;
-var sortCol = "tier", sortDir = 1, curView = "cards";
+function fm(n){if(n===0)return"Free";if(!n||n<0)return"--";return"$"+n.toLocaleString();}
+function pct(s){return Math.min(100,Math.round(((s-900)/700)*100));}
 
-function fm(n) { if(n===0) return "Free"; if(!n||n<0) return "--"; return "$"+n.toLocaleString(); }
-function accCls(a) { if(a<5) return "a1"; if(a<=20) return "a2"; if(a<=50) return "a3"; return "a4"; }
-function pct(score) { return Math.min(100, Math.round(((score-900)/700)*100)); }
-
-function mTagCur(u) {
-  if(isNaN(curScore)||curScore<400) return "";
-  if(curScore>=u.satMin+50) return '<span class="mt mt-m">Eligible</span>';
-  if(curScore>=u.satMin) return '<span class="mt mt-s">Borderline</span>';
-  return '<span class="mt mt-r">Score too low</span>';
+function mTagCur(u){
+  if(isNaN(curScore)||curScore<400)return"";
+  if(curScore>=u.satMin+50)return'<span class="mt mt-m">Eligible</span>';
+  if(curScore>=u.satMin)return'<span class="mt mt-s">Borderline</span>';
+  return'<span class="mt mt-r">Need higher score</span>';
 }
-function mTagTgt(u) {
-  if(isNaN(tgtScore)||tgtScore<400) return "";
-  if(tgtScore>=u.satMin+50) return '<span class="mt mt-m">Eligible</span>';
-  if(tgtScore>=u.satMin) return '<span class="mt mt-s">Borderline</span>';
-  if(tgtScore>=u.satMin-50) return '<span class="mt mt-f">Almost there</span>';
-  return '<span class="mt mt-r">Score too low</span>';
+function getCardClass(u){
+  if(isNaN(curScore)||curScore<400)return"";
+  if(curScore>=u.satMin+50)return"mc";
+  if(curScore>=u.satMin)return"sc2";
+  if(!isNaN(tgtScore)&&tgtScore>=u.satMin)return"fc";
+  return"rc";
 }
-
-function getCardClass(u) {
-  if(isNaN(curScore)||curScore<400) return "";
-  if(curScore>=u.satMin+50) return "mc";
-  if(curScore>=u.satMin) return "sc2";
-  if(!isNaN(tgtScore) && tgtScore>=u.satMin) return "fc";
-  return "rc";
+function getSchRange(u){
+  var b=SAT_BANDS.find(function(x){return u.satMin>=x.min&&u.satMin<=x.max;});
+  return b?b.scholarshipAmt:"--";
 }
 
-function onScoreInput() {
-  var cs = parseInt(document.getElementById("current-score").value);
-  var ts = parseInt(document.getElementById("target-score").value);
-  var hc = document.getElementById("hint-c");
-  var ht = document.getElementById("hint-t");
-  if(!isNaN(cs) && cs>=400) {
-    var b = SAT_BANDS.find(function(x){ return cs>=x.min&&cs<=x.max; });
-    hc.textContent = b ? "Band: "+b.tier+" | "+b.unis_example.slice(0,2).join(", ")+" range" : "Enter 400-1600";
-  } else { hc.textContent = "Enter your current score"; }
-  if(!isNaN(ts) && ts>=400) {
-    var b2 = SAT_BANDS.find(function(x){ return ts>=x.min&&ts<=x.max; });
-    ht.textContent = b2 ? "Target: "+b2.tier+" | "+b2.unis_example.slice(0,2).join(", ")+" range" : "Enter 400-1600";
-  } else { ht.textContent = "Enter your target score"; }
+function onScoreInput(){
+  var cs=parseInt(document.getElementById("current-score").value);
+  var ts=parseInt(document.getElementById("target-score").value);
+  var hc=document.getElementById("hint-c");
+  var ht=document.getElementById("hint-t");
+  if(!isNaN(cs)&&cs>=400){
+    var b=SAT_BANDS.find(function(x){return cs>=x.min&&cs<=x.max;});
+    hc.textContent=b?"Band: "+b.tier+" | "+b.unis_example.slice(0,2).join(", ")+" range":"Enter 400-1600";
+  }else hc.textContent="Enter your current score";
+  if(!isNaN(ts)&&ts>=400){
+    var b2=SAT_BANDS.find(function(x){return ts>=x.min&&ts<=x.max;});
+    ht.textContent=b2?"Target: "+b2.tier+" | "+b2.unis_example.slice(0,2).join(", ")+" range":"Enter 400-1600";
+  }else ht.textContent="Enter your target score";
 }
 
-function unlockResults() {
-  var cs = parseInt(document.getElementById("current-score").value);
-  var ts = parseInt(document.getElementById("target-score").value);
-  if(isNaN(cs)||cs<400||cs>1600) { alert("Please enter a valid current SAT score (400-1600)"); return; }
-  if(isNaN(ts)||ts<400||ts>1600) { alert("Please enter a valid target SAT score (400-1600)"); return; }
-  if(ts<=cs) { alert("Your target score should be higher than your current score!"); return; }
-  curScore=cs; tgtScore=ts; scoresUnlocked=true;
-  updateJourney();
-  buildBands();
-  render();
-  document.getElementById("journey-section").style.display = "block";
+function unlockResults(){
+  var cs=parseInt(document.getElementById("current-score").value);
+  var ts=parseInt(document.getElementById("target-score").value);
+  if(isNaN(cs)||cs<400||cs>1600){alert("Please enter a valid current SAT score (400-1600)");return;}
+  if(isNaN(ts)||ts<400||ts>1600){alert("Please enter a valid target SAT score (400-1600)");return;}
+  if(ts<=cs){alert("Target score should be higher than current score!");return;}
+  curScore=cs;tgtScore=ts;scoresUnlocked=true;
+  updateJourney();buildBands();render();
+  document.getElementById("journey-section").style.display="block";
   document.querySelector(".wrap").scrollIntoView({behavior:"smooth",block:"start"});
 }
 
-function updateJourney() {
-  document.getElementById("sp-cur").textContent = curScore;
-  document.getElementById("sp-tgt").textContent = tgtScore;
-  var gain = tgtScore - curScore;
-  var barPct = Math.min(100, Math.round(((tgtScore-900)/700)*100));
-  document.getElementById("journey-bar").style.width = barPct+"%";
-  var curUnis = UNIS.filter(function(u){ return curScore>=u.satMin; }).length;
-  var tgtUnis = UNIS.filter(function(u){ return tgtScore>=u.satMin; }).length;
-  var newUnis = tgtUnis - curUnis;
-  document.getElementById("ji-title").textContent = "+"+gain+" points = "+newUnis+" more universities unlocked";
-  document.getElementById("ji-desc").textContent = "At "+curScore+" you qualify for "+curUnis+" universities. With training to "+tgtScore+", you qualify for "+tgtUnis+" universities - "+newUnis+" more doors open, including better scholarships and higher-ranked institutions.";
-
-  document.getElementById("upgrade-box").style.display = "block";
-  document.getElementById("ub-sub").textContent = "Showing your student's exact situation — "+curScore+" today vs "+tgtScore+" after training";
-
-  // Find current and target bands
-  var curBand = SAT_BANDS.find(function(b){ return curScore>=b.min&&curScore<=b.max; }) || SAT_BANDS[0];
-  var tgtBand = SAT_BANDS.find(function(b){ return tgtScore>=b.min&&tgtScore<=b.max; }) || SAT_BANDS[SAT_BANDS.length-1];
-  var curUnis2 = UNIS.filter(function(u){ return curScore>=u.satMin; }).length;
-  var tgtUnis2 = UNIS.filter(function(u){ return tgtScore>=u.satMin; }).length;
-
-  var rows = [
-    {metric:"SAT Score",            cur:curScore,            tgt:tgtScore,            highlight:true},
-    {metric:"Universities you qualify for", cur:curUnis2+" universities",  tgt:tgtUnis2+" universities",   gain:"+"+(tgtUnis2-curUnis2)+" more"},
-    {metric:"University tier access",cur:curBand.tier,        tgt:tgtBand.tier,        gain:"Upgrade"},
-    {metric:"Scholarship per year",  cur:curBand.scholarshipAmt, tgt:tgtBand.scholarshipAmt, gain:"Big jump"},
-    {metric:"Average starting salary",cur:curBand.avgSalary,  tgt:tgtBand.avgSalary,   gain:"Higher earning"},
-    {metric:"Return on investment",  cur:curBand.avgROI,      tgt:tgtBand.avgROI,      gain:"Better ROI"},
-    {metric:"Target countries",      cur:curBand.countries.slice(0,2).join(", "), tgt:tgtBand.countries.slice(0,3).join(", "), gain:"More options"},
+function updateJourney(){
+  document.getElementById("sp-cur").textContent=curScore;
+  document.getElementById("sp-tgt").textContent=tgtScore;
+  var gain=tgtScore-curScore;
+  var barPct=Math.min(100,Math.round(((tgtScore-900)/700)*100));
+  document.getElementById("journey-bar").style.width=barPct+"%";
+  var curUnis=UNIS.filter(function(u){return curScore>=u.satMin;}).length;
+  var tgtUnis=UNIS.filter(function(u){return tgtScore>=u.satMin;}).length;
+  var newUnis=tgtUnis-curUnis;
+  document.getElementById("ji-title").textContent="+"+gain+" points = "+newUnis+" more universities";
+  document.getElementById("ji-desc").textContent="At "+curScore+" you qualify for "+curUnis+" universities. At "+tgtScore+" you qualify for "+tgtUnis+" — "+newUnis+" more options open up.";
+  var curBandIdx=SAT_BANDS.findIndex(function(b){return curScore>=b.min&&curScore<=b.max;});
+  var tgtBandIdx=SAT_BANDS.findIndex(function(b){return tgtScore>=b.min&&tgtScore<=b.max;});
+  var metrics=[
+    {key:"unis",label:"Universities you qualify for"},
+    {key:"scholarshipAmt",label:"Scholarship / year"},
+    {key:"avgSalary",label:"Average starting salary"},
+    {key:"avgROI",label:"Return on investment"},
+    {key:"countries",label:"Target countries"},
   ];
-
-  var tbl = '<table style="width:100%;border-collapse:collapse;font-size:14px;">';
-  tbl += '<thead>';
-  tbl += '<tr>';
-  tbl += '<th style="padding:12px 16px;text-align:left;font-size:11px;font-weight:700;text-transform:uppercase;letter-spacing:0.06em;color:rgba(255,255,255,0.45);border-bottom:1px solid rgba(255,255,255,0.12);width:38%">Metric</th>';
-  tbl += '<th style="padding:12px 16px;text-align:center;font-size:13px;font-weight:700;color:#f87171;border-bottom:1px solid rgba(255,255,255,0.12);background:rgba(239,68,68,0.1);width:31%">&#128308; Current Score &mdash; '+curScore+'</th>';
-  tbl += '<th style="padding:12px 16px;text-align:center;font-size:13px;font-weight:700;color:#818cf8;border-bottom:1px solid rgba(255,255,255,0.12);background:rgba(99,102,241,0.1);width:31%">&#127775; With Leap Scholar &mdash; '+tgtScore+'</th>';
-  tbl += '</tr>';
-  tbl += '</thead><tbody>';
-
-  rows.forEach(function(row, i) {
-    var bg = i%2===0 ? "rgba(255,255,255,0.03)" : "transparent";
-    var isScore = row.highlight;
-    tbl += '<tr style="background:'+bg+'">';
-    tbl += '<td style="padding:13px 16px;color:rgba(255,255,255,0.75);font-weight:500;border-bottom:1px solid rgba(255,255,255,0.06)">'+row.metric+'</td>';
-    tbl += '<td style="padding:13px 16px;text-align:center;color:'+(isScore?'#f87171':'rgba(255,255,255,0.6)')+';font-weight:'+(isScore?'700':'500')+';border-bottom:1px solid rgba(255,255,255,0.06);background:rgba(239,68,68,0.05)">'+row.cur+'</td>';
-    tbl += '<td style="padding:13px 16px;text-align:center;color:'+(isScore?'#818cf8':'#86efac')+';font-weight:700;border-bottom:1px solid rgba(255,255,255,0.06);background:rgba(99,102,241,0.05)">'+row.tgt+'</td>';
-
-    tbl += '</tr>';
+  var tbl="<thead><tr>";
+  tbl+="<th style='text-align:left;color:rgba(255,255,255,0.45);font-size:10px;padding:10px 12px;border-bottom:1px solid rgba(255,255,255,0.1);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;white-space:nowrap'>Metric</th>";
+  SAT_BANDS.forEach(function(b,i){
+    var isCur=(i===curBandIdx);
+    var isTgt=(i===tgtBandIdx);
+    var bg=isCur?"rgba(239,68,68,0.2)":isTgt?"rgba(99,102,241,0.2)":"transparent";
+    var color=isCur?"#f87171":isTgt?"#818cf8":"rgba(255,255,255,0.4)";
+    var label=b.label+(isCur?" &#128308;":isTgt?" &#127775;":"");
+    tbl+="<th style='text-align:center;color:"+color+";font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;padding:10px 8px;border-bottom:1px solid rgba(255,255,255,0.1);background:"+bg+";white-space:nowrap'>"+label+"</th>";
   });
-
-  tbl += '</tbody></table>';
-
-
-  document.getElementById("compare-table-wrap").innerHTML = tbl;
+  tbl+="</tr></thead><tbody>";
+  metrics.forEach(function(m,mi){
+    var rowBg=mi%2===0?"rgba(255,255,255,0.02)":"transparent";
+    tbl+="<tr style='background:"+rowBg+"'>";
+    tbl+="<td style='padding:11px 12px;border-bottom:1px solid rgba(255,255,255,0.06);color:rgba(255,255,255,0.75);font-weight:500;font-size:12px;white-space:nowrap'>"+m.label+"</td>";
+    SAT_BANDS.forEach(function(b,i){
+      var isCur=(i===curBandIdx);
+      var isTgt=(i===tgtBandIdx);
+      var bg=isCur?"rgba(239,68,68,0.07)":isTgt?"rgba(99,102,241,0.07)":"transparent";
+      var color=isCur?"#f87171":isTgt?"#86efac":"rgba(255,255,255,0.5)";
+      var fw=isCur||isTgt?"700":"400";
+      var val="";
+      if(m.key==="unis"){val=UNIS.filter(function(u){return b.max>=u.satMin;}).length+" unis";}
+      else if(m.key==="countries"){val=b.countries.slice(0,2).join(", ");}
+      else{val=b[m.key]||"--";}
+      tbl+="<td style='text-align:center;padding:11px 8px;border-bottom:1px solid rgba(255,255,255,0.06);color:"+color+";font-weight:"+fw+";font-size:12px;background:"+bg+";white-space:nowrap'>"+val+"</td>";
+    });
+    tbl+="</tr>";
+  });
+  tbl+="</tbody>";
+  document.getElementById("srt-table").innerHTML=tbl;
 }
 
-function buildBands() {
-  var html = "";
-  SAT_BANDS.forEach(function(b,i) {
-    var count = UNIS.filter(function(u){ return u.satMin>=b.min&&u.satMin<=b.max; }).length;
-    var isCur = !isNaN(curScore)&&curScore>=b.min&&curScore<=b.max;
-    var isTgt = !isNaN(tgtScore)&&tgtScore>=b.min&&tgtScore<=b.max;
-    html += '<div class="sat-band" id="band-'+i+'" style="background:'+b.bg+';color:'+b.color+'" onclick="showBand('+i+')">';
-    html += '<div class="sb-label" style="color:'+b.color+'">'+b.label+'</div>';
-    html += '<div class="sb-count" style="color:'+b.color+'">'+count+'</div>';
-    html += '<div class="sb-tier" style="color:'+b.color+'">'+b.tier+'</div>';
-    if(isCur) html += '<div class="sb-you" style="color:'+b.color+'">&#8592; You</div>';
-    if(isTgt) html += '<div class="sb-you" style="color:'+b.color+'">&#8592; Target</div>';
-    if(isCur) html += '<div class="sb-dot" style="background:#ef4444;right:4px;"></div>';
-    if(isTgt) html += '<div class="sb-dot" style="background:#4747F6;right:'+(isCur?14:4)+'px;"></div>';
-    html += '</div>';
+function buildBands(){
+  var html="";
+  SAT_BANDS.forEach(function(b,i){
+    var count=UNIS.filter(function(u){return u.satMin>=b.min&&u.satMin<=b.max;}).length;
+    var isCur=!isNaN(curScore)&&curScore>=b.min&&curScore<=b.max;
+    var isTgt=!isNaN(tgtScore)&&tgtScore>=b.min&&tgtScore<=b.max;
+    html+='<div class="sat-band" id="band-'+i+'" style="background:'+b.bg+';color:'+b.color+'" onclick="showBand('+i+')">';
+    html+='<div class="sb-label" style="color:'+b.color+'">'+b.label+'</div>';
+    html+='<div class="sb-count" style="color:'+b.color+'">'+count+'</div>';
+    html+='<div class="sb-tier" style="color:'+b.color+'">'+b.tier+'</div>';
+    if(isCur)html+='<div class="sb-you" style="color:'+b.color+'">\u2190 You</div>';
+    if(isTgt)html+='<div class="sb-you" style="color:'+b.color+'">\u2190 Target</div>';
+    if(isCur)html+='<div class="sb-dot" style="background:#ef4444;right:4px;"></div>';
+    if(isTgt)html+='<div class="sb-dot" style="background:#4747F6;right:'+(isCur?14:4)+'px;"></div>';
+    html+='</div>';
   });
-  document.getElementById("band-grid").innerHTML = html;
+  document.getElementById("band-grid").innerHTML=html;
 }
 
-function showBand(i) {
-  document.querySelectorAll(".sat-band").forEach(function(b){ b.classList.remove("active"); });
-  var bandEl = document.getElementById("band-"+i);
-  if(bandEl) bandEl.classList.add("active");
-  var b = SAT_BANDS[i];
-  var unis = UNIS.filter(function(u){ return u.satMin>=b.min&&u.satMin<=b.max; });
-  var curQ = !isNaN(curScore)&&curScore>=b.min;
-  var tgtQ = !isNaN(tgtScore)&&tgtScore>=b.min;
-  var html = "";
-  html += '<div class="bd-top">';
-  html += '<div><div class="bd-score" style="color:'+b.color+'">'+b.label+' &mdash; '+b.tier+'</div>';
-  html += '<div class="bd-tier">'+unis.length+' universities &middot; '+b.desc+'</div></div>';
-  html += '<div class="bd-status-badges">';
-  if(curQ) html += '<span class="mt mt-m" style="font-size:12px;padding:4px 10px;">Your score qualifies</span>';
-  else if(tgtQ) html += '<span class="mt mt-f" style="font-size:12px;padding:4px 10px;">Target score qualifies</span>';
-  else html += '<span class="mt mt-r" style="font-size:12px;padding:4px 10px;">Need higher score</span>';
-  html += '</div></div>';
-  html += '<div class="bd-info">';
-  html += '<div class="bd-info-card" style="background:'+b.bg+'"><div class="bd-ic-l" style="color:'+b.color+'">Scholarships</div><div class="bd-ic-v" style="color:'+b.color+'">'+b.scholarships+'</div></div>';
-  html += '<div class="bd-info-card" style="background:'+b.bg+'"><div class="bd-ic-l" style="color:'+b.color+'">Avg starting salary</div><div class="bd-ic-v" style="color:'+b.color+'">'+b.avgSalary+'</div></div>';
-  html += '<div class="bd-info-card" style="background:'+b.bg+'"><div class="bd-ic-l" style="color:'+b.color+'">Target countries</div><div class="bd-ic-v" style="color:'+b.color+';font-size:12px;">'+b.countries.join(", ")+'</div></div>';
-  html += '</div>';
-  html += '<div class="bd-unis-title">Universities in this band ('+unis.length+')</div>';
-  html += '<div class="bd-unis-list">';
-  unis.slice(0,20).forEach(function(u) {
-    var esc = u.university.replace(/'/g, "\'");
-    html += '<span class="bd-chip" style="background:'+b.bg+';color:'+b.color+';border-color:'+b.color+'40" onclick="openDP(&apos;'+esc+'&apos;)">';
-    html += (FLAGS[u.country]||"")+" "+u.university+"</span>";
+function showBand(i){
+  document.querySelectorAll(".sat-band").forEach(function(b){b.classList.remove("active");});
+  var bandEl=document.getElementById("band-"+i);
+  if(bandEl)bandEl.classList.add("active");
+  var b=SAT_BANDS[i];
+  var unis=UNIS.filter(function(u){return u.satMin>=b.min&&u.satMin<=b.max;});
+  var curQ=!isNaN(curScore)&&curScore>=b.min;
+  var tgtQ=!isNaN(tgtScore)&&tgtScore>=b.min;
+  var html="";
+  html+='<div class="bd-top">';
+  html+='<div><div class="bd-score" style="color:'+b.color+'">'+b.label+' \u2014 '+b.tier+'</div>';
+  html+='<div class="bd-tier">'+unis.length+' universities \u00b7 '+b.desc+'</div></div>';
+  html+='<div style="display:flex;gap:0.5rem;flex-wrap:wrap;">';
+  if(curQ)html+='<span class="mt mt-m" style="font-size:12px;padding:4px 10px;">\u2713 Eligible now</span>';
+  else if(tgtQ)html+='<span class="mt mt-f" style="font-size:12px;padding:4px 10px;">\u2713 Eligible at target</span>';
+  else html+='<span class="mt mt-r" style="font-size:12px;padding:4px 10px;">Score too low</span>';
+  html+='</div></div>';
+  html+='<div class="bd-info">';
+  html+='<div class="bd-info-card" style="background:'+b.bg+'"><div class="bd-ic-l" style="color:'+b.color+'">Scholarships</div><div class="bd-ic-v" style="color:'+b.color+'">'+b.scholarshipAmt+'</div></div>';
+  html+='<div class="bd-info-card" style="background:'+b.bg+'"><div class="bd-ic-l" style="color:'+b.color+'">Avg starting salary</div><div class="bd-ic-v" style="color:'+b.color+'">'+b.avgSalary+'</div></div>';
+  html+='<div class="bd-info-card" style="background:'+b.bg+'"><div class="bd-ic-l" style="color:'+b.color+'">Countries</div><div class="bd-ic-v" style="color:'+b.color+';font-size:12px;">'+b.countries.join(", ")+'</div></div>';
+  html+='</div>';
+  html+='<div class="bd-unis-title">Universities in this band ('+unis.length+')</div>';
+  html+='<div class="bd-unis-list">';
+  unis.slice(0,20).forEach(function(u){
+    var esc=u.university.replace(/'/g,"\\'");
+    html+='<span class="bd-chip" style="background:'+b.bg+';color:'+b.color+';border-color:'+b.color+'40" onclick="openDP(\''+esc+'\')">'+(FLAGS[u.country]||"")+" "+u.university+'</span>';
   });
-  if(unis.length>20) html += '<span class="bd-chip" style="background:#f3f4f6;color:#6b7280;border-color:#e5e7eb">+' + (unis.length-20) + ' more</span>';
-  html += '</div>';
-  var dd = document.getElementById("band-detail");
-  dd.innerHTML = html;
-  dd.style.display = "block";
+  if(unis.length>20)html+='<span class="bd-chip" style="background:#f3f4f6;color:#6b7280;border-color:#e5e7eb">+'+(unis.length-20)+' more</span>';
+  html+='</div>';
+  var dd=document.getElementById("band-detail");
+  dd.innerHTML=html;dd.style.display="block";
   dd.scrollIntoView({behavior:"smooth",block:"start"});
 }
 
-function getFiltered() {
-  var country = document.getElementById("f-country").value;
-  var tier = document.getElementById("f-tier").value;
-  var major = document.getElementById("f-major").value;
-  var acc = document.getElementById("f-acc").value;
-  var show = document.getElementById("f-show").value;
-  var satrange = document.getElementById("f-satrange") ? document.getElementById("f-satrange").value : "";
-  return UNIS.filter(function(u) {
-    if(country && u.country!==country) return false;
-    if(tier && u.tier!==parseInt(tier)) return false;
-    if(major && !u.fields.includes(major)) return false;
-    if(acc==="very-low" && u.acceptance>=5) return false;
-    if(acc==="low" && (u.acceptance<5||u.acceptance>20)) return false;
-    if(acc==="mid" && (u.acceptance<20||u.acceptance>50)) return false;
-    if(acc==="high" && u.acceptance<=50) return false;
-    if(show==="current" && (isNaN(curScore)||curScore<u.satMin)) return false;
-    if(show==="target" && (isNaN(tgtScore)||tgtScore<u.satMin)) return false;
-    if(show==="gain") {
-      var cq = !isNaN(curScore)&&curScore>=u.satMin;
-      var tq = !isNaN(tgtScore)&&tgtScore>=u.satMin;
-      if(!tq||cq) return false;
-    }
-    if(satrange) {
-      var parts = satrange.split("-");
-      var lo = parseInt(parts[0]), hi = parseInt(parts[1]);
-      if(u.satMin < lo || u.satMin > hi) return false;
+function getFiltered(){
+  var country=document.getElementById("f-country").value;
+  var tier=document.getElementById("f-tier").value;
+  var major=document.getElementById("f-major").value;
+  var satrange=document.getElementById("f-satrange").value;
+  return UNIS.filter(function(u){
+    if(country&&u.country!==country)return false;
+    if(tier&&u.tier!==parseInt(tier))return false;
+    if(major&&!u.fields.includes(major))return false;
+    if(satrange!==""){
+      var idx=parseInt(satrange);
+      var b=SAT_BANDS[idx];
+      if(!b||u.satMin<b.min||u.satMin>b.max)return false;
     }
     return true;
   });
 }
 
-function renderCard(u) {
-  var ex = getExtra(u.university);
-  var cc = getCardClass(u);
-  var isNew = !isNaN(tgtScore)&&tgtScore>=u.satMin&&(isNaN(curScore)||curScore<u.satMin);
-  var topTag = isNew ? '<span class="mt mt-f">New!</span>' : mTagCur(u);
-  var top_sch = (ex.scholarships&&ex.scholarships.length) ? ex.scholarships[0] : "--";
-  var reqPct = pct(u.satMin);
-  var curPct = isNaN(curScore) ? 0 : pct(curScore);
-  var tgtPct = isNaN(tgtScore) ? 0 : pct(tgtScore);
-  var satBar = '<div class="sat-track">';
-  satBar += '<div class="sat-req" style="width:'+reqPct+'%"></div>';
-  if(!isNaN(curScore)) satBar += '<div class="sat-cur" style="width:'+curPct+'%"></div>';
-  if(!isNaN(tgtScore)) satBar += '<div class="sat-tgt" style="width:'+tgtPct+'%"></div>';
-  satBar += '<div class="sat-line" style="left:'+reqPct+'%"></div>';
-  satBar += '</div>';
-  var esc = u.university.replace(/'/g, "\'");
-  var html = '<div class="uc '+cc+'" onclick="openDP(&apos;'+esc+'&apos;)">';
-  html += '<div class="uc-top"><div class="uc-name">'+u.university+' '+topTag+'</div><div class="uc-flag">'+(FLAGS[u.country]||"")+'</div></div>';
-  html += '<div class="uc-meta"><span class="tb '+TIER_CLS[u.tier]+'"><span class="td"></span>'+TIER_SHORT[u.tier]+'</span><span style="font-size:11px;color:var(--mu)">'+u.state+'</span></div>';
-  html += '<div class="sat-viz">'+satBar+'<span class="sat-range-lbl">'+u.satMin+'-'+u.satMax+'</span></div>';
-  html += '<div class="uc-grid">';
-  html += '<div><div class="uci-l">Tuition/yr</div><div class="uci-v">'+fm(ex.tuitionUSD)+'</div></div>';
-  html += '<div><div class="uci-l">Acceptance</div><div class="uci-v">'+u.acceptance+'%</div></div>';
-  html += '<div><div class="uci-l">Avg salary</div><div class="uci-v">'+fm(ex.avgSalary)+'</div></div>';
-  html += '<div><div class="uci-l">Rank</div><div class="uci-v">#'+u.rank+'</div></div>';
-  html += '</div>';
-  html += '<div class="uc-div"></div>';
-  html += '<div class="uc-sch">&#127891; '+top_sch+'</div>';
-  html += '<button class="uc-btn">View fees, scholarships &amp; ROI &#x2192;</button>';
-  html += '</div>';
+function renderCard(u){
+  var ex=getExtra(u.university);
+  var cc=getCardClass(u);
+  var isNew=!isNaN(tgtScore)&&tgtScore>=u.satMin&&(isNaN(curScore)||curScore<u.satMin);
+  var topTag=isNew?'<span class="mt mt-f">New!</span>':mTagCur(u);
+  var schRange=getSchRange(u);
+  var reqPct=pct(u.satMin);
+  var curPct=isNaN(curScore)?0:pct(curScore);
+  var tgtPct=isNaN(tgtScore)?0:pct(tgtScore);
+  var satBar='<div class="sat-track">';
+  satBar+='<div class="sat-req" style="width:'+reqPct+'%"></div>';
+  if(!isNaN(curScore))satBar+='<div class="sat-cur" style="width:'+curPct+'%"></div>';
+  if(!isNaN(tgtScore))satBar+='<div class="sat-tgt" style="width:'+tgtPct+'%"></div>';
+  satBar+='<div class="sat-line" style="left:'+reqPct+'%"></div>';
+  satBar+='</div>';
+  var esc=u.university.replace(/'/g,"\\'");
+  var recruiters=(ex.topRecruiters&&ex.topRecruiters.length)?ex.topRecruiters.slice(0,3).join(", "):"--";
+  var html='<div class="uc '+cc+'" onclick="openDP(\''+esc+'\')">';
+  html+='<div class="uc-top"><div class="uc-name">'+(FLAGS[u.country]||"")+" "+u.university+" "+topTag+'</div></div>';
+  html+='<div class="uc-meta"><span class="tb '+TIER_CLS[u.tier]+'"><span class="td"></span>'+TIER_SHORT[u.tier]+'</span><span style="font-size:11px;color:var(--mu)">'+u.state+'</span></div>';
+  html+='<div class="sat-viz">'+satBar+'<span class="sat-range-lbl">'+u.satMin+'-'+u.satMax+'</span></div>';
+  html+='<div class="uc-grid">';
+  html+='<div><div class="uci-l">Tuition/yr</div><div class="uci-v">'+fm(ex.tuitionUSD)+'</div></div>';
+  html+='<div><div class="uci-l">Rank</div><div class="uci-v">#'+u.rank+'</div></div>';
+  html+='<div><div class="uci-l">Avg salary</div><div class="uci-v">'+fm(ex.avgSalary)+'</div></div>';
+  html+='<div><div class="uci-l">Scholarship/yr</div><div class="uci-v" style="color:var(--gr);font-size:11px">'+schRange+'</div></div>';
+  html+='</div>';
+  html+='<div class="uc-div"></div>';
+  html+='<div class="uc-sch" style="color:var(--mu);font-size:11px">\uD83D\uDCBC '+recruiters+'</div>';
+  html+='<button class="uc-btn">View details \u2192</button>';
+  html+='</div>';
   return html;
 }
 
-function render() {
-  var data = getFiltered();
-  data.sort(function(a,b) {
-    var av = a[sortCol], bv = b[sortCol];
-    if(typeof av==="string") return sortDir*av.localeCompare(bv);
+function render(){
+  var data=getFiltered();
+  data.sort(function(a,b){
+    var av=a[sortCol],bv=b[sortCol];
+    if(typeof av==="string")return sortDir*av.localeCompare(bv);
     return sortDir*(av-bv);
   });
-  var label = scoresUnlocked ? data.length+" universities match" : "All "+data.length+" universities";
-  document.getElementById("results-title").textContent = label;
-  document.getElementById("tbl-count").textContent = data.length;
-
-  // Cards
-  if(data.length===0) {
-    document.getElementById("cgrid").innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:2rem;color:var(--mu)">No universities match your filters.</div>';
-  } else {
-    var cards = "";
-    data.forEach(function(u){ cards += renderCard(u); });
-    document.getElementById("cgrid").innerHTML = cards;
+  document.getElementById("results-title").textContent=data.length+" universities";
+  document.getElementById("tbl-count").textContent=data.length;
+  if(data.length===0){
+    document.getElementById("cgrid").innerHTML='<div style="grid-column:1/-1;text-align:center;padding:2rem;color:var(--mu)">No universities match your filters.</div>';
+  }else{
+    var cards="";
+    data.forEach(function(u){cards+=renderCard(u);});
+    document.getElementById("cgrid").innerHTML=cards;
   }
-
-  // Table
-  var rows = "";
-  data.forEach(function(u) {
-    var ex = getExtra(u.university);
-    var esc = u.university.replace(/'/g,"\'");
-    rows += '<tr onclick="openDP(&apos;'+esc+'&apos;)">';
-    rows += '<td><div style="font-weight:600">'+u.university+'</div><div style="font-size:11px;color:var(--su)">'+u.state+'</div></td>';
-    rows += '<td>'+(FLAGS[u.country]||"")+" "+u.country+'</td>';
-    rows += '<td><span class="tb '+TIER_CLS[u.tier]+'"><span class="td"></span>'+TIER_SHORT[u.tier]+'</span></td>';
-    rows += '<td style="font-weight:600">'+u.satMin+'-'+u.satMax+'</td>';
-    rows += '<td>'+mTagCur(u)+'</td>';
-    rows += '<td>'+mTagTgt(u)+'</td>';
-    rows += '<td style="font-size:12px;font-weight:600">'+fm(ex.tuitionUSD)+'</td>';
-    rows += '<td><span class="ac '+accCls(u.acceptance)+'">'+u.acceptance+'%</span></td>';
-    rows += '<td style="color:var(--mu)">#'+u.rank+'</td>';
-    rows += '</tr>';
+  var rows="";
+  data.forEach(function(u){
+    var ex=getExtra(u.university);
+    var schRange=getSchRange(u);
+    var gap="--";var gapCls="";
+    if(!isNaN(curScore)&&curScore>=400){
+      if(curScore>=u.satMin){gap="Eligible";gapCls="gap-ok";}
+      else{gap=(u.satMin-curScore)+" pts";gapCls="gap-bad";}
+    }
+    var recruiters=(ex.topRecruiters&&ex.topRecruiters.length)?ex.topRecruiters.slice(0,3).join(", "):"--";
+    var esc=u.university.replace(/'/g,"\\'");
+    rows+='<tr onclick="openDP(\''+esc+'\')">';
+    rows+='<td><div style="font-weight:600">'+(FLAGS[u.country]||"")+" "+u.university+'</div><div style="font-size:11px;color:var(--su)">'+u.state+'</div></td>';
+    rows+='<td><span class="tb '+TIER_CLS[u.tier]+'"><span class="td"></span>'+TIER_SHORT[u.tier]+'</span></td>';
+    rows+='<td style="font-weight:600">'+u.satMin+'-'+u.satMax+'</td>';
+    rows+='<td style="font-size:12px;font-weight:600">'+fm(ex.tuitionUSD)+'</td>';
+    rows+='<td style="color:var(--mu)">#'+u.rank+'</td>';
+    rows+='<td class="'+gapCls+'">'+gap+'</td>';
+    rows+='<td style="font-size:12px;font-weight:600;color:var(--gr)">'+schRange+'</td>';
+    rows+='<td style="font-size:12px;font-weight:600">'+fm(ex.avgSalary)+'</td>';
+    rows+='<td style="font-size:11px;color:var(--mu);max-width:180px">'+recruiters+'</td>';
+    rows+='</tr>';
   });
-  document.getElementById("tbody").innerHTML = rows;
-  document.getElementById("nores").style.display = data.length===0?"block":"none";
-
-  // Compare
-  var crows = "";
-  data.forEach(function(u) {
-    var ex = getExtra(u.university);
-    var cgap = isNaN(curScore) ? "--" : (u.satMin-curScore>0 ? "-"+(u.satMin-curScore) : "+"+(curScore-u.satMin));
-    var tgap = isNaN(tgtScore) ? "--" : (u.satMin-tgtScore>0 ? "-"+(u.satMin-tgtScore) : "+"+(tgtScore-u.satMin));
-    var cgapStyle = (!isNaN(curScore)&&curScore>=u.satMin) ? "color:#166534;font-weight:700" : "color:#991b1b;font-weight:700";
-    var tgapStyle = (!isNaN(tgtScore)&&tgtScore>=u.satMin) ? "color:#166534;font-weight:700" : "color:#4c1d95;font-weight:700";
-    var esc = u.university.replace(/'/g,"\'");
-    var top_sch = (ex.scholarships&&ex.scholarships.length) ? ex.scholarships[0] : "--";
-    crows += '<tr onclick="openDP(&apos;'+esc+'&apos;)">';
-    crows += '<td><div style="font-weight:600">'+(FLAGS[u.country]||"")+" "+u.university+'</div><div style="font-size:11px;color:var(--su)">'+TIER_SHORT[u.tier]+'</div></td>';
-    crows += '<td style="font-weight:700">'+u.satMin+'</td>';
-    crows += '<td style="font-weight:700;color:#ef4444">'+(isNaN(curScore)?"--":curScore)+'</td>';
-    crows += '<td style="font-weight:700;color:#4747F6">'+(isNaN(tgtScore)?"--":tgtScore)+'</td>';
-    crows += '<td style="'+cgapStyle+'">'+cgap+'</td>';
-    crows += '<td style="'+tgapStyle+'">'+tgap+'</td>';
-    crows += '<td style="font-size:12px;font-weight:600">'+fm(ex.tuitionUSD)+'</td>';
-    crows += '<td style="font-size:11px;color:var(--gr)">'+top_sch+'</td>';
-    crows += '<td style="font-size:12px;font-weight:600">'+fm(ex.avgSalary)+'</td>';
-    crows += '</tr>';
-  });
-  document.getElementById("ctbody").innerHTML = crows;
+  document.getElementById("tbody").innerHTML=rows;
+  document.getElementById("nores").style.display=data.length===0?"block":"none";
 }
 
-function openDP(name) {
-  var existing = document.getElementById("dpanel-wrap");
-  if(existing) existing.remove();
-  var u = UNIS.find(function(x){ return x.university===name; });
-  if(!u) return;
-  var ex = getExtra(name);
-  var curQ = !isNaN(curScore)&&curScore>=u.satMin;
-  var tgtQ = !isNaN(tgtScore)&&tgtScore>=u.satMin;
-  var statusTag = curQ ? '<span class="mt mt-m">Current score qualifies</span>' : tgtQ ? '<span class="mt mt-f">Target score qualifies</span>' : '<span class="mt mt-r">Score too low</span>';
-  var satNote = curQ ? "You already qualify!" : (!isNaN(curScore) ? "Need "+(u.satMin-curScore)+" more points with Leap Scholar training" : "Enter your score above");
-  var tgtNote = tgtQ ? "Will qualify after training!" : (!isNaN(tgtScore) ? "Still need "+(u.satMin-tgtScore)+" more points" : "Enter target above");
-  var html = '<div class="dpanel">';
-  html += '<div class="dp-hdr">';
-  html += '<div><div class="dp-title">'+(FLAGS[u.country]||"")+" "+u.university+'</div>';
-  html += '<div class="dp-sub"><span class="tb '+TIER_CLS[u.tier]+'" style="display:inline-flex"><span class="td"></span>'+TIER_SHORT[u.tier]+'</span><span>'+u.state+'</span><span>&middot;</span><span>Rank #'+u.rank+'</span>'+statusTag+'</div></div>';
-  html += '<button class="dp-close" onclick="var el=document.getElementById(&apos;dpanel-wrap&apos;);if(el)el.remove();document.body.style.overflow=&apos;&apos;">&#10005; Close</button>';
-  html += '</div>';
-  html += '<div class="dp-tabs">';
-  html += '<button class="dp-tab active" onclick="swTab(this,&apos;t-ov&apos;)">Overview</button>';
-  html += '<button class="dp-tab" onclick="swTab(this,&apos;t-sat&apos;)">SAT Analysis</button>';
-  html += '<button class="dp-tab" onclick="swTab(this,&apos;t-fees&apos;)">Fees &amp; Scholarships</button>';
-  html += '<button class="dp-tab" onclick="swTab(this,&apos;t-roi&apos;)">ROI &amp; Placements</button>';
-  html += '</div>';
-  // Overview tab
-  html += '<div class="tc active" id="t-ov">';
-  html += '<div class="ig">';
-  html += '<div class="ib"><div class="ib-l">SAT range</div><div class="ib-v">'+u.satMin+' - '+u.satMax+'</div><div class="ib-s">Competitive range</div></div>';
-  html += '<div class="ib"><div class="ib-l">Acceptance</div><div class="ib-v">'+u.acceptance+'%</div></div>';
-  html += '<div class="ib"><div class="ib-l">Tuition/year</div><div class="ib-v">'+fm(ex.tuitionUSD)+'</div><div class="ib-s">Excl. living</div></div>';
-  html += '<div class="ib"><div class="ib-l">Living/year</div><div class="ib-v">'+fm(ex.living)+'</div></div>';
-  html += '<div class="ib"><div class="ib-l">Total/year</div><div class="ib-v">'+fm(ex.tuitionUSD+ex.living)+'</div></div>';
-  html += '<div class="ib"><div class="ib-l">Placement rate</div><div class="ib-v">'+ex.placementRate+'%</div></div>';
-  html += '</div>';
-  html += '<div class="st">Top fields</div><div class="chips">';
-  u.fields.forEach(function(f){ html += '<span class="chip">'+f+'</span>'; });
-  html += '</div></div>';
-  // SAT tab
-  html += '<div class="tc" id="t-sat">';
-  html += '<div class="ig">';
-  html += '<div class="ib" style="background:'+(curQ?"#f0fdf4":"#fef2f2")+'">';
-  html += '<div class="ib-l">Your current score</div>';
-  html += '<div class="ib-v" style="color:'+(curQ?"#166534":"#991b1b")+'">'+(isNaN(curScore)?"--":curScore)+'</div>';
-  html += '<div class="ib-s">'+satNote+'</div></div>';
-  html += '<div class="ib" style="background:'+(tgtQ?"#f0fdf4":"#ede9fe")+'">';
-  html += '<div class="ib-l">Your target score</div>';
-  html += '<div class="ib-v" style="color:'+(tgtQ?"#166534":"#4c1d95")+'">'+(isNaN(tgtScore)?"--":tgtScore)+'</div>';
-  html += '<div class="ib-s">'+tgtNote+'</div></div>';
-  html += '<div class="ib"><div class="ib-l">University requires</div><div class="ib-v">'+u.satMin+'</div><div class="ib-s">Min SAT for admission</div></div>';
-  var gapPts = (!isNaN(curScore)&&!curQ) ? (u.satMin-curScore) : 0;
-  html += '<div class="ib" style="background:#eff6ff"><div class="ib-l">Score gap to close</div><div class="ib-v" style="color:#1e40af">'+gapPts+' pts</div><div class="ib-s">'+(curQ?"Already qualify!":"With Leap Scholar training")+'</div></div>';
-  html += '</div>';
-  html += '<div style="background:#f0f9ff;border:1px solid #bfdbfe;border-radius:12px;padding:1rem;font-size:13px;color:#1e3a8a;line-height:1.7;margin-bottom:1rem">';
-  html += 'A higher SAT score at <strong>'+u.university+'</strong> does not just get you in - it determines scholarship eligibility. Students scoring '+(u.satMin+100)+'+ have significantly better chances of merit aid. Leap Scholar training can help you reach the '+u.satMin+'+ threshold.';
-  html += '</div></div>';
-  // Fees tab
-  html += '<div class="tc" id="t-fees">';
-  html += '<div class="st">Scholarships available</div>';
-  html += '<div class="sch-list">';
-  (ex.scholarships||[]).forEach(function(s) {
-    html += '<div class="sch-item"><div style="font-size:18px;flex-shrink:0">&#127891;</div><div><div class="sch-name">'+s+'</div><div class="sch-amt">Contact university for eligibility &amp; amounts</div></div></div>';
-  });
-  html += '</div>';
-  html += '<div class="st">Fee breakdown</div>';
-  html += '<div class="ig">';
-  html += '<div class="ib"><div class="ib-l">Annual tuition</div><div class="ib-v">'+fm(ex.tuitionUSD)+'</div></div>';
-  html += '<div class="ib"><div class="ib-l">Living expenses</div><div class="ib-v">'+fm(ex.living)+'</div></div>';
-  html += '<div class="ib"><div class="ib-l">Total per year</div><div class="ib-v">'+fm(ex.tuitionUSD+ex.living)+'</div></div>';
-  html += '<div class="ib"><div class="ib-l">4-year estimate</div><div class="ib-v">'+fm((ex.tuitionUSD+ex.living)*4)+'</div></div>';
-  html += '</div></div>';
-  // ROI tab
-  html += '<div class="tc" id="t-roi">';
-  html += '<div class="st">Return on investment</div>';
-  html += '<div class="roi-g">';
-  html += '<div class="roi-c"><div class="roi-v">'+fm(ex.avgSalary)+'</div><div class="roi-l">Avg starting salary</div></div>';
-  html += '<div class="roi-c"><div class="roi-v">'+ex.placementRate+'%</div><div class="roi-l">Placement rate</div></div>';
-  html += '<div class="roi-c"><div class="roi-v">'+fm((ex.tuitionUSD+ex.living)*4)+'</div><div class="roi-l">4-year investment</div></div>';
-  var be = ex.avgSalary>0 ? Math.round(((ex.tuitionUSD+ex.living)*4)/ex.avgSalary*10)/10 : "--";
-  html += '<div class="roi-c"><div class="roi-v">'+be+'x</div><div class="roi-l">Yrs to break even</div></div>';
-  html += '</div>';
-  html += '<div class="st">Top recruiters</div>';
-  html += '<div class="chips">';
-  (ex.topRecruiters||[]).forEach(function(r){ html += '<span class="chip">'+r+'</span>'; });
-  html += '</div></div>';
-  html += '</div>'; // close dpanel
-  var overlay = document.createElement("div");
-  overlay.id = "dpanel-wrap";
-  overlay.className = "modal-overlay";
-  overlay.innerHTML = html;
-  overlay.addEventListener("click", function(e){ if(e.target===overlay) overlay.remove(); });
+function openDP(name){
+  var existing=document.getElementById("dpanel-wrap");
+  if(existing)existing.remove();
+  var u=UNIS.find(function(x){return x.university===name;});
+  if(!u)return;
+  var ex=getExtra(name);
+  var curQ=!isNaN(curScore)&&curScore>=u.satMin;
+  var tgtQ=!isNaN(tgtScore)&&tgtScore>=u.satMin;
+  var statusTag=curQ?'<span class="mt mt-m">Eligible now</span>':tgtQ?'<span class="mt mt-f">Eligible at target</span>':'<span class="mt mt-r">Score too low</span>';
+  var schRange=getSchRange(u);
+  var html='<div class="dpanel">';
+  html+='<div class="dp-hdr"><div>';
+  html+='<div class="dp-title">'+(FLAGS[u.country]||"")+" "+u.university+'</div>';
+  html+='<div class="dp-sub"><span class="tb '+TIER_CLS[u.tier]+'" style="display:inline-flex"><span class="td"></span>'+TIER_SHORT[u.tier]+'</span><span>'+u.state+'</span><span>\u00b7</span><span>Rank #'+u.rank+'</span>'+statusTag+'</div>';
+  html+='</div>';
+  html+='<button class="dp-close" onclick="var el=document.getElementById(&apos;dpanel-wrap&apos;);if(el)el.remove();document.body.style.overflow=&apos;&apos;">\u2715 Close</button>';
+  html+='</div>';
+  html+='<div class="dp-tabs">';
+  html+='<button class="dp-tab active" onclick="swTab(this,&apos;t-ov&apos;)">Overview</button>';
+  html+='<button class="dp-tab" onclick="swTab(this,&apos;t-sat&apos;)">SAT Analysis</button>';
+  html+='<button class="dp-tab" onclick="swTab(this,&apos;t-fees&apos;)">Fees & Scholarships</button>';
+  html+='<button class="dp-tab" onclick="swTab(this,&apos;t-roi&apos;)">ROI & Placements</button>';
+  html+='</div>';
+  html+='<div class="tc active" id="t-ov"><div class="ig">';
+  html+='<div class="ib"><div class="ib-l">SAT range</div><div class="ib-v">'+u.satMin+' - '+u.satMax+'</div><div class="ib-s">Competitive range</div></div>';
+  html+='<div class="ib"><div class="ib-l">Acceptance</div><div class="ib-v">'+u.acceptance+'%</div></div>';
+  html+='<div class="ib"><div class="ib-l">Tuition/year</div><div class="ib-v">'+fm(ex.tuitionUSD)+'</div><div class="ib-s">Excl. living</div></div>';
+  html+='<div class="ib"><div class="ib-l">Living/year</div><div class="ib-v">'+fm(ex.living)+'</div></div>';
+  html+='<div class="ib"><div class="ib-l">Total/year</div><div class="ib-v">'+fm(ex.tuitionUSD+ex.living)+'</div></div>';
+  html+='<div class="ib"><div class="ib-l">Placement rate</div><div class="ib-v">'+ex.placementRate+'%</div></div>';
+  html+='</div>';
+  html+='<div class="st">Scholarship range</div>';
+  html+='<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:1rem;margin-bottom:1rem;font-size:16px;font-weight:700;color:var(--gr)">'+schRange+' per year</div>';
+  html+='<div class="st">Top fields</div><div class="chips">';
+  u.fields.forEach(function(f){html+='<span class="chip">'+f+'</span>';});
+  html+='</div></div>';
+  html+='<div class="tc" id="t-sat"><div class="ig">';
+  var curQ2=!isNaN(curScore)&&curScore>=u.satMin;
+  var tgtQ2=!isNaN(tgtScore)&&tgtScore>=u.satMin;
+  html+='<div class="ib" style="background:'+(curQ2?'#f0fdf4':'#fef2f2')+'">';
+  html+='<div class="ib-l">Current score</div>';
+  html+='<div class="ib-v" style="color:'+(curQ2?'#166534':'#991b1b')+'">'+(isNaN(curScore)?"--":curScore)+'</div>';
+  html+='<div class="ib-s">'+(curQ2?"Eligible!":isNaN(curScore)?"Enter above":"Need "+(u.satMin-curScore)+" more pts")+'</div></div>';
+  html+='<div class="ib" style="background:'+(tgtQ2?'#ede9fe':'#f3f4f6')+'">';
+  html+='<div class="ib-l">Target score</div>';
+  html+='<div class="ib-v" style="color:'+(tgtQ2?'#4c1d95':'#374151')+'">'+(isNaN(tgtScore)?"--":tgtScore)+'</div>';
+  html+='<div class="ib-s">'+(tgtQ2?"Will qualify!":isNaN(tgtScore)?"Enter above":"Need "+(u.satMin-tgtScore)+" more pts")+'</div></div>';
+  html+='<div class="ib"><div class="ib-l">University requires</div><div class="ib-v">'+u.satMin+'</div><div class="ib-s">Min for admission</div></div>';
+  var gapPts=(!isNaN(curScore)&&!curQ2)?(u.satMin-curScore):0;
+  html+='<div class="ib" style="background:#eff6ff"><div class="ib-l">Gap to close</div><div class="ib-v" style="color:#1e40af">'+gapPts+' pts</div><div class="ib-s">'+(curQ2?"Already eligible!":"Score gap to bridge")+'</div></div>';
+  html+='</div></div>';
+  html+='<div class="tc" id="t-fees">';
+  html+='<div class="st">Scholarship range at this tier</div>';
+  html+='<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:1rem;margin-bottom:1rem;font-size:16px;font-weight:700;color:var(--gr)">'+schRange+' per year</div>';
+  html+='<div class="st">Fee breakdown</div><div class="ig">';
+  html+='<div class="ib"><div class="ib-l">Annual tuition</div><div class="ib-v">'+fm(ex.tuitionUSD)+'</div></div>';
+  html+='<div class="ib"><div class="ib-l">Living expenses</div><div class="ib-v">'+fm(ex.living)+'</div></div>';
+  html+='<div class="ib"><div class="ib-l">Total per year</div><div class="ib-v">'+fm(ex.tuitionUSD+ex.living)+'</div></div>';
+  html+='<div class="ib"><div class="ib-l">4-year estimate</div><div class="ib-v">'+fm((ex.tuitionUSD+ex.living)*4)+'</div></div>';
+  html+='</div></div>';
+  html+='<div class="tc" id="t-roi">';
+  html+='<div class="st">Return on investment</div><div class="roi-g">';
+  html+='<div class="roi-c"><div class="roi-v">'+fm(ex.avgSalary)+'</div><div class="roi-l">Avg starting salary</div></div>';
+  html+='<div class="roi-c"><div class="roi-v">'+ex.placementRate+'%</div><div class="roi-l">Placement rate</div></div>';
+  html+='<div class="roi-c"><div class="roi-v">'+fm((ex.tuitionUSD+ex.living)*4)+'</div><div class="roi-l">4-year investment</div></div>';
+  var be=ex.avgSalary>0?Math.round(((ex.tuitionUSD+ex.living)*4)/ex.avgSalary*10)/10:"--";
+  html+='<div class="roi-c"><div class="roi-v">'+be+'x</div><div class="roi-l">Yrs to break even</div></div>';
+  html+='</div><div class="st">Top recruiters</div><div class="chips">';
+  (ex.topRecruiters||[]).forEach(function(r){html+='<span class="chip">'+r+'</span>';});
+  html+='</div></div></div>';
+  var overlay=document.createElement("div");
+  overlay.id="dpanel-wrap";
+  overlay.className="modal-overlay";
+  overlay.innerHTML=html;
+  overlay.addEventListener("click",function(e){if(e.target===overlay){overlay.remove();document.body.style.overflow="";}});
   document.body.appendChild(overlay);
-  overlay.scrollTop = 0;
-  document.body.style.overflow = "hidden";
+  document.body.style.overflow="hidden";
 }
 
-function swTab(btn, id) {
-  var panel = btn.closest(".dpanel");
-  panel.querySelectorAll(".dp-tab").forEach(function(t){ t.classList.remove("active"); });
-  btn.classList.add("active");
-  panel.querySelectorAll(".tc").forEach(function(t){ t.classList.remove("active"); });
-  panel.querySelector("#"+id).classList.add("active");
+function swTab(btn,id){
+  var p=btn.closest(".dpanel");
+  p.querySelectorAll(".dp-tab").forEach(function(t){t.classList.remove("active");});btn.classList.add("active");
+  p.querySelectorAll(".tc").forEach(function(t){t.classList.remove("active");});p.querySelector("#"+id).classList.add("active");
 }
-
-function setView(v) {
-  ["cards","table","compare"].forEach(function(x) {
-    document.getElementById("btn-"+x).classList.toggle("active",v===x);
-    document.getElementById("view-"+x).style.display = v===x?"block":"none";
+function setView(v){
+  document.getElementById("btn-cards").classList.toggle("active",v==="cards");
+  document.getElementById("btn-table").classList.toggle("active",v==="table");
+  document.getElementById("view-cards").style.display=v==="cards"?"block":"none";
+  document.getElementById("view-table").style.display=v==="table"?"block":"none";
+  curView=v;
+}
+function sortBy(col){
+  if(sortCol===col)sortDir*=-1;else{sortCol=col;sortDir=1;}
+  document.querySelectorAll(".si").forEach(function(e){e.textContent="\u2195";e.classList.remove("sa");});
+  var el=document.getElementById("arr-"+col);if(el){el.textContent=sortDir===1?"\u2191":"\u2193";el.classList.add("sa");}
+  render();
+}
+function init(){
+  document.getElementById("total-count").textContent=UNIS.length;
+  var countries=[...new Set(UNIS.map(function(u){return u.country;}))].sort();
+  var cs=document.getElementById("f-country");
+  countries.forEach(function(c){cs.innerHTML+='<option value="'+c+'">'+(FLAGS[c]||"")+" "+c+'</option>';});
+  [1,2,3,4,5].forEach(function(t){document.getElementById("f-tier").innerHTML+='<option value="'+t+'">'+TIER_LABELS[t]+'</option>';});
+  var fields=[...new Set(UNIS.flatMap(function(u){return u.fields;}))].sort();
+  fields.forEach(function(m){document.getElementById("f-major").innerHTML+='<option value="'+m+'">'+m+'</option>';});
+  buildBands();render();
+  document.getElementById("unlock-btn").addEventListener("click",unlockResults);
+  document.getElementById("reset-btn").addEventListener("click",function(){
+    ["f-country","f-tier","f-major","f-satrange"].forEach(function(id){var el=document.getElementById(id);if(el)el.value="";});
+    render();
   });
-  curView = v;
-}
-
-function sortBy(col) {
-  if(sortCol===col) sortDir*=-1; else { sortCol=col; sortDir=1; }
-  document.querySelectorAll(".si").forEach(function(e){ e.textContent="\u2195"; e.classList.remove("sa"); });
-  var el = document.getElementById("arr-"+col);
-  if(el) { el.textContent = sortDir===1?"\u2191":"\u2193"; el.classList.add("sa"); }
-  render();
-}
-
-function resetFilters() {
-  ["f-country","f-tier","f-major","f-acc","f-show","f-satrange"].forEach(function(id){ var el=document.getElementById(id); if(el) el.value=""; });
-  render();
-}
-
-function init() {
-  document.getElementById("total-count").textContent = UNIS.length;
-  var countries = [...new Set(UNIS.map(function(u){ return u.country; }))].sort();
-  var cs = document.getElementById("f-country");
-  countries.forEach(function(c){ cs.innerHTML += '<option value="'+c+'">'+(FLAGS[c]||"")+" "+c+'</option>'; });
-  var ts = document.getElementById("f-tier");
-  [1,2,3,4,5].forEach(function(t){ ts.innerHTML += '<option value="'+t+'">'+TIER_LABELS[t]+'</option>'; });
-  var ms = document.getElementById("f-major");
-  var fields = [...new Set(UNIS.flatMap(function(u){ return u.fields; }))].sort();
-  fields.forEach(function(m){ ms.innerHTML += '<option value="'+m+'">'+m+'</option>'; });
-  buildBands();
-  render();
-  document.getElementById("unlock-btn").addEventListener("click", unlockResults);
-  document.getElementById("reset-btn").addEventListener("click", resetFilters);
-  document.getElementById("current-score").addEventListener("input", onScoreInput);
-  document.getElementById("target-score").addEventListener("input", onScoreInput);
-  ["f-country","f-tier","f-major","f-acc","f-show"].forEach(function(id){
-    document.getElementById(id).addEventListener("change", render);
+  document.getElementById("current-score").addEventListener("input",onScoreInput);
+  document.getElementById("target-score").addEventListener("input",onScoreInput);
+  ["f-country","f-tier","f-major","f-satrange"].forEach(function(id){
+    var el=document.getElementById(id);if(el)el.addEventListener("change",render);
   });
 }
-
 init();
 </script>
 </body>
