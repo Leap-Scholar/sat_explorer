@@ -3,40 +3,52 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Leap Scholar – SAT University Explorer</title>
-<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display&display=swap" rel="stylesheet">
+<title>Leap Scholar – SAT Score Impact Explorer</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@300;400;500;600;700&family=DM+Serif+Display:ital@0;1&display=swap" rel="stylesheet">
 <style>
-:root{--ls:#4747F6;--bg:#f0f2f5;--card:#fff;--bdr:#e5e7eb;--tx:#111827;--mu:#6b7280;--su:#9ca3af;--gr:#166534;--gl:#dcfce7;--am:#92400e;--al:#fef3c7;--rd:#991b1b;--rl:#fee2e2;}
+:root{--ls:#4747F6;--bg:#0a0f1e;--bg2:#0f172a;--card:#fff;--bdr:#e5e7eb;--tx:#111827;--mu:#6b7280;--su:#9ca3af;--gr:#166534;--gl:#dcfce7;--am:#92400e;--al:#fef3c7;--rd:#991b1b;--rl:#fee2e2;}
 *{box-sizing:border-box;margin:0;padding:0;}
-body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;}
+body{font-family:'DM Sans',sans-serif;background:#f0f2f5;color:var(--tx);min-height:100vh;}
+
+/* HEADER */
 .hdr{background:#0f172a;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:56px;position:sticky;top:0;z-index:300;}
-.hdr-right{font-size:11px;color:#475569;text-transform:uppercase;letter-spacing:0.07em;}
-.hero{background:linear-gradient(150deg,#0f172a 0%,#1a2f55 50%,#1a3f80 100%);padding:3rem 2rem 2rem;text-align:center;}
-.hero-tag{display:inline-block;background:rgba(71,71,246,0.2);border:1px solid rgba(71,71,246,0.4);color:#a5b4fc;font-size:11px;font-weight:600;padding:4px 12px;border-radius:20px;letter-spacing:0.05em;text-transform:uppercase;margin-bottom:1rem;}
-.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(22px,4vw,44px);color:#fff;line-height:1.15;margin-bottom:0.75rem;}
-.hero h1 em{color:#60a5fa;font-style:normal;}
-.hero-sub{font-size:14px;color:#94a3b8;max-width:520px;margin:0 auto 2rem;line-height:1.7;}
-.sat-box{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.15);border-radius:16px;padding:1.5rem 2rem;max-width:680px;margin:0 auto 1.5rem;}
-.sat-box-title{font-size:10px;font-weight:600;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.1em;margin-bottom:1.25rem;text-align:left;}
-.sat-inputs{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
-.sai{display:flex;flex-direction:column;gap:8px;}
-.sai-label{font-size:12px;font-weight:500;color:rgba(255,255,255,0.6);}
-.sai-input{width:100%;padding:14px 16px;font-size:22px;font-weight:700;font-family:'DM Sans',sans-serif;border:2px solid rgba(255,255,255,0.2);border-radius:12px;background:rgba(255,255,255,0.08);color:#fff;text-align:center;transition:border-color 0.2s;}
-.sai-input:focus{outline:none;}
-#current-score{border-color:rgba(239,68,68,0.5);}
-#current-score:focus{border-color:#ef4444;}
-#target-score{border-color:rgba(99,102,241,0.5);}
-#target-score:focus{border-color:#6366f1;}
-.sai-hint{font-size:11px;text-align:center;font-weight:500;min-height:16px;}
-.hint-c{color:#fca5a5;}
-.hint-t{color:#a5b4fc;}
-.unlock-btn{width:100%;margin-top:1.25rem;padding:14px;background:linear-gradient(135deg,#4747F6,#6366f1);border:none;border-radius:12px;font-size:15px;font-weight:700;font-family:'DM Sans',sans-serif;color:#fff;cursor:pointer;transition:all 0.2s;}
-.unlock-btn:hover{transform:translateY(-1px);box-shadow:0 8px 24px rgba(71,71,246,0.4);}
-.hero-counts{display:flex;justify-content:center;gap:2.5rem;flex-wrap:wrap;padding-top:0.5rem;}
-.hc .num{font-size:22px;font-weight:700;color:#fff;}
-.hc .lbl{font-size:10px;color:#64748b;text-transform:uppercase;letter-spacing:0.06em;}
-.wrap{max-width:1140px;margin:0 auto;padding:1.5rem;}
+.hdr-right{font-size:12px;color:#64748b;}
+
+/* HERO - Split layout */
+.hero{background:linear-gradient(135deg,#080d1a 0%,#0f172a 40%,#1a2f55 70%,#1e3a6e 100%);min-height:100vh;display:grid;grid-template-columns:1fr 1fr;align-items:center;padding:5rem 4rem;gap:4rem;position:relative;overflow:hidden;}
+.hero::before{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:radial-gradient(ellipse at 20% 50%,rgba(71,71,246,0.12) 0%,transparent 60%),radial-gradient(ellipse at 80% 20%,rgba(59,130,246,0.08) 0%,transparent 50%);pointer-events:none;}
+.hero-left{position:relative;z-index:1;}
+.hero-tag{display:inline-block;border:1px solid rgba(255,255,255,0.2);color:rgba(255,255,255,0.6);font-size:11px;font-weight:600;padding:5px 14px;border-radius:20px;letter-spacing:0.08em;text-transform:uppercase;margin-bottom:1.5rem;}
+.hero h1{font-family:'DM Serif Display',serif;font-size:clamp(32px,4vw,56px);color:#fff;line-height:1.08;margin-bottom:1.25rem;font-weight:400;}
+.hero h1 .blue{color:#60a5fa;}
+.hero-sub{font-size:15px;color:rgba(255,255,255,0.55);line-height:1.75;max-width:480px;}
+.hero-counts{display:flex;gap:2rem;margin-top:2.5rem;flex-wrap:wrap;}
+.hero-count{display:flex;flex-direction:column;}
+.hero-count .num{font-size:26px;font-weight:700;color:#fff;}
+.hero-count .lbl{font-size:11px;color:#475569;text-transform:uppercase;letter-spacing:0.06em;margin-top:2px;}
+
+/* HERO RIGHT - Input card */
+.hero-right{position:relative;z-index:1;}
+.score-card{background:rgba(15,23,42,0.7);border:1px solid rgba(255,255,255,0.12);border-radius:20px;padding:2rem;backdrop-filter:blur(12px);}
+.score-card-title{font-size:17px;font-weight:700;color:#fff;margin-bottom:0.5rem;}
+.score-card-sub{font-size:13px;color:rgba(255,255,255,0.5);margin-bottom:1.75rem;line-height:1.6;}
+.score-inputs{display:grid;grid-template-columns:1fr 1fr;gap:1.25rem;margin-bottom:1.25rem;}
+.si-group{display:flex;flex-direction:column;gap:8px;}
+.si-label{font-size:10px;font-weight:700;color:rgba(255,255,255,0.45);text-transform:uppercase;letter-spacing:0.08em;}
+.si-input{width:100%;padding:16px;font-size:26px;font-weight:700;font-family:'DM Sans',sans-serif;border:2px solid rgba(255,255,255,0.15);border-radius:14px;background:rgba(255,255,255,0.08);color:#fff;text-align:center;transition:border-color 0.2s;}
+.si-input:focus{outline:none;border-color:rgba(96,165,250,0.6);}
+#cs{border-color:rgba(239,68,68,0.4);}#cs:focus{border-color:#ef4444;}
+#ts{border-color:rgba(99,102,241,0.4);}#ts:focus{border-color:#6366f1;}
+.si-hint{font-size:11px;color:rgba(255,255,255,0.35);text-align:center;}
+.unlock-btn{width:100%;padding:15px;background:linear-gradient(135deg,#4747F6,#6366f1);border:none;border-radius:12px;font-size:15px;font-weight:700;font-family:'DM Sans',sans-serif;color:#fff;cursor:pointer;transition:all 0.2s;margin-bottom:0.875rem;}
+.unlock-btn:hover{transform:translateY(-1px);box-shadow:0 12px 32px rgba(71,71,246,0.4);}
+.unlock-hint{font-size:11px;color:rgba(255,255,255,0.3);text-align:center;}
+
+/* MAIN */
+.wrap{max-width:1200px;margin:0 auto;padding:1.5rem;}
 .section-gap{margin-bottom:1.25rem;}
+
+/* JOURNEY */
 .journey-hdr{background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:1.5rem;margin-bottom:1rem;color:#fff;}
 .journey-scores{display:flex;align-items:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:1rem;}
 .score-pill{display:flex;flex-direction:column;align-items:center;background:rgba(255,255,255,0.1);border-radius:12px;padding:0.875rem 1.5rem;}
@@ -50,54 +62,43 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 .ji-desc{font-size:13px;color:rgba(255,255,255,0.65);line-height:1.6;}
 .journey-prog{background:rgba(255,255,255,0.1);border-radius:8px;height:8px;overflow:hidden;}
 .journey-bar{height:100%;background:linear-gradient(90deg,#f87171,#818cf8);border-radius:8px;transition:width 0.5s;}
+
+/* SCORE RANGE TABLE */
 .score-range-section{background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:16px;padding:1.5rem;margin-bottom:1.25rem;color:#fff;}
 .srs-title{font-size:14px;font-weight:700;color:#fff;margin-bottom:0.25rem;}
-.srs-sub{font-size:12px;color:rgba(255,255,255,0.55);margin-bottom:1.25rem;}
-.srt{width:100%;border-collapse:collapse;min-width:700px;}
-.bands-card{background:var(--card);border:1px solid var(--bdr);border-radius:16px;padding:1.5rem;}
-.bands-title{font-size:12px;font-weight:700;color:var(--tx);text-transform:uppercase;letter-spacing:0.06em;margin-bottom:1rem;}
-.band-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:0.5rem;}
-.sat-band{border-radius:10px;padding:0.75rem 0.5rem;text-align:center;cursor:pointer;transition:all 0.2s;border:2px solid transparent;position:relative;}
-.sat-band:hover{transform:translateY(-2px);}
-.sat-band.active{border-color:currentColor;box-shadow:0 4px 16px rgba(0,0,0,0.15);}
-.sb-label{font-size:10px;font-weight:700;margin-bottom:4px;}
-.sb-count{font-size:18px;font-weight:700;margin:4px 0;}
-.sb-tier{font-size:9px;font-weight:600;opacity:0.7;text-transform:uppercase;}
-.sb-you{font-size:9px;font-weight:700;margin-top:3px;}
-.sb-dot{position:absolute;top:4px;right:4px;width:8px;height:8px;border-radius:50%;}
-.band-detail{background:var(--card);border:1px solid var(--bdr);border-radius:16px;padding:1.5rem;}
-.bd-top{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.25rem;flex-wrap:wrap;gap:1rem;}
-.bd-score{font-size:26px;font-weight:700;}
-.bd-tier{font-size:13px;font-weight:500;margin-top:4px;opacity:0.7;}
-.bd-info{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:0.75rem;margin-bottom:1.25rem;}
-.bd-info-card{border-radius:10px;padding:0.875rem;}
-.bd-ic-l{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;margin-bottom:5px;opacity:0.6;}
-.bd-ic-v{font-size:14px;font-weight:700;}
-.bd-unis-title{font-size:12px;font-weight:600;color:var(--mu);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.625rem;}
-.bd-unis-list{display:flex;flex-wrap:wrap;gap:0.5rem;}
-.bd-chip{font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px;border:1px solid;cursor:pointer;transition:all 0.15s;}
+.srs-sub{font-size:12px;color:rgba(255,255,255,0.5);margin-bottom:1.25rem;}
+.srt-scroll{overflow-x:auto;}
+.srt{width:100%;border-collapse:collapse;}
+.srt thead th,.srt tbody td{white-space:nowrap;}
+.srt .freeze-col{position:sticky;left:0;z-index:10;}
+
+/* FILTERS */
 .filters-bar{background:var(--card);border:1px solid var(--bdr);border-radius:14px;padding:1rem 1.25rem;}
 .filters-inner{display:flex;align-items:flex-end;gap:0.75rem;flex-wrap:wrap;}
 .fi{display:flex;flex-direction:column;gap:5px;flex:1;min-width:110px;}
 .fi label{font-size:10px;font-weight:700;color:var(--mu);text-transform:uppercase;letter-spacing:0.04em;}
-.fi select{padding:8px 28px 8px 10px;font-size:13px;font-family:'DM Sans',sans-serif;border:1.5px solid var(--bdr);border-radius:9px;background:var(--bg);color:var(--tx);appearance:none;-webkit-appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 9px center;}
+.fi select{padding:8px 28px 8px 10px;font-size:13px;font-family:'DM Sans',sans-serif;border:1.5px solid var(--bdr);border-radius:9px;background:#f9fafb;color:var(--tx);appearance:none;-webkit-appearance:none;cursor:pointer;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='6'%3E%3Cpath d='M1 1l4 4 4-4' stroke='%236b7280' stroke-width='1.5' fill='none' stroke-linecap='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 9px center;}
 .fi select:focus{outline:none;border-color:var(--ls);}
-.fbtn{padding:9px 16px;border:1.5px solid var(--bdr);border-radius:9px;background:var(--bg);font-size:12px;font-family:'DM Sans',sans-serif;color:var(--mu);cursor:pointer;white-space:nowrap;transition:all 0.15s;align-self:flex-end;}
+.fbtn{padding:9px 16px;border:1.5px solid var(--bdr);border-radius:9px;background:#f9fafb;font-size:12px;font-family:'DM Sans',sans-serif;color:var(--mu);cursor:pointer;white-space:nowrap;align-self:flex-end;transition:all 0.15s;}
 .fbtn:hover{border-color:#374151;color:var(--tx);}
+
+/* RESULTS */
 .results-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:0.875rem;flex-wrap:wrap;gap:0.5rem;}
 .results-title{font-size:15px;font-weight:600;color:var(--tx);}
 .vt{display:flex;border:1px solid var(--bdr);border-radius:9px;overflow:hidden;}
 .vbtn{padding:6px 14px;font-size:12px;font-family:'DM Sans',sans-serif;border:none;cursor:pointer;background:var(--card);color:var(--mu);transition:all 0.15s;}
 .vbtn.active{background:#0f172a;color:#fff;font-weight:500;}
-.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(270px,1fr));gap:1rem;}
+
+/* CARDS */
+.cgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1rem;}
 .uc{background:var(--card);border:1.5px solid var(--bdr);border-radius:13px;padding:1.2rem;cursor:pointer;transition:all 0.18s;}
-.uc:hover{box-shadow:0 4px 16px rgba(0,0,0,0.08);transform:translateY(-1px);}
+.uc:hover{box-shadow:0 4px 20px rgba(0,0,0,0.1);transform:translateY(-2px);}
 .uc.mc{border-color:#86efac;background:#f0fdf4;}
 .uc.sc2{border-color:#fcd34d;background:#fffbeb;}
 .uc.rc{border-color:#fca5a5;background:#fef2f2;}
 .uc.fc{border-color:#a5b4fc;background:#f5f3ff;}
-.uc-top{display:flex;align-items:flex-start;justify-content:space-between;gap:0.5rem;margin-bottom:0.625rem;}
-.uc-name{font-size:13px;font-weight:600;color:var(--tx);line-height:1.35;flex:1;}
+.uc-top{margin-bottom:0.625rem;}
+.uc-name{font-size:13px;font-weight:600;color:var(--tx);line-height:1.35;}
 .uc-meta{display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;margin-bottom:0.75rem;}
 .tb{display:inline-flex;align-items:center;gap:4px;padding:3px 8px;border-radius:20px;font-size:10px;font-weight:600;}
 .td{width:5px;height:5px;border-radius:50%;}
@@ -106,25 +107,22 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 .t3{background:#fef3c7;color:#92400e;}.t3 .td{background:#f59e0b;}
 .t4{background:#ede9fe;color:#4c1d95;}.t4 .td{background:#7c3aed;}
 .t5{background:#f3f4f6;color:#374151;}.t5 .td{background:#9ca3af;}
-.mt{font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px;letter-spacing:0.03em;}
+.mt{font-size:10px;font-weight:700;padding:2px 7px;border-radius:10px;}
 .mt-m{background:#dcfce7;color:#166534;}
 .mt-s{background:#fef3c7;color:#92400e;}
 .mt-r{background:#fee2e2;color:#991b1b;}
 .mt-f{background:#ede9fe;color:#4c1d95;}
 .sat-viz{display:flex;align-items:center;gap:8px;margin-bottom:0.625rem;}
 .sat-track{flex:1;height:8px;background:#e5e7eb;border-radius:4px;position:relative;overflow:hidden;}
-.sat-req{position:absolute;left:0;top:0;height:100%;background:#e5e7eb;border-radius:4px;}
-.sat-cur{position:absolute;left:0;top:0;height:100%;background:rgba(239,68,68,0.55);border-radius:4px;}
-.sat-tgt{position:absolute;left:0;top:0;height:100%;background:rgba(71,71,246,0.4);border-radius:4px;}
-.sat-line{position:absolute;top:0;width:3px;height:100%;background:#374151;border-radius:1px;}
 .sat-range-lbl{font-size:11px;font-weight:600;color:var(--tx);white-space:nowrap;}
 .uc-grid{display:grid;grid-template-columns:1fr 1fr;gap:0.4rem;margin-bottom:0.625rem;}
 .uci-l{font-size:9px;color:var(--su);text-transform:uppercase;letter-spacing:0.04em;}
 .uci-v{font-size:12px;font-weight:600;color:var(--tx);}
 .uc-div{height:1px;background:var(--bdr);margin:0.5rem 0;}
-.uc-sch{font-size:11px;color:var(--gr);font-weight:500;}
-.uc-btn{width:100%;margin-top:0.625rem;padding:7px;border:1px solid var(--bdr);border-radius:8px;background:transparent;font-size:11px;font-family:'DM Sans',sans-serif;color:var(--mu);cursor:pointer;transition:all 0.15s;}
-.uc-btn:hover{background:#eff6ff;color:var(--ls);border-color:#93c5fd;}
+.uc-btn{width:100%;margin-top:0.625rem;padding:8px;border:1px solid var(--ls);border-radius:8px;background:#eff6ff;font-size:11px;font-family:'DM Sans',sans-serif;color:var(--ls);font-weight:600;cursor:pointer;transition:all 0.15s;}
+.uc-btn:hover{background:var(--ls);color:#fff;}
+
+/* TABLE */
 .tbl-wrap{background:var(--card);border:1px solid var(--bdr);border-radius:14px;overflow:hidden;}
 .tbl-bar{padding:0.875rem 1.25rem;border-bottom:1px solid var(--bdr);display:flex;align-items:center;justify-content:space-between;}
 .tbl-l{font-size:13px;color:var(--mu);}
@@ -140,32 +138,39 @@ tbody tr:hover{background:#f8f9ff;}
 tbody td{padding:10px 12px;vertical-align:middle;}
 .gap-ok{color:#166534;font-weight:700;font-size:12px;}
 .gap-bad{color:#991b1b;font-weight:600;font-size:12px;}
-.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.55);z-index:500;display:flex;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto;}
-.dpanel{background:var(--card);border:2px solid var(--ls);border-radius:16px;padding:1.5rem;width:100%;max-width:860px;position:relative;margin:auto;}
+
+/* MODAL */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,0.6);z-index:500;display:flex;align-items:flex-start;justify-content:center;padding:2rem 1rem;overflow-y:auto;}
+.dpanel{background:var(--card);border-radius:18px;padding:1.75rem;width:100%;max-width:900px;margin:auto;}
 .dp-hdr{display:flex;align-items:flex-start;justify-content:space-between;margin-bottom:1.25rem;}
-.dp-title{font-size:17px;font-weight:700;color:var(--tx);}
+.dp-title{font-size:18px;font-weight:700;color:var(--tx);}
 .dp-sub{font-size:12px;color:var(--mu);margin-top:4px;display:flex;align-items:center;gap:0.5rem;flex-wrap:wrap;}
-.dp-close{padding:5px 12px;border:1px solid var(--bdr);border-radius:8px;background:var(--bg);font-size:12px;cursor:pointer;color:var(--mu);}
-.dp-tabs{display:flex;border-bottom:1px solid var(--bdr);margin-bottom:1.25rem;overflow-x:auto;}
-.dp-tab{padding:8px 16px;font-size:13px;font-family:'DM Sans',sans-serif;border:none;background:transparent;cursor:pointer;color:var(--mu);border-bottom:2px solid transparent;white-space:nowrap;transition:all 0.15s;}
+.dp-close{padding:6px 14px;border:1px solid var(--bdr);border-radius:8px;background:#f9fafb;font-size:12px;cursor:pointer;color:var(--mu);font-family:'DM Sans',sans-serif;}
+.dp-tabs{display:flex;border-bottom:1px solid var(--bdr);margin-bottom:1.25rem;overflow-x:auto;gap:0;}
+.dp-tab{padding:9px 18px;font-size:13px;font-family:'DM Sans',sans-serif;border:none;background:transparent;cursor:pointer;color:var(--mu);border-bottom:2px solid transparent;white-space:nowrap;transition:all 0.15s;}
 .dp-tab.active{color:var(--ls);border-bottom-color:var(--ls);font-weight:600;}
 .tc{display:none;}.tc.active{display:block;}
 .ig{display:grid;grid-template-columns:repeat(auto-fit,minmax(148px,1fr));gap:0.875rem;margin-bottom:1.25rem;}
-.ib{background:var(--bg);border-radius:11px;padding:0.875rem;}
+.ib{background:#f8fafc;border-radius:11px;padding:0.875rem;}
 .ib-l{font-size:10px;color:var(--su);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:5px;}
 .ib-v{font-size:15px;font-weight:700;color:var(--tx);}
 .ib-s{font-size:11px;color:var(--mu);margin-top:3px;}
 .st{font-size:11px;font-weight:700;color:var(--tx);text-transform:uppercase;letter-spacing:0.05em;margin-bottom:0.75rem;padding-bottom:0.5rem;border-bottom:1px solid var(--bdr);}
-.sch-list{display:flex;flex-direction:column;gap:0.625rem;margin-bottom:1.25rem;}
 .roi-g{display:grid;grid-template-columns:repeat(auto-fit,minmax(140px,1fr));gap:0.875rem;margin-bottom:1.25rem;}
-.roi-c{background:var(--bg);border-radius:11px;padding:1rem;text-align:center;}
-.roi-v{font-size:20px;font-weight:700;color:var(--tx);}
+.roi-c{background:#f8fafc;border-radius:11px;padding:1rem;text-align:center;}
+.roi-v{font-size:18px;font-weight:700;color:var(--tx);}
 .roi-l{font-size:11px;color:var(--su);margin-top:4px;}
 .chips{display:flex;flex-wrap:wrap;gap:0.5rem;margin-bottom:1rem;}
 .chip{background:#f1f5f9;border-radius:8px;padding:5px 11px;font-size:12px;font-weight:500;color:#334155;}
 .nores{text-align:center;padding:2.5rem;color:var(--mu);}
 .footer{text-align:center;padding:1.5rem;font-size:11px;color:var(--su);margin-top:0.5rem;}
-@media(max-width:768px){.hero{padding:2rem 1rem 1.5rem;}.sat-inputs{grid-template-columns:1fr;}.wrap{padding:1rem;}.band-grid{grid-template-columns:repeat(3,1fr);}.cgrid{grid-template-columns:1fr;}}
+@media(max-width:900px){
+  .hero{grid-template-columns:1fr;padding:3rem 1.5rem;min-height:auto;gap:2rem;}
+  .hero h1{font-size:32px;}
+  .wrap{padding:1rem;}
+  .cgrid{grid-template-columns:1fr;}
+  .score-inputs{grid-template-columns:1fr;}
+}
 </style>
 </head>
 <body>
@@ -191,57 +196,61 @@ tbody td{padding:10px 12px;vertical-align:middle;}
   <div class="hdr-right">SAT University Explorer</div>
 </header>
 <section class="hero">
-  <div class="hero-tag">&#127891; Leap Scholar SAT Explorer</div>
-  <h1>See where your <em>SAT score</em> can take you</h1>
-  <p class="hero-sub">Get a clear view of the universities and scholarships aligned with your current and target scores.</p>
-  <div class="sat-box">
-    <div class="sat-box-title">&#x25A0; Enter your SAT scores to unlock your personalised university map</div>
-    <div class="sat-inputs">
-      <div class="sai">
-        <div class="sai-label">Current score (or mock taken)</div>
-        <input type="number" id="current-score" class="sai-input" min="400" max="1600" placeholder="e.g. 1100">
-        <div class="sai-hint hint-c" id="hint-c">Enter your current score</div>
-      </div>
-      <div class="sai">
-        <div class="sai-label">Target SAT score</div>
-        <input type="number" id="target-score" class="sai-input" min="400" max="1600" placeholder="e.g. 1450">
-        <div class="sai-hint hint-t" id="hint-t">Enter your target score</div>
-      </div>
+  <div class="hero-left">
+    <div class="hero-tag">SAT Score Predictor + College Pathway</div>
+    <h1>See how a better <span class="blue">SAT score</span> can unlock stronger colleges, better scholarships, and more flexibility in the application journey.</h1>
+    <p class="hero-sub">Enter a current score and a target score to explore how score improvement can expand college options, improve scholarship potential, and strengthen the overall application.</p>
+    <div class="hero-counts">
+      <div class="hero-count"><div class="num" id="total-count">192</div><div class="lbl">Universities</div></div>
+      <div class="hero-count"><div class="num">8</div><div class="lbl">Countries</div></div>
+      <div class="hero-count"><div class="num">$500M+</div><div class="lbl">In scholarships</div></div>
     </div>
-    <button class="unlock-btn" id="unlock-btn">&#128275; Show My University Map</button>
   </div>
-  <div class="hero-counts">
-    <div class="hc"><div class="num" id="total-count">192</div><div class="lbl">Universities</div></div>
-    <div class="hc"><div class="num">8</div><div class="lbl">Countries</div></div>
-    <div class="hc"><div class="num">5</div><div class="lbl">Tiers</div></div>
-    <div class="hc"><div class="num">$500M+</div><div class="lbl">In scholarships</div></div>
+  <div class="hero-right">
+    <div class="score-card">
+      <div class="score-card-title">See My SAT Impact</div>
+      <div class="score-card-sub">Enter the student's current score and target score to view updated college fit, score movement, and scholarship potential.</div>
+      <div class="score-inputs">
+        <div class="si-group">
+          <div class="si-label">Current Score</div>
+          <input type="number" id="cs" class="si-input" min="400" max="1600" placeholder="1180">
+          <div class="si-hint" id="hint-c">Where the student stands today</div>
+        </div>
+        <div class="si-group">
+          <div class="si-label">Target Score</div>
+          <input type="number" id="ts" class="si-input" min="400" max="1600" placeholder="1380">
+          <div class="si-hint" id="hint-t">The score being planned for</div>
+        </div>
+      </div>
+      <button class="unlock-btn" id="unlock-btn">Update SAT Pathway</button>
+      <div class="unlock-hint">The pathway below updates instantly as the scores change.</div>
+    </div>
   </div>
 </section>
+
+<div id="results-anchor"></div>
 <div class="wrap">
   <div id="journey-section" style="display:none" class="section-gap">
     <div class="journey-hdr">
       <div class="journey-scores">
-        <div class="score-pill cur"><div class="sp-n" id="sp-cur">--</div><div class="sp-l">Current score</div></div>
-        <div class="score-arrow">&#x2192;</div>
-        <div class="score-pill tgt"><div class="sp-n" id="sp-tgt">--</div><div class="sp-l">Target score</div></div>
+        <div class="score-pill cur"><div class="sp-n" id="sp-cur">--</div><div class="sp-l">Current</div></div>
+        <div class="score-arrow">→</div>
+        <div class="score-pill tgt"><div class="sp-n" id="sp-tgt">--</div><div class="sp-l">Target</div></div>
         <div class="journey-insight">
           <div class="ji-title" id="ji-title">Your SAT journey</div>
-          <div class="ji-desc" id="ji-desc">Enter your scores above to see your university map.</div>
+          <div class="ji-desc" id="ji-desc">Enter scores above.</div>
         </div>
       </div>
       <div class="journey-prog"><div class="journey-bar" id="journey-bar" style="width:0%"></div></div>
     </div>
     <div class="score-range-section">
-      <div class="srs-title">&#128202; Your SAT Score vs Target Score</div>
-      <div class="srs-sub">See what each score range unlocks — your scores are highlighted</div>
-      <div style="overflow-x:auto"><table class="srt" id="srt-table"></table></div>
+      <div class="srs-title">📊 Your SAT Score vs Target Score</div>
+      <div class="srs-sub">See what each score range unlocks — your scores are highlighted. Scroll right to see all ranges.</div>
+      <div class="srt-scroll"><table class="srt" id="srt-table"></table></div>
     </div>
   </div>
-  <div class="bands-card section-gap">
-    <div class="bands-title">&#127919; Universities by SAT score band — click to explore</div>
-    <div class="band-grid" id="band-grid"></div>
-  </div>
-<div class="filters-bar section-gap">
+
+  <div class="filters-bar section-gap">
     <div class="filters-inner">
       <div class="fi"><label>Country</label><select id="f-country"><option value="">All countries</option></select></div>
       <div class="fi"><label>Tier</label><select id="f-tier"><option value="">All tiers</option></select></div>
@@ -257,9 +266,10 @@ tbody td{padding:10px 12px;vertical-align:middle;}
           <option value="5">1500-1600 (Tier 1 Elite)</option>
         </select>
       </div>
-      <button class="fbtn" id="reset-btn">&#x21BA; Reset</button>
+      <button class="fbtn" id="reset-btn">↺ Reset</button>
     </div>
   </div>
+
   <div id="results-section">
     <div class="results-header">
       <div class="results-title" id="results-title">All 192 universities</div>
@@ -275,14 +285,14 @@ tbody td{padding:10px 12px;vertical-align:middle;}
         <div class="twrap">
           <table>
             <thead><tr>
-              <th onclick="sortBy('university')">University <span class="si" id="arr-university">&#x2195;</span></th>
-              <th onclick="sortBy('tier')">Tier <span class="si" id="arr-tier">&#x2195;</span></th>
-              <th onclick="sortBy('satMin')">SAT Min <span class="si" id="arr-satMin">&#x2195;</span></th>
-              <th onclick="sortBy('tuitionUSD')">Tuition/yr <span class="si" id="arr-tuitionUSD">&#x2195;</span></th>
-              <th onclick="sortBy('rank')">Rank <span class="si" id="arr-rank">&#x2195;</span></th>
+              <th onclick="sortBy('university')">University <span class="si" id="arr-university">↕</span></th>
+              <th onclick="sortBy('tier')">Tier <span class="si" id="arr-tier">↕</span></th>
+              <th onclick="sortBy('satMin')">SAT Min <span class="si" id="arr-satMin">↕</span></th>
+              <th onclick="sortBy('tuitionUSD')">Tuition/yr <span class="si" id="arr-tuitionUSD">↕</span></th>
+              <th onclick="sortBy('rank')">Rank <span class="si" id="arr-rank">↕</span></th>
               <th>Gap to qualify</th>
               <th>Scholarship range</th>
-              <th onclick="sortBy('avgSalary')">Avg salary <span class="si" id="arr-avgSalary">&#x2195;</span></th>
+              <th onclick="sortBy('avgSalary')">Avg salary <span class="si" id="arr-avgSalary">↕</span></th>
               <th>Top recruiters</th>
             </tr></thead>
             <tbody id="tbody"></tbody>
@@ -293,8 +303,10 @@ tbody td{padding:10px 12px;vertical-align:middle;}
     </div>
   </div>
 </div>
-<div class="footer">Leap Scholar SAT Explorer &middot; 192+ universities across 8 countries &middot; For counsellor use only</div>
-<script>const UNIS=[
+<div class="footer">Leap Scholar SAT Explorer · 192+ universities · Rankings: QS 2024, THE 2024, NIRF 2024 · For counsellor use · Verify data before sharing with students</div>
+
+<script>
+const UNIS=[
   {university:"Massachusetts Institute of Technology",country:"USA",state:"Massachusetts",tier:1,satMin:1510,satMax:1580,acceptance:4,rank:1,fields:["Engineering","CS","Physics"]},
   {university:"Stanford University",country:"USA",state:"California",tier:1,satMin:1500,satMax:1570,acceptance:4,rank:2,fields:["CS","Business","Medicine"]},
   {university:"Harvard University",country:"USA",state:"Massachusetts",tier:1,satMin:1490,satMax:1580,acceptance:4,rank:3,fields:["Law","Medicine","Economics"]},
@@ -504,7 +516,6 @@ const EXTRA = {
 
 const CM={"USA": {"emoji": "🇺🇸", "desc": "Largest pool of SAT-accepting universities across all tiers", "color": "#1e40af", "bg": "#dbeafe"}, "UK": {"emoji": "🇬🇧", "desc": "World-class education, 3-year degrees, strong for law & medicine", "color": "#166534", "bg": "#dcfce7"}, "Canada": {"emoji": "🇨🇦", "desc": "Post-study work permit, affordable tuition, welcoming to Indians", "color": "#92400e", "bg": "#fef3c7"}, "Australia": {"emoji": "🇦🇺", "desc": "4-year work rights post-graduation, high quality of life", "color": "#4c1d95", "bg": "#ede9fe"}, "India": {"emoji": "🇮🇳", "desc": "IITs, IISc & top private universities — best value for money", "color": "#991b1b", "bg": "#fee2e2"}, "Europe": {"emoji": "🇪🇺", "desc": "Low/no tuition in Germany & Netherlands, globally ranked", "color": "#065f46", "bg": "#d1fae5"}, "Asia": {"emoji": "🌏", "desc": "Singapore & Hong Kong — elite unis with generous scholarships", "color": "#1e3a8a", "bg": "#e0e7ff"}, "Middle East": {"emoji": "🌍", "desc": "Tax-free scholarships, NYU Abu Dhabi full ride, Qatar Education City", "color": "#7c2d12", "bg": "#ffedd5"}};
 const TM={"1": {"label": "Tier 1 – Elite", "range": "SAT 1400–1600", "color": "#1e40af", "bg": "#dbeafe", "desc": "Top 50 globally. Ivy League, Oxbridge, IITs. Under 15% acceptance."}, "2": {"label": "Tier 2 – Strong", "range": "SAT 1200–1450", "color": "#166534", "bg": "#dcfce7", "desc": "Top 50–150. Strong research, excellent careers. Competitive but achievable."}, "3": {"label": "Tier 3 – Good", "range": "SAT 1050–1300", "color": "#92400e", "bg": "#fef3c7", "desc": "Ranked 150–500. Solid degrees, good industry connections."}, "4": {"label": "Tier 4 – Accessible", "range": "SAT 950–1200", "color": "#4c1d95", "bg": "#ede9fe", "desc": "Ranked 500–900. High acceptance, good ROI for many students."}, "5": {"label": "Tier 5 – Open", "range": "SAT 900–1050", "color": "#374151", "bg": "#f3f4f6", "desc": "Open-access & community colleges. Widest acceptance."}};
-
 const SAT_BANDS = [
   {min:900,  max:1099, label:"900-1099", color:"#dc2626", bg:"#fef2f2", tier:"Tier 4-5",
    desc:"Open-access & accessible universities. Good starting point.",
@@ -555,39 +566,185 @@ const SAT_BANDS = [
    avgSalary:"$110K-150K+",
    unis_example:["MIT","Harvard","Stanford","Oxford","Cambridge"]}
 ];
-function getExtra(n) {
-  if (EXTRA[n]) return EXTRA[n];
-  var u = UNIS.find(function(x){ return x.university===n; }) || {};
-  var tm = {1:1.2,2:1.0,3:0.8,4:0.65,5:0.5}[u.tier] || 0.8;
-  var ct = {USA:45000,UK:28000,Canada:35000,Australia:32000,Europe:12000,Asia:20000,"Middle East":18000,India:5000}[u.country] || 25000;
-  var cl = {USA:18000,UK:14000,Canada:13000,Australia:14000,Europe:10000,Asia:9000,"Middle East":12000,India:4000}[u.country] || 12000;
-  return {
-    tuitionUSD: Math.round(ct*tm), living: Math.round(cl),
-    scholarships: ["Merit Scholarship (varies)","Need-Based Aid","International Student Award"],
-    avgSalary: Math.round(({USA:80000,UK:45000,Canada:55000,Australia:50000,Europe:45000,Asia:40000,"Middle East":45000,India:20000}[u.country]||45000)*tm),
-    topRecruiters: (function(){
-      var byTier={
-        1:["Google","McKinsey","Goldman Sachs","Microsoft","Apple"],
-        2:["Amazon","Deloitte","JP Morgan","BCG","Meta"],
-        3:["Accenture","IBM","TCS","Infosys","EY"],
-        4:["Wipro","Capgemini","HCL","Cognizant","KPMG"],
-        5:["Local firms","Government","SMEs","Startups","NGOs"]
-      };
-      return byTier[u.tier]||["Accenture","IBM","TCS","EY","Deloitte"];
-    }()),
-    placementRate: {1:95,2:88,3:80,4:72,5:65}[u.tier]||80
-  };
+// Country ranking data & local tiers
+// Source: QS World Rankings 2024, NIRF 2024 (India), Times Higher Education
+var COUNTRY_RANKS = {
+  // India - NIRF 2024
+  "Indian Institute of Technology Bombay": {countryRank:3, countryTier:"Tier 1 India", country:"India"},
+  "Indian Institute of Technology Delhi": {countryRank:4, countryTier:"Tier 1 India", country:"India"},
+  "Indian Institute of Technology Madras": {countryRank:1, countryTier:"Tier 1 India", country:"India"},
+  "Indian Institute of Technology Kanpur": {countryRank:5, countryTier:"Tier 1 India", country:"India"},
+  "Indian Institute of Technology Kharagpur": {countryRank:6, countryTier:"Tier 1 India", country:"India"},
+  "Indian Institute of Technology Roorkee": {countryRank:7, countryTier:"Tier 1 India", country:"India"},
+  "Indian Institute of Technology Hyderabad": {countryRank:10, countryTier:"Tier 1 India", country:"India"},
+  "Indian Institute of Technology Guwahati": {countryRank:9, countryTier:"Tier 1 India", country:"India"},
+  "Indian Institute of Science": {countryRank:2, countryTier:"Tier 1 India", country:"India"},
+  "Birla Institute of Technology & Science Pilani": {countryRank:21, countryTier:"Tier 2 India", country:"India"},
+  "BITS Pilani – Goa Campus": {countryRank:25, countryTier:"Tier 2 India", country:"India"},
+  "BITS Pilani – Hyderabad Campus": {countryRank:26, countryTier:"Tier 2 India", country:"India"},
+  "Vellore Institute of Technology": {countryRank:11, countryTier:"Tier 2 India", country:"India"},
+  "Manipal Academy of Higher Education": {countryRank:14, countryTier:"Tier 2 India", country:"India"},
+  "Ashoka University": {countryRank:40, countryTier:"Tier 2 India", country:"India"},
+  "OP Jindal Global University": {countryRank:45, countryTier:"Tier 2 India", country:"India"},
+  "Jadavpur University": {countryRank:12, countryTier:"Tier 2 India", country:"India"},
+  "Chandigarh University": {countryRank:28, countryTier:"Tier 3 India", country:"India"},
+  "Amity University": {countryRank:50, countryTier:"Tier 3 India", country:"India"},
+  "Lovely Professional University": {countryRank:80, countryTier:"Tier 4 India", country:"India"},
+  // UAE
+  "New York University Abu Dhabi": {countryRank:1, countryTier:"Tier 1 UAE", country:"UAE"},
+  "Khalifa University": {countryRank:2, countryTier:"Tier 1 UAE", country:"UAE"},
+  "American University of Sharjah": {countryRank:3, countryTier:"Tier 1 UAE", country:"UAE"},
+  "American University of Dubai": {countryRank:4, countryTier:"Tier 2 UAE", country:"UAE"},
+  "Heriot-Watt University Dubai": {countryRank:5, countryTier:"Tier 2 UAE", country:"UAE"},
+  "Rochester Institute of Technology Dubai": {countryRank:6, countryTier:"Tier 2 UAE", country:"UAE"},
+  // UK - Guardian 2024
+  "University of Oxford": {countryRank:1, countryTier:"Tier 1 UK", country:"UK"},
+  "University of Cambridge": {countryRank:2, countryTier:"Tier 1 UK", country:"UK"},
+  "Imperial College London": {countryRank:3, countryTier:"Tier 1 UK", country:"UK"},
+  "London School of Economics": {countryRank:4, countryTier:"Tier 1 UK", country:"UK"},
+  "University College London": {countryRank:5, countryTier:"Tier 1 UK", country:"UK"},
+  "King's College London": {countryRank:6, countryTier:"Tier 1 UK", country:"UK"},
+  "University of Edinburgh": {countryRank:7, countryTier:"Tier 1 UK", country:"UK"},
+  "University of Manchester": {countryRank:8, countryTier:"Tier 1 UK", country:"UK"},
+  "University of Bristol": {countryRank:9, countryTier:"Tier 1 UK", country:"UK"},
+  "Durham University": {countryRank:10, countryTier:"Tier 1 UK", country:"UK"},
+  "University of Glasgow": {countryRank:11, countryTier:"Tier 2 UK", country:"UK"},
+  "University of Exeter": {countryRank:12, countryTier:"Tier 2 UK", country:"UK"},
+  "University of Leeds": {countryRank:15, countryTier:"Tier 2 UK", country:"UK"},
+  "University of Nottingham": {countryRank:16, countryTier:"Tier 2 UK", country:"UK"},
+  "University of Birmingham": {countryRank:14, countryTier:"Tier 2 UK", country:"UK"},
+  "University of Southampton": {countryRank:18, countryTier:"Tier 2 UK", country:"UK"},
+  // Canada
+  "University of Toronto": {countryRank:1, countryTier:"Tier 1 Canada", country:"Canada"},
+  "University of British Columbia": {countryRank:2, countryTier:"Tier 1 Canada", country:"Canada"},
+  "McGill University": {countryRank:3, countryTier:"Tier 1 Canada", country:"Canada"},
+  "University of Waterloo": {countryRank:4, countryTier:"Tier 1 Canada", country:"Canada"},
+  "McMaster University": {countryRank:5, countryTier:"Tier 1 Canada", country:"Canada"},
+  "University of Alberta": {countryRank:6, countryTier:"Tier 2 Canada", country:"Canada"},
+  // Australia
+  "University of Melbourne": {countryRank:1, countryTier:"Tier 1 Australia", country:"Australia"},
+  "University of Sydney": {countryRank:2, countryTier:"Tier 1 Australia", country:"Australia"},
+  "Australian National University": {countryRank:3, countryTier:"Tier 1 Australia", country:"Australia"},
+  "University of New South Wales": {countryRank:4, countryTier:"Tier 1 Australia", country:"Australia"},
+  "University of Queensland": {countryRank:5, countryTier:"Tier 1 Australia", country:"Australia"},
+  "Monash University": {countryRank:6, countryTier:"Tier 1 Australia", country:"Australia"},
+  // Singapore
+  "National University of Singapore": {countryRank:1, countryTier:"Tier 1 Singapore", country:"Singapore"},
+  "Nanyang Technological University": {countryRank:2, countryTier:"Tier 1 Singapore", country:"Singapore"},
+};
+
+// Ideal student profile per university (board %, ECs, SAT) - based on admitted student data
+var PROFILES = {
+  "Massachusetts Institute of Technology": {
+    cbse:"95%+", ib:"42+", sat:"1510-1580",
+    extras:["Math/Science Olympiad (national/international)","Research paper published","Coding competitions (USACO/IOI)","Founded a tech project or startup"],
+    tagline:"Among the most competitive STEM admits globally. Near-perfect academics plus exceptional technical projects."
+  },
+  "Stanford University": {
+    cbse:"95%+", ib:"42+", sat:"1500-1570",
+    extras:["Founded a company or NGO","Research at a university","National-level sports or arts","Strong leadership story"],
+    tagline:"Looks for students who show initiative beyond academics. A compelling personal narrative matters greatly."
+  },
+  "Harvard University": {
+    cbse:"96%+", ib:"43+", sat:"1490-1580",
+    extras:["National/state-level achievement","Community leadership or social impact","Published writing or research","Consistent extracurricular excellence"],
+    tagline:"Holistic admissions. Academic excellence is necessary but not sufficient — impact and leadership are critical."
+  },
+  "University of Oxford": {
+    cbse:"95%+", ib:"40+", sat:"1500-1600",
+    extras:["Aptitude test (LNAT/MAT/TSA required)","Interview performance (most important)","Depth of subject knowledge","A-Level or IB strong results"],
+    tagline:"Interview + aptitude test driven. Subject passion and depth matter more than breadth of activities."
+  },
+  "University of Cambridge": {
+    cbse:"96%+", ib:"41+", sat:"1500-1600",
+    extras:["Aptitude test required (ENGAA/STEP/BMAT)","Interview performance crucial","Strong subject focus","Super-curricular activities in your subject"],
+    tagline:"Extremely interview-focused. Deep subject engagement is prioritised over broad extracurriculars."
+  },
+  "Indian Institute of Technology Bombay": {
+    cbse:"92%+ (boards) + JEE Advanced top 2000","ib":"38+ equivalent", sat:"1480-1580",
+    extras:["JEE Advanced (primary route)","Science Olympiad medals","Programming competitions","Research internship at IISc/TIFR"],
+    tagline:"JEE Advanced is the primary route. International students may apply via SAT/DSAT. Extremely selective."
+  },
+  "National University of Singapore": {
+    cbse:"90%+", ib:"38+", sat:"1400-1560",
+    extras:["Leadership in school CCA","Community service record","Research or science fair projects","Strong recommendation letters"],
+    tagline:"Balanced academic + co-curricular profile. Leadership and community involvement are weighted heavily."
+  },
+  "University of Toronto": {
+    cbse:"88%+", ib:"36+", sat:"1380-1540",
+    extras:["Volunteer work 100+ hours","School council or club leadership","Science fair or math competitions","Clear statement of interest"],
+    tagline:"Strong academics with a genuine extracurricular record. Essays and references matter for competitive programs."
+  },
+  "University of Melbourne": {
+    cbse:"85%+", ib:"34+", sat:"1350-1520",
+    extras:["School leadership positions","Community or volunteer work","Subject-specific achievements","Work experience relevant to course"],
+    tagline:"Academic performance is primary. Australian universities are more straightforward than US/UK in admissions."
+  },
+  "Ashoka University": {
+    cbse:"85%+", ib:"33+", sat:"1280-1460",
+    extras:["Strong personal statement","Social entrepreneurship or community work","Debate, MUN, or public speaking","Diverse interests and curiosity"],
+    tagline:"India's most holistic admissions. Liberal arts focus — intellectual curiosity and writing ability matter most."
+  },
+  "New York University Abu Dhabi": {
+    cbse:"90%+", ib:"36+", sat:"1400-1560",
+    extras:["Global citizenship essay","Community service or social impact","Leadership in school or community","Interview performance"],
+    tagline:"Highly selective global program. 100% of admitted students receive financial aid. Strong community focus."
+  },
+};
+
+// Default profiles by tier
+var DEFAULT_PROFILES = {
+  1:{cbse:"92-96%+", ib:"38-42+", extras:["National-level academic achievement","Research experience or published work","Strong leadership role","Competitive exam success"], tagline:"Top-tier universities expect academic excellence plus at least one standout achievement."},
+  2:{cbse:"85-92%", ib:"34-38", extras:["School-level leadership","Participation in competitions","Consistent extracurricular involvement","Community service"], tagline:"Strong academics with a well-rounded profile. Consistent performance across academics and activities."},
+  3:{cbse:"78-85%", ib:"30-34", extras:["School clubs or sports","Basic community service","Good recommendation letters","Clear motivation for the field"], tagline:"Good academic record with genuine interests. Less competitive — focus on subject fit and motivation."},
+  4:{cbse:"70-78%", ib:"26-30", extras:["Participation in any clubs","Basic volunteering","Decent reference letters"], tagline:"Accessible to most students with a decent academic background. Focus on application quality."},
+  5:{cbse:"60-70%", ib:"24-26", extras:["Any extracurricular involvement","School attendance record","Basic references"], tagline:"Open or near-open admission. Academic improvement and motivation matter most."},
+};
+
+// Currency conversion rates (approximate - should be updated regularly)
+var FX = {INR:83.5, AED:3.67, GBP:0.79, AUD:1.53, CAD:1.37, SGD:1.34, EUR:0.92};
+
+function getCurrencyForCountry(country) {
+  var map = {India:["INR","₹",83.5], "Middle East":["AED","AED ",3.67], UK:["GBP","£",0.79], Australia:["AUD","A$",1.53], Canada:["CAD","C$",1.37], Asia:["SGD","S$",1.34], Europe:["EUR","€",0.92], USA:["USD","$",1]};
+  return map[country]||["USD","$",1];
+}
+
+function fmDual(usd, country) {
+  if(!usd||usd<=0) return "--";
+  var curr = getCurrencyForCountry(country);
+  var usdStr = "$"+usd.toLocaleString();
+  if(curr[0]==="USD") return usdStr;
+  var local = Math.round(usd * curr[2]);
+  return usdStr+" / "+curr[1]+local.toLocaleString();
+}
+
+function getCountryRank(uniName) {
+  return COUNTRY_RANKS[uniName]||null;
+}
+function getProfile(uniName, tier) {
+  return PROFILES[uniName]||DEFAULT_PROFILES[tier]||DEFAULT_PROFILES[3];
+}
+
+function getExtra(n){
+  if(EXTRA[n])return EXTRA[n];
+  var u=UNIS.find(function(x){return x.university===n;})||{};
+  var tm={1:1.2,2:1.0,3:0.8,4:0.65,5:0.5}[u.tier]||0.8;
+  var ct={USA:45000,UK:28000,Canada:35000,Australia:32000,Europe:12000,Asia:20000,"Middle East":18000,India:5000}[u.country]||25000;
+  var cl={USA:18000,UK:14000,Canada:13000,Australia:14000,Europe:10000,Asia:9000,"Middle East":12000,India:4000}[u.country]||12000;
+  var recsByTier={1:["Google","McKinsey","Goldman Sachs","Microsoft","Apple"],2:["Amazon","Deloitte","JP Morgan","BCG","Meta"],3:["Accenture","IBM","TCS","Infosys","EY"],4:["Wipro","Capgemini","HCL","Cognizant","KPMG"],5:["Local firms","Government","SMEs","Startups","NGOs"]};
+  return{tuitionUSD:Math.round(ct*tm),living:Math.round(cl),scholarships:["Merit Scholarship (varies)","Need-Based Aid","International Student Award"],avgSalary:Math.round(({USA:80000,UK:45000,Canada:55000,Australia:50000,Europe:45000,Asia:40000,"Middle East":45000,India:20000}[u.country]||45000)*tm),topRecruiters:recsByTier[u.tier]||recsByTier[3],placementRate:{1:95,2:88,3:80,4:72,5:65}[u.tier]||80};
 }
 
 var FLAGS={USA:"🇺🇸",UK:"🇬🇧",Canada:"🇨🇦",Australia:"🇦🇺",Europe:"🇪🇺",Asia:"🌏","Middle East":"🌍",India:"🇮🇳"};
 var TIER_LABELS={1:"Tier 1 – Elite",2:"Tier 2 – Strong",3:"Tier 3 – Good",4:"Tier 4 – Accessible",5:"Tier 5 – Open"};
 var TIER_SHORT={1:"Tier 1",2:"Tier 2",3:"Tier 3",4:"Tier 4",5:"Tier 5"};
 var TIER_CLS={1:"t1",2:"t2",3:"t3",4:"t4",5:"t5"};
-var curScore=NaN, tgtScore=NaN, scoresUnlocked=false;
-var sortCol="tier", sortDir=1, curView="cards";
+var curScore=NaN,tgtScore=NaN,scoresUnlocked=false;
+var sortCol="tier",sortDir=1,curView="cards";
 
 function fm(n){if(n===0)return"Free";if(!n||n<0)return"--";return"$"+n.toLocaleString();}
 function pct(s){return Math.min(100,Math.round(((s-900)/700)*100));}
+function getSchRange(u){var b=SAT_BANDS.find(function(x){return u.satMin>=x.min&&u.satMin<=x.max;});return b?b.scholarshipAmt:"--";}
 
 function mTagCur(u){
   if(isNaN(curScore)||curScore<400)return"";
@@ -602,36 +759,26 @@ function getCardClass(u){
   if(!isNaN(tgtScore)&&tgtScore>=u.satMin)return"fc";
   return"rc";
 }
-function getSchRange(u){
-  var b=SAT_BANDS.find(function(x){return u.satMin>=x.min&&u.satMin<=x.max;});
-  return b?b.scholarshipAmt:"--";
-}
 
 function onScoreInput(){
-  var cs=parseInt(document.getElementById("current-score").value);
-  var ts=parseInt(document.getElementById("target-score").value);
+  var cs=parseInt(document.getElementById("cs").value);
+  var ts=parseInt(document.getElementById("ts").value);
   var hc=document.getElementById("hint-c");
   var ht=document.getElementById("hint-t");
-  if(!isNaN(cs)&&cs>=400){
-    var b=SAT_BANDS.find(function(x){return cs>=x.min&&cs<=x.max;});
-    hc.textContent=b?"Band: "+b.tier+" | "+b.unis_example.slice(0,2).join(", ")+" range":"Enter 400-1600";
-  }else hc.textContent="Enter your current score";
-  if(!isNaN(ts)&&ts>=400){
-    var b2=SAT_BANDS.find(function(x){return ts>=x.min&&ts<=x.max;});
-    ht.textContent=b2?"Target: "+b2.tier+" | "+b2.unis_example.slice(0,2).join(", ")+" range":"Enter 400-1600";
-  }else ht.textContent="Enter your target score";
+  if(!isNaN(cs)&&cs>=400){var b=SAT_BANDS.find(function(x){return cs>=x.min&&cs<=x.max;});hc.textContent=b?"Band: "+b.tier+" | "+b.unis_example.slice(0,2).join(", ")+" range":"Enter 400-1600";}else hc.textContent="Where the student stands today";
+  if(!isNaN(ts)&&ts>=400){var b2=SAT_BANDS.find(function(x){return ts>=x.min&&ts<=x.max;});ht.textContent=b2?"Target: "+b2.tier+" | "+b2.unis_example.slice(0,2).join(", ")+" range":"Enter 400-1600";}else ht.textContent="The score being planned for";
 }
 
 function unlockResults(){
-  var cs=parseInt(document.getElementById("current-score").value);
-  var ts=parseInt(document.getElementById("target-score").value);
-  if(isNaN(cs)||cs<400||cs>1600){alert("Please enter a valid current SAT score (400-1600)");return;}
-  if(isNaN(ts)||ts<400||ts>1600){alert("Please enter a valid target SAT score (400-1600)");return;}
-  if(ts<=cs){alert("Target score should be higher than current score!");return;}
+  var cs=parseInt(document.getElementById("cs").value);
+  var ts=parseInt(document.getElementById("ts").value);
+  if(isNaN(cs)||cs<400||cs>1600){alert("Enter a valid current SAT score (400-1600)");return;}
+  if(isNaN(ts)||ts<400||ts>1600){alert("Enter a valid target SAT score (400-1600)");return;}
+  if(ts<=cs){alert("Target score should be higher than current score");return;}
   curScore=cs;tgtScore=ts;scoresUnlocked=true;
-  updateJourney();render();
   document.getElementById("journey-section").style.display="block";
-  document.querySelector(".wrap").scrollIntoView({behavior:"smooth",block:"start"});
+  updateJourney();render();
+  document.getElementById("results-anchor").scrollIntoView({behavior:"smooth",block:"start"});
 }
 
 function updateJourney(){
@@ -642,38 +789,39 @@ function updateJourney(){
   document.getElementById("journey-bar").style.width=barPct+"%";
   var curUnis=UNIS.filter(function(u){return curScore>=u.satMin;}).length;
   var tgtUnis=UNIS.filter(function(u){return tgtScore>=u.satMin;}).length;
-  var newUnis=tgtUnis-curUnis;
-  document.getElementById("ji-title").textContent="+"+gain+" points = "+newUnis+" more universities";
-  document.getElementById("ji-desc").textContent="At "+curScore+" you qualify for "+curUnis+" universities. At "+tgtScore+" you qualify for "+tgtUnis+" — "+newUnis+" more options open up.";
+  document.getElementById("ji-title").textContent="+"+gain+" points = "+(tgtUnis-curUnis)+" more universities";
+  document.getElementById("ji-desc").textContent="At "+curScore+" you qualify for "+curUnis+" universities. At "+tgtScore+" you qualify for "+tgtUnis+".";
+  buildScoreTable();
+}
+
+function buildScoreTable(){
   var curBandIdx=SAT_BANDS.findIndex(function(b){return curScore>=b.min&&curScore<=b.max;});
   var tgtBandIdx=SAT_BANDS.findIndex(function(b){return tgtScore>=b.min&&tgtScore<=b.max;});
   var metrics=[
     {key:"tier",label:"Tier access"},
     {key:"unis",label:"Universities you qualify for"},
     {key:"scholarshipAmt",label:"Scholarship / year"},
-    {key:"avgSalary",label:"Average starting salary"},
+    {key:"avgSalary",label:"Avg starting salary"},
     {key:"avgROI",label:"Return on investment"},
     {key:"countries",label:"Target countries"},
   ];
   var tbl="<thead><tr>";
-  tbl+="<th style='text-align:left;color:rgba(255,255,255,0.5);font-size:10px;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.12);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;white-space:nowrap;background:rgba(255,255,255,0.05);border-right:1px solid rgba(255,255,255,0.08)'>Metric</th>";
+  tbl+="<th class='freeze-col' style='background:linear-gradient(135deg,#0f172a,#1a2f55);color:rgba(255,255,255,0.5);font-size:10px;padding:10px 14px;border-bottom:1px solid rgba(255,255,255,0.12);font-weight:700;text-transform:uppercase;letter-spacing:0.06em;white-space:nowrap;border-right:2px solid rgba(255,255,255,0.15)'>METRIC</th>";
   SAT_BANDS.forEach(function(b,i){
-    var isCur=(i===curBandIdx);
-    var isTgt=(i===tgtBandIdx);
-    var bg=isCur?"rgba(239,68,68,0.2)":isTgt?"rgba(99,102,241,0.2)":"transparent";
+    var isCur=(i===curBandIdx),isTgt=(i===tgtBandIdx);
+    var bg=isCur?"rgba(239,68,68,0.25)":isTgt?"rgba(99,102,241,0.25)":"transparent";
     var color=isCur?"#f87171":isTgt?"#818cf8":"rgba(255,255,255,0.4)";
-    var label=b.label+(isCur?" &#128308;":isTgt?" &#127775;":"");
-    tbl+="<th style='text-align:center;color:"+color+";font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.05em;padding:10px 8px;border-bottom:1px solid rgba(255,255,255,0.1);background:"+bg+";white-space:nowrap'>"+label+"</th>";
+    var label=b.label+(isCur?" 🔴":isTgt?" ⭐":"");
+    tbl+="<th style='text-align:center;color:"+color+";font-size:10px;font-weight:700;text-transform:uppercase;padding:10px 12px;border-bottom:1px solid rgba(255,255,255,0.12);background:"+bg+";white-space:nowrap;min-width:130px'>"+label+"</th>";
   });
   tbl+="</tr></thead><tbody>";
   metrics.forEach(function(m,mi){
-    var rowBg=mi%2===0?"rgba(255,255,255,0.02)":"transparent";
+    var rowBg=mi%2===0?"rgba(255,255,255,0.025)":"transparent";
     tbl+="<tr style='background:"+rowBg+"'>";
-    tbl+="<td style='padding:11px 12px;border-bottom:1px solid rgba(255,255,255,0.06);color:rgba(255,255,255,0.75);font-weight:500;font-size:12px;white-space:nowrap'>"+m.label+"</td>";
+    tbl+="<td class='freeze-col' style='padding:12px 14px;border-bottom:1px solid rgba(255,255,255,0.06);border-right:2px solid rgba(255,255,255,0.15);color:rgba(255,255,255,0.8);font-weight:600;font-size:12px;white-space:nowrap;background:"+rowBg+";position:sticky;left:0;z-index:2;backdrop-filter:blur(4px)'>"+m.label+"</td>";
     SAT_BANDS.forEach(function(b,i){
-      var isCur=(i===curBandIdx);
-      var isTgt=(i===tgtBandIdx);
-      var bg=isCur?"rgba(239,68,68,0.07)":isTgt?"rgba(99,102,241,0.07)":"transparent";
+      var isCur=(i===curBandIdx),isTgt=(i===tgtBandIdx);
+      var bg=isCur?"rgba(239,68,68,0.08)":isTgt?"rgba(99,102,241,0.08)":"transparent";
       var color=isCur?"#f87171":isTgt?"#86efac":"rgba(255,255,255,0.5)";
       var fw=isCur||isTgt?"700":"400";
       var val="";
@@ -681,66 +829,12 @@ function updateJourney(){
       else if(m.key==="tier"){val=b.tier;}
       else if(m.key==="countries"){val=b.countries.slice(0,2).join(", ");}
       else{val=b[m.key]||"--";}
-      tbl+="<td style='text-align:center;padding:11px 8px;border-bottom:1px solid rgba(255,255,255,0.06);color:"+color+";font-weight:"+fw+";font-size:12px;background:"+bg+";white-space:nowrap'>"+val+"</td>";
+      tbl+="<td style='text-align:center;padding:12px 12px;border-bottom:1px solid rgba(255,255,255,0.06);color:"+color+";font-weight:"+fw+";font-size:12px;background:"+bg+";white-space:nowrap'>"+val+"</td>";
     });
     tbl+="</tr>";
   });
   tbl+="</tbody>";
   document.getElementById("srt-table").innerHTML=tbl;
-}
-
-function buildBands(){
-  var html="";
-  SAT_BANDS.forEach(function(b,i){
-    var count=UNIS.filter(function(u){return u.satMin>=b.min&&u.satMin<=b.max;}).length;
-    var isCur=!isNaN(curScore)&&curScore>=b.min&&curScore<=b.max;
-    var isTgt=!isNaN(tgtScore)&&tgtScore>=b.min&&tgtScore<=b.max;
-    html+='<div class="sat-band" id="band-'+i+'" style="background:'+b.bg+';color:'+b.color+'" onclick="showBand('+i+')">';
-    html+='<div class="sb-label" style="color:'+b.color+'">'+b.label+'</div>';
-    html+='<div class="sb-count" style="color:'+b.color+'">'+count+'</div>';
-    html+='<div class="sb-tier" style="color:'+b.color+'">'+b.tier+'</div>';
-    if(isCur)html+='<div class="sb-you" style="color:'+b.color+'">\u2190 You</div>';
-    if(isTgt)html+='<div class="sb-you" style="color:'+b.color+'">\u2190 Target</div>';
-    if(isCur)html+='<div class="sb-dot" style="background:#ef4444;right:4px;"></div>';
-    if(isTgt)html+='<div class="sb-dot" style="background:#4747F6;right:'+(isCur?14:4)+'px;"></div>';
-    html+='</div>';
-  });
-  document.getElementById("band-grid").innerHTML=html;
-}
-
-function showBand(i){
-  document.querySelectorAll(".sat-band").forEach(function(b){b.classList.remove("active");});
-  var bandEl=document.getElementById("band-"+i);
-  if(bandEl)bandEl.classList.add("active");
-  var b=SAT_BANDS[i];
-  var unis=UNIS.filter(function(u){return u.satMin>=b.min&&u.satMin<=b.max;});
-  var curQ=!isNaN(curScore)&&curScore>=b.min;
-  var tgtQ=!isNaN(tgtScore)&&tgtScore>=b.min;
-  var html="";
-  html+='<div class="bd-top">';
-  html+='<div><div class="bd-score" style="color:'+b.color+'">'+b.label+' \u2014 '+b.tier+'</div>';
-  html+='<div class="bd-tier">'+unis.length+' universities \u00b7 '+b.desc+'</div></div>';
-  html+='<div style="display:flex;gap:0.5rem;flex-wrap:wrap;">';
-  if(curQ)html+='<span class="mt mt-m" style="font-size:12px;padding:4px 10px;">\u2713 Eligible now</span>';
-  else if(tgtQ)html+='<span class="mt mt-f" style="font-size:12px;padding:4px 10px;">\u2713 Eligible at target</span>';
-  else html+='<span class="mt mt-r" style="font-size:12px;padding:4px 10px;">Score too low</span>';
-  html+='</div></div>';
-  html+='<div class="bd-info">';
-  html+='<div class="bd-info-card" style="background:'+b.bg+'"><div class="bd-ic-l" style="color:'+b.color+'">Scholarships</div><div class="bd-ic-v" style="color:'+b.color+'">'+b.scholarshipAmt+'</div></div>';
-  html+='<div class="bd-info-card" style="background:'+b.bg+'"><div class="bd-ic-l" style="color:'+b.color+'">Avg starting salary</div><div class="bd-ic-v" style="color:'+b.color+'">'+b.avgSalary+'</div></div>';
-  html+='<div class="bd-info-card" style="background:'+b.bg+'"><div class="bd-ic-l" style="color:'+b.color+'">Countries</div><div class="bd-ic-v" style="color:'+b.color+';font-size:12px;">'+b.countries.join(", ")+'</div></div>';
-  html+='</div>';
-  html+='<div class="bd-unis-title">Universities in this band ('+unis.length+')</div>';
-  html+='<div class="bd-unis-list">';
-  unis.slice(0,20).forEach(function(u){
-    var esc=u.university.replace(/'/g,"\\'");
-    html+='<span class="bd-chip" style="background:'+b.bg+';color:'+b.color+';border-color:'+b.color+'40" onclick="openDP(\''+esc+'\')">'+(FLAGS[u.country]||"")+" "+u.university+'</span>';
-  });
-  if(unis.length>20)html+='<span class="bd-chip" style="background:#f3f4f6;color:#6b7280;border-color:#e5e7eb">+'+(unis.length-20)+' more</span>';
-  html+='</div>';
-  var dd=document.getElementById("band-detail");
-  dd.innerHTML=html;dd.style.display="block";
-  dd.scrollIntoView({behavior:"smooth",block:"start"});
 }
 
 function getFiltered(){
@@ -752,11 +846,7 @@ function getFiltered(){
     if(country&&u.country!==country)return false;
     if(tier&&u.tier!==parseInt(tier))return false;
     if(major&&!u.fields.includes(major))return false;
-    if(satrange!==""){
-      var idx=parseInt(satrange);
-      var b=SAT_BANDS[idx];
-      if(!b||u.satMin<b.min||u.satMin>b.max)return false;
-    }
+    if(satrange!==""){var b=SAT_BANDS[parseInt(satrange)];if(!b||u.satMin<b.min||u.satMin>b.max)return false;}
     return true;
   });
 }
@@ -765,73 +855,69 @@ function renderCard(u){
   var ex=getExtra(u.university);
   var cc=getCardClass(u);
   var isNew=!isNaN(tgtScore)&&tgtScore>=u.satMin&&(isNaN(curScore)||curScore<u.satMin);
-  var topTag=isNew?'<span class="mt mt-f">New!</span>':mTagCur(u);
+  var topTag=isNew?'<span class="mt mt-f">Unlocked!</span>':mTagCur(u);
   var schRange=getSchRange(u);
   var reqPct=pct(u.satMin);
   var curPct=isNaN(curScore)?0:pct(curScore);
   var tgtPct=isNaN(tgtScore)?0:pct(tgtScore);
-  var satBar='<div class="sat-track">';
-  satBar+='<div class="sat-req" style="width:'+reqPct+'%"></div>';
-  if(!isNaN(curScore))satBar+='<div class="sat-cur" style="width:'+curPct+'%"></div>';
-  if(!isNaN(tgtScore))satBar+='<div class="sat-tgt" style="width:'+tgtPct+'%"></div>';
-  satBar+='<div class="sat-line" style="left:'+reqPct+'%"></div>';
-  satBar+='</div>';
+  var cr=getCountryRank(u.university);
+  var satBar='<div class="sat-track"><div style="position:absolute;left:0;top:0;height:100%;width:'+reqPct+'%;background:#e5e7eb;border-radius:4px"></div>';
+  if(!isNaN(curScore))satBar+='<div style="position:absolute;left:0;top:0;height:100%;width:'+curPct+'%;background:rgba(239,68,68,0.55);border-radius:4px"></div>';
+  if(!isNaN(tgtScore))satBar+='<div style="position:absolute;left:0;top:0;height:100%;width:'+tgtPct+'%;background:rgba(71,71,246,0.4);border-radius:4px"></div>';
+  satBar+='<div style="position:absolute;top:0;left:'+reqPct+'%;width:3px;height:100%;background:#374151;border-radius:1px"></div></div>';
   var esc=u.university.replace(/'/g,"\\'");
-  var recruiters=(ex.topRecruiters&&ex.topRecruiters.length)?ex.topRecruiters.slice(0,3).join(", "):"--";
-  var html='<div class="uc '+cc+'" onclick="openDP(\''+esc+'\')">';
+  var html='<div class="uc '+cc+'">';
   html+='<div class="uc-top"><div class="uc-name">'+(FLAGS[u.country]||"")+" "+u.university+" "+topTag+'</div></div>';
-  html+='<div class="uc-meta"><span class="tb '+TIER_CLS[u.tier]+'"><span class="td"></span>'+TIER_SHORT[u.tier]+'</span><span style="font-size:11px;color:var(--mu)">'+u.state+'</span></div>';
+  html+='<div class="uc-meta"><span class="tb '+TIER_CLS[u.tier]+'"><span class="td"></span>'+TIER_SHORT[u.tier]+'</span>';
+  if(cr)html+='<span style="font-size:10px;background:#f1f5f9;padding:2px 7px;border-radius:10px;color:#334155;font-weight:600">#'+cr.countryRank+' '+cr.countryTier+'</span>';
+  html+='<span style="font-size:11px;color:var(--mu)">'+u.state+'</span></div>';
   html+='<div class="sat-viz">'+satBar+'<span class="sat-range-lbl">'+u.satMin+'-'+u.satMax+'</span></div>';
   html+='<div class="uc-grid">';
-  html+='<div><div class="uci-l">Tuition/yr</div><div class="uci-v">'+fm(ex.tuitionUSD)+'</div></div>';
+  html+='<div><div class="uci-l">Tuition/yr</div><div class="uci-v" style="font-size:11px">'+fmDual(ex.tuitionUSD,u.country)+'</div></div>';
   html+='<div><div class="uci-l">Rank</div><div class="uci-v">#'+u.rank+'</div></div>';
-  html+='<div><div class="uci-l">Avg salary</div><div class="uci-v">'+fm(ex.avgSalary)+'</div></div>';
+  html+='<div><div class="uci-l">Avg salary</div><div class="uci-v" style="font-size:11px">'+fmDual(ex.avgSalary,u.country)+'</div></div>';
   html+='<div><div class="uci-l">Scholarship/yr</div><div class="uci-v" style="color:var(--gr);font-size:11px">'+schRange+'</div></div>';
   html+='</div>';
   html+='<div class="uc-div"></div>';
-  html+='<div class="uc-sch" style="color:var(--mu);font-size:11px">\uD83D\uDCBC '+recruiters+'</div>';
-  html+='<button class="uc-btn">View details \u2192</button>';
+  var recruiters=(ex.topRecruiters&&ex.topRecruiters.length)?ex.topRecruiters.slice(0,3).join(", "):"--";
+  html+='<div class="uc-sch" style="color:var(--mu);font-size:11px">💼 '+recruiters+'</div>';
+  html+='<button class="uc-btn" onclick="openDP(\''+esc+'\')">View details & ideal profile →</button>';
   html+='</div>';
   return html;
 }
 
 function render(){
   var data=getFiltered();
-  data.sort(function(a,b){
-    var av=a[sortCol],bv=b[sortCol];
-    if(typeof av==="string")return sortDir*av.localeCompare(bv);
-    return sortDir*(av-bv);
-  });
+  data.sort(function(a,b){var av=a[sortCol],bv=b[sortCol];if(typeof av==="string")return sortDir*av.localeCompare(bv);return sortDir*(av-bv);});
   document.getElementById("results-title").textContent=data.length+" universities";
   document.getElementById("tbl-count").textContent=data.length;
   if(data.length===0){
-    document.getElementById("cgrid").innerHTML='<div style="grid-column:1/-1;text-align:center;padding:2rem;color:var(--mu)">No universities match your filters.</div>';
+    document.getElementById("cgrid").innerHTML='<div style="grid-column:1/-1;text-align:center;padding:2rem;color:var(--mu)">No universities match.</div>';
   }else{
-    var cards="";
-    data.forEach(function(u){cards+=renderCard(u);});
+    var cards="";data.forEach(function(u){cards+=renderCard(u);});
     document.getElementById("cgrid").innerHTML=cards;
   }
   var rows="";
   data.forEach(function(u){
     var ex=getExtra(u.university);
     var schRange=getSchRange(u);
+    var cr=getCountryRank(u.university);
     var gap="--";var gapCls="";
-    if(!isNaN(curScore)&&curScore>=400){
-      if(curScore>=u.satMin){gap="Eligible";gapCls="gap-ok";}
-      else{gap=(u.satMin-curScore)+" pts";gapCls="gap-bad";}
-    }
+    if(!isNaN(curScore)&&curScore>=400){if(curScore>=u.satMin){gap="Eligible";gapCls="gap-ok";}else{gap=(u.satMin-curScore)+" pts";gapCls="gap-bad";}}
     var recruiters=(ex.topRecruiters&&ex.topRecruiters.length)?ex.topRecruiters.slice(0,3).join(", "):"--";
     var esc=u.university.replace(/'/g,"\\'");
     rows+='<tr onclick="openDP(\''+esc+'\')">';
-    rows+='<td><div style="font-weight:600">'+(FLAGS[u.country]||"")+" "+u.university+'</div><div style="font-size:11px;color:var(--su)">'+u.state+'</div></td>';
+    rows+='<td><div style="font-weight:600">'+(FLAGS[u.country]||"")+" "+u.university+'</div>';
+    if(cr)rows+='<div style="font-size:10px;color:#4747F6;font-weight:600;margin-top:2px">#'+cr.countryRank+' '+cr.countryTier+'</div>';
+    rows+='<div style="font-size:11px;color:var(--su)">'+u.state+'</div></td>';
     rows+='<td><span class="tb '+TIER_CLS[u.tier]+'"><span class="td"></span>'+TIER_SHORT[u.tier]+'</span></td>';
     rows+='<td style="font-weight:600">'+u.satMin+'-'+u.satMax+'</td>';
-    rows+='<td style="font-size:12px;font-weight:600">'+fm(ex.tuitionUSD)+'</td>';
+    rows+='<td style="font-size:11px;font-weight:600">'+fmDual(ex.tuitionUSD,u.country)+'</td>';
     rows+='<td style="color:var(--mu)">#'+u.rank+'</td>';
     rows+='<td class="'+gapCls+'">'+gap+'</td>';
     rows+='<td style="font-size:12px;font-weight:600;color:var(--gr)">'+schRange+'</td>';
-    rows+='<td style="font-size:12px;font-weight:600">'+fm(ex.avgSalary)+'</td>';
-    rows+='<td style="font-size:11px;color:var(--mu);max-width:180px">'+recruiters+'</td>';
+    rows+='<td style="font-size:11px;font-weight:600">'+fmDual(ex.avgSalary,u.country)+'</td>';
+    rows+='<td style="font-size:11px;color:var(--mu);max-width:160px">'+recruiters+'</td>';
     rows+='</tr>';
   });
   document.getElementById("tbody").innerHTML=rows;
@@ -839,11 +925,11 @@ function render(){
 }
 
 function openDP(name){
-  var existing=document.getElementById("dpanel-wrap");
-  if(existing)existing.remove();
-  var u=UNIS.find(function(x){return x.university===name;});
-  if(!u)return;
+  var existing=document.getElementById("dpanel-wrap");if(existing)existing.remove();
+  var u=UNIS.find(function(x){return x.university===name;});if(!u)return;
   var ex=getExtra(name);
+  var prof=getProfile(name,u.tier);
+  var cr=getCountryRank(name);
   var curQ=!isNaN(curScore)&&curScore>=u.satMin;
   var tgtQ=!isNaN(tgtScore)&&tgtScore>=u.satMin;
   var statusTag=curQ?'<span class="mt mt-m">Eligible now</span>':tgtQ?'<span class="mt mt-f">Eligible at target</span>':'<span class="mt mt-r">Score too low</span>';
@@ -851,70 +937,96 @@ function openDP(name){
   var html='<div class="dpanel">';
   html+='<div class="dp-hdr"><div>';
   html+='<div class="dp-title">'+(FLAGS[u.country]||"")+" "+u.university+'</div>';
-  html+='<div class="dp-sub"><span class="tb '+TIER_CLS[u.tier]+'" style="display:inline-flex"><span class="td"></span>'+TIER_SHORT[u.tier]+'</span><span>'+u.state+'</span><span>\u00b7</span><span>Rank #'+u.rank+'</span>'+statusTag+'</div>';
-  html+='</div>';
-  html+='<button class="dp-close" onclick="var el=document.getElementById(&apos;dpanel-wrap&apos;);if(el)el.remove();document.body.style.overflow=&apos;&apos;">\u2715 Close</button>';
-  html+='</div>';
+  html+='<div class="dp-sub"><span class="tb '+TIER_CLS[u.tier]+'" style="display:inline-flex"><span class="td"></span>'+TIER_SHORT[u.tier]+'</span>';
+  if(cr)html+='<span style="font-size:11px;background:#eff6ff;padding:2px 8px;border-radius:8px;color:#1e40af;font-weight:600">#'+cr.countryRank+' in '+cr.country+'</span>';
+  html+='<span>'+u.state+'</span><span>·</span><span>World Rank #'+u.rank+'</span>'+statusTag+'</div>';
+  html+='</div><button class="dp-close" onclick="var el=document.getElementById(&apos;dpanel-wrap&apos;);if(el)el.remove();document.body.style.overflow=&apos;&apos;">✕ Close</button></div>';
   html+='<div class="dp-tabs">';
   html+='<button class="dp-tab active" onclick="swTab(this,&apos;t-ov&apos;)">Overview</button>';
-  html+='<button class="dp-tab" onclick="swTab(this,&apos;t-sat&apos;)">SAT Analysis</button>';
+  html+='<button class="dp-tab" onclick="swTab(this,&apos;t-sat&apos;)">SAT Impact</button>';
+  html+='<button class="dp-tab" onclick="swTab(this,&apos;t-profile&apos;)">Ideal Profile</button>';
   html+='<button class="dp-tab" onclick="swTab(this,&apos;t-fees&apos;)">Fees & Scholarships</button>';
   html+='<button class="dp-tab" onclick="swTab(this,&apos;t-roi&apos;)">ROI & Placements</button>';
   html+='</div>';
+  // Overview tab
   html+='<div class="tc active" id="t-ov"><div class="ig">';
-  html+='<div class="ib"><div class="ib-l">SAT range</div><div class="ib-v">'+u.satMin+' - '+u.satMax+'</div><div class="ib-s">Competitive range</div></div>';
+  html+='<div class="ib"><div class="ib-l">SAT range</div><div class="ib-v">'+u.satMin+' – '+u.satMax+'</div></div>';
   html+='<div class="ib"><div class="ib-l">Acceptance</div><div class="ib-v">'+u.acceptance+'%</div></div>';
-  html+='<div class="ib"><div class="ib-l">Tuition/year</div><div class="ib-v">'+fm(ex.tuitionUSD)+'</div><div class="ib-s">Excl. living</div></div>';
-  html+='<div class="ib"><div class="ib-l">Living/year</div><div class="ib-v">'+fm(ex.living)+'</div></div>';
-  html+='<div class="ib"><div class="ib-l">Total/year</div><div class="ib-v">'+fm(ex.tuitionUSD+ex.living)+'</div></div>';
+  html+='<div class="ib"><div class="ib-l">Tuition/year</div><div class="ib-v" style="font-size:13px">'+fmDual(ex.tuitionUSD,u.country)+'</div><div class="ib-s">Excl. living</div></div>';
+  html+='<div class="ib"><div class="ib-l">Living/year</div><div class="ib-v" style="font-size:13px">'+fmDual(ex.living,u.country)+'</div></div>';
+  html+='<div class="ib"><div class="ib-l">Total/year</div><div class="ib-v" style="font-size:13px">'+fmDual(ex.tuitionUSD+ex.living,u.country)+'</div></div>';
   html+='<div class="ib"><div class="ib-l">Placement rate</div><div class="ib-v">'+ex.placementRate+'%</div></div>';
   html+='</div>';
   html+='<div class="st">Scholarship range</div>';
-  html+='<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:1rem;margin-bottom:1rem;font-size:16px;font-weight:700;color:var(--gr)">'+schRange+' per year</div>';
+  html+='<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:1rem;margin-bottom:1rem;font-size:15px;font-weight:700;color:var(--gr)">'+schRange+' per year</div>';
   html+='<div class="st">Top fields</div><div class="chips">';
   u.fields.forEach(function(f){html+='<span class="chip">'+f+'</span>';});
   html+='</div></div>';
-  html+='<div class="tc" id="t-sat"><div class="ig">';
-  var curQ2=!isNaN(curScore)&&curScore>=u.satMin;
-  var tgtQ2=!isNaN(tgtScore)&&tgtScore>=u.satMin;
-  html+='<div class="ib" style="background:'+(curQ2?'#f0fdf4':'#fef2f2')+'">';
-  html+='<div class="ib-l">Current score</div>';
-  html+='<div class="ib-v" style="color:'+(curQ2?'#166534':'#991b1b')+'">'+(isNaN(curScore)?"--":curScore)+'</div>';
-  html+='<div class="ib-s">'+(curQ2?"Eligible!":isNaN(curScore)?"Enter above":"Need "+(u.satMin-curScore)+" more pts")+'</div></div>';
-  html+='<div class="ib" style="background:'+(tgtQ2?'#ede9fe':'#f3f4f6')+'">';
-  html+='<div class="ib-l">Target score</div>';
-  html+='<div class="ib-v" style="color:'+(tgtQ2?'#4c1d95':'#374151')+'">'+(isNaN(tgtScore)?"--":tgtScore)+'</div>';
-  html+='<div class="ib-s">'+(tgtQ2?"Will qualify!":isNaN(tgtScore)?"Enter above":"Need "+(u.satMin-tgtScore)+" more pts")+'</div></div>';
-  html+='<div class="ib"><div class="ib-l">University requires</div><div class="ib-v">'+u.satMin+'</div><div class="ib-s">Min for admission</div></div>';
-  var gapPts=(!isNaN(curScore)&&!curQ2)?(u.satMin-curScore):0;
-  html+='<div class="ib" style="background:#eff6ff"><div class="ib-l">Gap to close</div><div class="ib-v" style="color:#1e40af">'+gapPts+' pts</div><div class="ib-s">'+(curQ2?"Already eligible!":"Score gap to bridge")+'</div></div>';
+  // SAT Impact tab
+  html+='<div class="tc" id="t-sat">';
+  var curGap=isNaN(curScore)?"--":(u.satMin-curScore>0?"Short by "+(u.satMin-curScore)+" pts":"Eligible ✓");
+  var tgtGap=isNaN(tgtScore)?"--":(u.satMin-tgtScore>0?"Short by "+(u.satMin-tgtScore)+" pts":"Eligible ✓");
+  html+='<div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:12px;padding:1.25rem;color:#fff;margin-bottom:1rem">';
+  html+='<div style="font-size:13px;font-weight:700;margin-bottom:0.5rem">Score impact for '+u.university+'</div>';
+  if(!isNaN(curScore)&&!isNaN(tgtScore))html+='<div style="font-size:12px;color:rgba(255,255,255,0.6);margin-bottom:1rem">'+curScore+' → '+tgtScore+'</div>';
+  html+='<div style="display:grid;grid-template-columns:1fr 1fr;gap:1rem">';
+  html+='<div style="background:rgba(239,68,68,0.15);border:1px solid rgba(239,68,68,0.3);border-radius:10px;padding:0.875rem">';
+  html+='<div style="font-size:11px;color:#fca5a5;font-weight:600;margin-bottom:4px">Current score '+(isNaN(curScore)?"":"("+curScore+")")+'</div>';
+  html+='<div style="font-size:13px;color:#fff">'+(isNaN(curScore)?"Enter score above":curQ?"This score qualifies for admission":"This score is "+(u.satMin-curScore)+" pts below the benchmark.")+'</div></div>';
+  html+='<div style="background:rgba(99,102,241,0.15);border:1px solid rgba(99,102,241,0.3);border-radius:10px;padding:0.875rem">';
+  html+='<div style="font-size:11px;color:#a5b4fc;font-weight:600;margin-bottom:4px">Target score '+(isNaN(tgtScore)?"":"("+tgtScore+")")+'</div>';
+  html+='<div style="font-size:13px;color:#fff">'+(isNaN(tgtScore)?"Enter score above":tgtQ?"This score covers the benchmark for admission.":"Still "+(u.satMin-tgtScore)+" pts short of the benchmark.")+'</div></div>';
+  html+='</div>';
+  if(!isNaN(curScore)&&!isNaN(tgtScore)){
+    var impactMsg=(tgtQ&&!curQ)?"A move from "+curScore+" to "+tgtScore+" brings "+u.university+" into realistic range.":(curQ)?"Your current score already qualifies for this university.":"Neither score qualifies yet. The benchmark is "+u.satMin+".";
+    html+='<div style="background:rgba(255,255,255,0.06);border-radius:8px;padding:0.875rem;margin-top:0.875rem;font-size:12px;color:rgba(255,255,255,0.7)">'+impactMsg+' A better SAT score can improve college fit, scholarship potential, and shortlist strength.</div>';
+  }
   html+='</div></div>';
+  // Ideal Profile tab
+  html+='<div class="tc" id="t-profile">';
+  html+='<div style="background:#fffbeb;border:1px solid #fde68a;border-radius:12px;padding:1rem;margin-bottom:1.25rem;font-size:13px;color:#92400e;line-height:1.6">'+prof.tagline+'</div>';
+  html+='<div class="ig">';
+  html+='<div class="ib" style="background:#f0fdf4;border:1px solid #bbf7d0"><div class="ib-l">CBSE / State board</div><div class="ib-v" style="color:var(--gr)">'+prof.cbse+'</div><div class="ib-s">Minimum % expected</div></div>';
+  html+='<div class="ib" style="background:#eff6ff;border:1px solid #bfdbfe"><div class="ib-l">IB Diploma</div><div class="ib-v" style="color:#1e40af">'+prof.ib+'</div><div class="ib-s">Points out of 45</div></div>';
+  html+='<div class="ib" style="background:#f5f3ff;border:1px solid #ddd6fe"><div class="ib-l">SAT range</div><div class="ib-v" style="color:#4c1d95">'+u.satMin+' – '+u.satMax+'</div><div class="ib-s">Competitive range</div></div>';
+  html+='</div>';
+  html+='<div class="st">Profile building — what strengthens your application</div>';
+  html+='<div style="display:flex;flex-direction:column;gap:0.5rem;margin-bottom:1.25rem">';
+  prof.extras.forEach(function(e,i){
+    var colors=["#dcfce7","#eff6ff","#f5f3ff","#fef3c7","#fee2e2"];
+    var tcolors=["#166534","#1e40af","#4c1d95","#92400e","#991b1b"];
+    html+='<div style="background:'+colors[i%5]+';border-radius:8px;padding:0.75rem 1rem;font-size:13px;font-weight:500;color:'+tcolors[i%5]+'">✓ '+e+'</div>';
+  });
+  html+='</div>';
+  html+='<div style="background:#f8fafc;border:1px solid var(--bdr);border-radius:10px;padding:1rem;font-size:12px;color:var(--mu)">⚠️ Profile data is based on publicly available alumni & admitted student information. Actual requirements may vary by year and program. Verify with the university directly.</div>';
+  html+='</div>';
+  // Fees tab
   html+='<div class="tc" id="t-fees">';
   html+='<div class="st">Scholarship range at this tier</div>';
   html+='<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:1rem;margin-bottom:1rem;font-size:16px;font-weight:700;color:var(--gr)">'+schRange+' per year</div>';
   html+='<div class="st">Fee breakdown</div><div class="ig">';
-  html+='<div class="ib"><div class="ib-l">Annual tuition</div><div class="ib-v">'+fm(ex.tuitionUSD)+'</div></div>';
-  html+='<div class="ib"><div class="ib-l">Living expenses</div><div class="ib-v">'+fm(ex.living)+'</div></div>';
-  html+='<div class="ib"><div class="ib-l">Total per year</div><div class="ib-v">'+fm(ex.tuitionUSD+ex.living)+'</div></div>';
-  html+='<div class="ib"><div class="ib-l">4-year estimate</div><div class="ib-v">'+fm((ex.tuitionUSD+ex.living)*4)+'</div></div>';
+  html+='<div class="ib"><div class="ib-l">Annual tuition</div><div class="ib-v" style="font-size:13px">'+fmDual(ex.tuitionUSD,u.country)+'</div></div>';
+  html+='<div class="ib"><div class="ib-l">Living expenses</div><div class="ib-v" style="font-size:13px">'+fmDual(ex.living,u.country)+'</div></div>';
+  html+='<div class="ib"><div class="ib-l">Total per year</div><div class="ib-v" style="font-size:13px">'+fmDual(ex.tuitionUSD+ex.living,u.country)+'</div></div>';
+  html+='<div class="ib"><div class="ib-l">4-year estimate</div><div class="ib-v" style="font-size:13px">'+fmDual((ex.tuitionUSD+ex.living)*4,u.country)+'</div></div>';
   html+='</div></div>';
+  // ROI tab
   html+='<div class="tc" id="t-roi">';
   html+='<div class="st">Return on investment</div><div class="roi-g">';
-  html+='<div class="roi-c"><div class="roi-v">'+fm(ex.avgSalary)+'</div><div class="roi-l">Avg starting salary</div></div>';
+  html+='<div class="roi-c"><div class="roi-v" style="font-size:16px">'+fmDual(ex.avgSalary,u.country)+'</div><div class="roi-l">Avg starting salary</div></div>';
   html+='<div class="roi-c"><div class="roi-v">'+ex.placementRate+'%</div><div class="roi-l">Placement rate</div></div>';
-  html+='<div class="roi-c"><div class="roi-v">'+fm((ex.tuitionUSD+ex.living)*4)+'</div><div class="roi-l">4-year investment</div></div>';
+  html+='<div class="roi-c"><div class="roi-v" style="font-size:16px">'+fmDual((ex.tuitionUSD+ex.living)*4,u.country)+'</div><div class="roi-l">4-year investment</div></div>';
   var be=ex.avgSalary>0?Math.round(((ex.tuitionUSD+ex.living)*4)/ex.avgSalary*10)/10:"--";
   html+='<div class="roi-c"><div class="roi-v">'+be+'x</div><div class="roi-l">Yrs to break even</div></div>';
   html+='</div><div class="st">Top recruiters</div><div class="chips">';
   (ex.topRecruiters||[]).forEach(function(r){html+='<span class="chip">'+r+'</span>';});
-  html+='</div></div></div>';
+  html+='</div></div>';
+  html+='</div>';
   var overlay=document.createElement("div");
-  overlay.id="dpanel-wrap";
-  overlay.className="modal-overlay";
+  overlay.id="dpanel-wrap";overlay.className="modal-overlay";
   overlay.innerHTML=html;
   overlay.addEventListener("click",function(e){if(e.target===overlay){overlay.remove();document.body.style.overflow="";}});
-  document.body.appendChild(overlay);
-  document.body.style.overflow="hidden";
+  document.body.appendChild(overlay);document.body.style.overflow="hidden";
 }
 
 function swTab(btn,id){
@@ -946,16 +1058,14 @@ function init(){
   render();
   document.getElementById("unlock-btn").addEventListener("click",unlockResults);
   document.getElementById("reset-btn").addEventListener("click",function(){
-    ["f-country","f-tier","f-major","f-satrange"].forEach(function(id){var el=document.getElementById(id);if(el)el.value="";});
-    render();
+    ["f-country","f-tier","f-major","f-satrange"].forEach(function(id){var el=document.getElementById(id);if(el)el.value="";});render();
   });
-  document.getElementById("current-score").addEventListener("input",onScoreInput);
-  document.getElementById("target-score").addEventListener("input",onScoreInput);
-  ["f-country","f-tier","f-major","f-satrange"].forEach(function(id){
-    var el=document.getElementById(id);if(el)el.addEventListener("change",render);
-  });
+  document.getElementById("cs").addEventListener("input",onScoreInput);
+  document.getElementById("ts").addEventListener("input",onScoreInput);
+  ["f-country","f-tier","f-major","f-satrange"].forEach(function(id){var el=document.getElementById(id);if(el)el.addEventListener("change",render);});
 }
 init();
+
 </script>
 </body>
 </html>
