@@ -291,7 +291,7 @@ tbody td{padding:10px 12px;vertical-align:middle;}
               <th onclick="sortBy('university')">University <span class="si" id="arr-university">↕</span></th>
               <th onclick="sortBy('tier')">Tier <span class="si" id="arr-tier">↕</span></th>
               <th onclick="sortBy('satMin')">SAT Min <span class="si" id="arr-satMin">↕</span></th>
-              <th onclick="sortBy('tuitionUSD')">Tuition/yr <span class="si" id="arr-tuitionUSD">↕</span></th>
+              <th onclick="sortBy('tuitionUSD')">Total cost/yr <span class="si" id="arr-tuitionUSD">↕</span></th>
               <th onclick="sortBy('rank')">Rank <span class="si" id="arr-rank">↕</span></th>
               <th>Gap to qualify</th>
               <th>Scholarship range</th>
@@ -548,7 +548,7 @@ const EXTRA = {
 const CM={"USA": {"emoji": "🇺🇸", "desc": "Largest pool of SAT-accepting universities across all tiers", "color": "#1e40af", "bg": "#dbeafe"}, "UK": {"emoji": "🇬🇧", "desc": "World-class education, 3-year degrees, strong for law & medicine", "color": "#166534", "bg": "#dcfce7"}, "Canada": {"emoji": "🇨🇦", "desc": "Post-study work permit, affordable tuition, welcoming to Indians", "color": "#92400e", "bg": "#fef3c7"}, "Australia": {"emoji": "🇦🇺", "desc": "4-year work rights post-graduation, high quality of life", "color": "#4c1d95", "bg": "#ede9fe"}, "India": {"emoji": "🇮🇳", "desc": "IITs, IISc & top private universities — best value for money", "color": "#991b1b", "bg": "#fee2e2"}, "Europe": {"emoji": "🇪🇺", "desc": "Low/no tuition in Germany & Netherlands, globally ranked", "color": "#065f46", "bg": "#d1fae5"}, "Asia": {"emoji": "🌏", "desc": "Singapore & Hong Kong — elite unis with generous scholarships", "color": "#1e3a8a", "bg": "#e0e7ff"}, "Middle East": {"emoji": "🌍", "desc": "Tax-free scholarships, NYU Abu Dhabi full ride, Qatar Education City", "color": "#7c2d12", "bg": "#ffedd5"}};
 const TM={"1": {"label": "Tier 1 – Elite", "range": "SAT 1400–1600", "color": "#1e40af", "bg": "#dbeafe", "desc": "Top 50 globally. Ivy League, Oxbridge, IITs. Under 15% acceptance."}, "2": {"label": "Tier 2 – Strong", "range": "SAT 1200–1450", "color": "#166534", "bg": "#dcfce7", "desc": "Top 50–150. Strong research, excellent careers. Competitive but achievable."}, "3": {"label": "Tier 3 – Good", "range": "SAT 1050–1300", "color": "#92400e", "bg": "#fef3c7", "desc": "Ranked 150–500. Solid degrees, good industry connections."}, "4": {"label": "Tier 4 – Accessible", "range": "SAT 950–1200", "color": "#4c1d95", "bg": "#ede9fe", "desc": "Ranked 500–900. High acceptance, good ROI for many students."}, "5": {"label": "Tier 5 – Open", "range": "SAT 900–1050", "color": "#374151", "bg": "#f3f4f6", "desc": "Open-access & community colleges. Widest acceptance."}};
 const SAT_BANDS = [
-  {min:900,  max:1099, label:"900-1099", color:"#dc2626", bg:"#fef2f2", tier:"Tier 4-5",
+  {min:900,  max:1099, schMin:0, schMax:5000, label:"900-1099", color:"#dc2626", bg:"#fef2f2", tier:"Tier 4-5",
    desc:"Open-access & accessible universities. Good starting point.",
    countries:["India (private)","Some US state schools","Some Middle East"],
    scholarships:"Up to $5,000/yr merit aid",
@@ -556,7 +556,7 @@ const SAT_BANDS = [
    avgROI:"1.5-2x in 5 yrs",
    avgSalary:"$20K-35K",
    unis_example:["Lovely Professional U.","SUNY Buffalo State","Chandigarh University"]},
-  {min:1100, max:1199, label:"1100-1199", color:"#ea580c", bg:"#fff7ed", tier:"Tier 3-4",
+  {min:1100, max:1199, schMin:5000, schMax:15000, label:"1100-1199", color:"#ea580c", bg:"#fff7ed", tier:"Tier 3-4",
    desc:"Good universities across US, UK, Canada, Australia & India.",
    countries:["USA (state schools)","UK (mid-tier)","Canada","Australia","India"],
    scholarships:"$5,000 - $15,000/yr",
@@ -564,7 +564,7 @@ const SAT_BANDS = [
    avgROI:"2-3x in 5 yrs",
    avgSalary:"$35K-55K",
    unis_example:["Oregon State","Dalhousie U.","RMIT","VIT"]},
-  {min:1200, max:1299, label:"1200-1299", color:"#d97706", bg:"#fffbeb", tier:"Tier 2-3",
+  {min:1200, max:1299, schMin:10000, schMax:25000, label:"1200-1299", color:"#d97706", bg:"#fffbeb", tier:"Tier 2-3",
    desc:"Strong universities. Access to many merit scholarships.",
    countries:["USA","UK","Canada","Australia","Europe","Singapore"],
    scholarships:"$10,000 - $25,000/yr",
@@ -572,7 +572,7 @@ const SAT_BANDS = [
    avgROI:"3-4x in 5 yrs",
    avgSalary:"$50K-75K",
    unis_example:["UC Davis","Waterloo","Glasgow","NUS (some)"]},
-  {min:1300, max:1399, label:"1300-1399", color:"#16a34a", bg:"#f0fdf4", tier:"Tier 1-2",
+  {min:1300, max:1399, schMin:20000, schMax:50000, label:"1300-1399", color:"#16a34a", bg:"#f0fdf4", tier:"Tier 1-2",
    desc:"Excellent universities, major scholarship opportunities.",
    countries:["USA (top state)","UK (Russell Group)","Canada (top 3)","Singapore","Hong Kong"],
    scholarships:"$20,000 - $50,000/yr",
@@ -580,7 +580,7 @@ const SAT_BANDS = [
    avgROI:"4-6x in 5 yrs",
    avgSalary:"$65K-90K",
    unis_example:["UCLA","UBC","Edinburgh","CUHK"]},
-  {min:1400, max:1499, label:"1400-1499", color:"#2563eb", bg:"#eff6ff", tier:"Tier 1",
+  {min:1400, max:1499, schMin:30000, schMax:80000, label:"1400-1499", color:"#2563eb", bg:"#eff6ff", tier:"Tier 1",
    desc:"Elite universities worldwide. Full scholarship contender.",
    countries:["USA (top 30)","UK (Oxbridge adjacent)","Singapore NUS/NTU","Hong Kong","Canada"],
    scholarships:"$30,000 - $80,000/yr",
@@ -588,7 +588,7 @@ const SAT_BANDS = [
    avgROI:"6-10x in 5 yrs",
    avgSalary:"$85K-110K",
    unis_example:["Cornell","Georgetown","NUS","U Toronto","Edinburgh"]},
-  {min:1500, max:1600, label:"1500-1600", color:"#7c3aed", bg:"#f5f3ff", tier:"Tier 1 Elite",
+  {min:1500, max:1600, schMin:60000, schMax:90000, label:"1500-1600", color:"#7c3aed", bg:"#f5f3ff", tier:"Tier 1 Elite",
    desc:"World's best universities. Life-changing full scholarships.",
    countries:["Ivy League","Oxbridge","MIT/Caltech","Stanford","Top global"],
    scholarships:"Full ride: $60,000 - $90,000/yr",
@@ -1117,7 +1117,7 @@ function renderCard(u){
   html+='<span style="font-size:11px;color:var(--mu)">'+u.state+'</span></div>';
   html+='<div class="sat-viz">'+satBar+'<span class="sat-range-lbl">'+u.satMin+'-'+u.satMax+'</span></div>';
   html+='<div class="uc-grid">';
-  html+='<div><div class="uci-l">Tuition/yr</div><div class="uci-v" style="font-size:11px">'+fmDual(ex.tuitionUSD,u.country)+'</div></div>';
+  html+='<div><div class="uci-l">Total cost/yr</div><div class="uci-v" style="font-size:11px">'+fmDual(ex.tuitionUSD+ex.living,u.country)+'</div></div>';
   html+='<div><div class="uci-l">Rank</div><div class="uci-v">#'+u.rank+'</div></div>';
   html+='<div><div class="uci-l">Avg salary</div><div class="uci-v" style="font-size:11px">'+fmDual(ex.avgSalary,u.country)+'</div></div>';
   html+='<div><div class="uci-l">Scholarship/yr</div><div class="uci-v" style="color:var(--gr);font-size:11px">'+schRange+'</div></div>';
@@ -1156,7 +1156,7 @@ function render(){
     rows+='<div style="font-size:11px;color:var(--su)">'+u.state+'</div></td>';
     rows+='<td><span class="tb '+TIER_CLS[u.tier]+'"><span class="td"></span>'+TIER_SHORT[u.tier]+'</span></td>';
     rows+='<td style="font-weight:600">'+u.satMin+'-'+u.satMax+'</td>';
-    rows+='<td style="font-size:11px;font-weight:600">'+fmDual(ex.tuitionUSD,u.country)+'</td>';
+    rows+='<td style="font-size:11px;font-weight:600">'+fmDual(ex.tuitionUSD+ex.living,u.country)+'</td>';
     rows+='<td style="color:var(--mu)">#'+u.rank+'</td>';
     rows+='<td class="'+gapCls+'">'+gap+'</td>';
     rows+='<td style="font-size:12px;font-weight:600;color:var(--gr)">'+schRange+'</td>';
@@ -1193,20 +1193,64 @@ function openDP(name){
   html+='<button class="dp-tab" onclick="swTab(this,&apos;t-roi&apos;)">ROI & Placements</button>';
   html+='</div>';
   // Overview tab
-  html+='<div class="tc active" id="t-ov"><div class="ig">';
-  html+='<div class="ib"><div class="ib-l">SAT range</div><div class="ib-v">'+u.satMin+' – '+u.satMax+'</div></div>';
-  html+='<div class="ib"><div class="ib-l">Acceptance</div><div class="ib-v">'+u.acceptance+'%</div></div>';
-  html+='<div class="ib"><div class="ib-l">Tuition/year</div><div class="ib-v" style="font-size:13px">'+fmDual(ex.tuitionUSD,u.country)+'</div><div class="ib-s">Excl. living</div></div>';
-  html+='<div class="ib"><div class="ib-l">Living/year</div><div class="ib-v" style="font-size:13px">'+fmDual(ex.living,u.country)+'</div></div>';
-  html+='<div class="ib"><div class="ib-l">Total/year</div><div class="ib-v" style="font-size:13px">'+fmDual(ex.tuitionUSD+ex.living,u.country)+'</div></div>';
-  html+='<div class="ib"><div class="ib-l">Placement rate</div><div class="ib-v">'+ex.placementRate+'%</div></div>';
+  html+='<div class="tc active" id="t-ov">';
+  var totalPerYear=ex.tuitionUSD+ex.living;
+  var schBand=SAT_BANDS.find(function(b){return u.satMin>=b.min&&u.satMin<=b.max;})||{schMin:0,schMax:0};
+  var netLow=Math.max(0,totalPerYear-schBand.schMax);
+  var netHigh=Math.max(0,totalPerYear-schBand.schMin);
+  var fullyFunded=(netHigh===0);
+
+  // ── Total cost banner ──
+  html+='<div style="background:linear-gradient(135deg,#0f172a,#1e3a8a);border-radius:12px;padding:1.25rem;margin-bottom:1.25rem;color:#fff">';
+  html+='<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:rgba(255,255,255,0.45);margin-bottom:6px">Total annual cost (tuition + living)</div>';
+  html+='<div style="font-size:24px;font-weight:700;color:#fff;margin-bottom:0.875rem">'+fmDual(totalPerYear,u.country)+'</div>';
+  html+='<div style="display:flex;gap:2rem;flex-wrap:wrap">';
+  html+='<div><div style="font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.05em">Tuition</div><div style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.8)">'+fmDual(ex.tuitionUSD,u.country)+'</div></div>';
+  html+='<div><div style="font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.05em">Living costs</div><div style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.8)">'+fmDual(ex.living,u.country)+'</div></div>';
+  html+='<div><div style="font-size:10px;color:rgba(255,255,255,0.4);text-transform:uppercase;letter-spacing:0.05em">4-year total</div><div style="font-size:13px;font-weight:600;color:rgba(255,255,255,0.8)">'+fmDual(totalPerYear*4,u.country)+'</div></div>';
+  html+='</div></div>';
+
+  // ── Scholarship vs net cost ──
+  html+='<div style="border-radius:12px;overflow:hidden;margin-bottom:1.25rem;border:1px solid #bbf7d0">';
+  html+='<div style="background:#f0fdf4;padding:1rem 1.25rem;border-bottom:1px solid #bbf7d0">';
+  html+='<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:#166534;margin-bottom:4px">Scholarship available</div>';
+  html+='<div style="font-size:18px;font-weight:700;color:#166534">'+schRange+'</div>';
+  html+='<div style="font-size:11px;color:#166534;margin-top:2px;opacity:0.8">Covers tuition + living combined</div>';
   html+='</div>';
-  html+='<div class="st">Scholarship range</div>';
-  html+='<div style="background:#f0fdf4;border:1px solid #bbf7d0;border-radius:10px;padding:1rem;margin-bottom:1rem;font-size:15px;font-weight:700;color:var(--gr)">'+schRange+' per year</div>';
+  html+='<div style="background:#fff;padding:0.875rem 1.25rem;border-bottom:1px solid #e5e7eb">';
+  html+='<div style="display:flex;justify-content:space-between;align-items:center">';
+  html+='<span style="font-size:13px;color:var(--mu)">Total annual bill (tuition + living)</span>';
+  html+='<span style="font-size:14px;font-weight:700;color:var(--tx)">'+fmDual(totalPerYear,u.country)+'</span>';
+  html+='</div></div>';
+  html+='<div style="background:'+(fullyFunded?'#f0fdf4':'#fffbeb')+';padding:1rem 1.25rem">';
+  html+='<div style="display:flex;justify-content:space-between;align-items:center;gap:1rem;flex-wrap:wrap">';
+  html+='<div>';
+  html+='<div style="font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:0.07em;color:'+(fullyFunded?'#166534':'#92400e')+';margin-bottom:4px">What student actually pays (after scholarship)</div>';
+  if(fullyFunded){
+    html+='<div style="font-size:22px;font-weight:700;color:#166534">Fully covered ✓</div>';
+    html+='<div style="font-size:11px;color:#166534;margin-top:2px">Student may pay little to nothing per year</div>';
+  } else {
+    html+='<div style="font-size:22px;font-weight:700;color:#92400e">'+fm(netLow)+' – '+fm(netHigh)+'</div>';
+    html+='<div style="font-size:11px;color:#92400e;margin-top:2px">Estimated out-of-pocket cost per year</div>';
+  }
+  html+='</div>';
+  html+='<div style="background:'+(fullyFunded?'rgba(22,101,52,0.12)':'rgba(146,64,14,0.1)')+';border-radius:8px;padding:0.625rem 1rem;text-align:center;flex-shrink:0">';
+  html+='<div style="font-size:13px;font-weight:700;color:'+(fullyFunded?'#166534':'#92400e')+'">'+(fullyFunded?'🎓 Full ride eligible':'💰 Partial aid')+'</div>';
+  html+='</div></div></div></div>';
+  html+='<div style="font-size:11px;color:var(--su);line-height:1.6;margin-bottom:1.25rem;padding:0.75rem;background:#f8fafc;border-radius:8px">';
+  html+='📌 Net cost is an estimate based on the scholarship range for this SAT tier. Actual aid depends on family income, merit, and the university criteria. Always apply to confirm eligibility.';
+  html+='</div>';
+
+  // ── Other stats ──
+  html+='<div class="ig">';
+  html+='<div class="ib"><div class="ib-l">SAT range</div><div class="ib-v">'+u.satMin+' – '+u.satMax+'</div></div>';
+  html+='<div class="ib"><div class="ib-l">Acceptance rate</div><div class="ib-v">'+u.acceptance+'%</div><div class="ib-s">'+(u.acceptance<5?'Very selective':u.acceptance<20?'Selective':u.acceptance<50?'Moderate':'Accessible')+'</div></div>';
+  html+='<div class="ib"><div class="ib-l">Placement rate</div><div class="ib-v">'+ex.placementRate+'%</div><div class="ib-s">Within 6 months</div></div>';
+  html+='</div>';
   html+='<div class="st">Top fields</div><div class="chips">';
   u.fields.forEach(function(f){html+='<span class="chip">'+f+'</span>';});
   html+='</div></div>';
-  // SAT Impact tab
+    // SAT Impact tab
   html+='<div class="tc" id="t-sat">';
   var curGap=isNaN(curScore)?"--":(u.satMin-curScore>0?"Short by "+(u.satMin-curScore)+" pts":"Eligible ✓");
   var tgtGap=isNaN(tgtScore)?"--":(u.satMin-tgtScore>0?"Short by "+(u.satMin-tgtScore)+" pts":"Eligible ✓");
